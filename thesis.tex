@@ -1,33 +1,97 @@
+%\documentclass[british]{ntnuthesis}
 \documentclass[british,titlepage]{ntnuthesis}
+\setlength{\parindent}{0em}
+%\renewcommand{\baselinestretch}{1.5} 
+\title{Smart Grid Wide Area Measurement System\\ Time Synchronisation Attack\\  
+Detection and Mitigation}
+\shorttitle{SG WAMS TSA Detection and Mitigation}
+\author{Gustav Oskar Sivertsen}
+\shortauthor{Gustav O. Sivertsen}
+%\date{CC-BY \ntnuthesisdate}
+\date{\today}
+%\usepackage[acronym,style=index]{glossaries}
+\usepackage{csquotes}
+\usepackage{amsmath}
+\usepackage{array}
+%\setglossarystyle{index}
+%\usepackage{glossary-mcols}
+%\setglossarystyle{index}
+%\setglossarystyle{listdotted}
+\usepackage{floatflt}
 
-\title{An NTNU Thesis \LaTeX{} Document Class}
-\shorttitle{An NTNU Thesis Document Class}
-\author{Community of Practice in Computer Science Education at NTNU}
-\shortauthor{CoPCSE$@$NTNU}
-\date{CC-BY \ntnuthesisdate}
-
+%\usepackage{natbib}
+ 
+\makeglossaries
+%\addbibresource{thesis-template.bib}
 \addbibresource{thesis.bib}
+
+\makeatletter
+\newbibmacro*{cite:author}{%
+  \iffieldequals{namehash}{\cbx@lasthash}
+% Multiple cites in one command
+   {\setunit{\compcitedelim}%
+    \usebibmacro{cite:plabelyear+extrayear}}%
+% Single cite
+   {\ifthenelse{\ifnameundef{labelname}\OR\iffieldequalstr{entrytype}{patent}}
+% No author/editor
+     {\usebibmacro{cite:noname}%
+%       \setunit{\nameyeardelim}%
+%       \usebibmacro{cite:plabelyear+extrayear}%
+       \savefield{namehash}{\cbx@lasthash}}
+% Normal cite
+     {\ifnameundef{shortauthor}
+        {\printnames[labelname][-\value{listtotal}]{labelname}}
+        {\ifciteseen
+          {\printnames{shortauthor}}
+          {\printnames[labelname][-\value{listtotal}]{author}\addspace\printnames[sabrackets]{shortauthor}}}%
+%      \setunit{\nameyeardelim}%
+%      \usebibmacro{cite:plabelyear+extrayear}%
+      \savefield{namehash}{\cbx@lasthash}}}%
+   \setunit{\multicitedelim}}
+
+\DeclareCiteCommand{\citeauthor}
+  {\usebibmacro{cite:init}%
+   \usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite:author}}
+  {}
+  {\usebibmacro{postnote}}
+
+\makeatother
+
+
 
 \begin{document}
 
 \input{chapters/0a-abstract.tex}
 \input{chapters/0b-sammendrag.tex}
+\input{chapters/0d-Acknowledgments.tex}
 
 \tableofcontents
 \listoffigures
-\listoftables
-\lstlistoflistings
+%\listoftables
+%\lstlistoflistings
+\input{chapters/01-introduction}
+\input{chapters/02-Concepts}
+\input{chapters/03-SmartGridSecurity}
+\input{chapters/04-TSA-Detection}
+\input{chapters/05-TSA-Mitigation}
+%\input{chapters/06-DDoS-Attacks}
+\input{chapters/07-Method}
+\input{chapters/08-Results}
+\input{chapters/09-Discussion}
+\input{chapters/10-Conclusion}
+%\input{chapters/92-usage.tex}
+%\input{chapters/93-structure.tex}
+\input{chapters/99-acronyms}
 
-\input{chapters/1-introduction}
-\input{chapters/2-usage.tex}
-\input{chapters/3-structure.tex}
-\input{chapters/4-conclusion.tex}
+\chapter*{Bibliography}
+\printbibliography[heading=none]
+%\printbibliography
 
-\printbibliography
+%\input{chapters/papers.tex}
 
-\input{chapters/papers.tex}
-
-\appendix
-\input{appendices/a-appendix.tex}
+%\appendix
+%\input{appendices/a-appendix}
 
 \end{document}

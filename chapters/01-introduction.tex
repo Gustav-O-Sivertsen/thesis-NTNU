@@ -1,0 +1,117 @@
+\chapter{Introduction and Scope}
+
+%[Introduction:] The introduction would serve the same purpose as for a smaller research project described in \cref{sec:development}, but would normally be somewhat more extensive. The \emph{agenda} part should inform the reader about the structure of the rest of the document, since this may vary significantly between theses.
+
+During the last few centuries, the society  has become increasingly dependant on access to a stable and reliant supply of electrical power. The usage of electrical power in order to provide lighting, heating, as well as running various electrical appliances like washing machines and wireless access points, has created an increased demand for electricity. The increased demand for electricity has transformed the power distribution infrastructure from the initial local electricity distribution infrastructure, into a nationwide power distribution infrastructure network, known as the \acrfull{pg}.
+
+
+
+
+
+
+
+\section{The Power Grid}
+As described in \cite{BlumeStevenW2007Epsb}, electricity is supplied by the Power Grid infrastructure, consisting of power generating facilities,\footnote{like hydro-based facilities utilising water to generate electricity, or nuclear power plants.} and transmitted via a high voltage transmission infrastructure, before being converted to  lower voltage electrical currents, fed to the distribution infrastructure for distribution to paying consumers.
+
+
+The classic \acrlong{pg} is under manual and centralised control, and monitored through a centralised and uni-directional \acrfull{scada} system.
+The society has, over the last few decades, become ever more dependant on a reliable supply of electrical power. Power outages will result in reduced temperature in buildings lacking alternative sources of heating, as well as the absence of services vital to society, like electronic payments, telecommunications, and transportation.
+As described in \cite{rehmani2019software}, the traditional \acrlong{pg} has proven to be unable to meet the demands of the future for a flexible and reliable power distribution system.
+Therefore, several organisations\footnote{like the \acrfull{nist}, amongst others.} has made considerable efforts in order to produce standards defining the  power distribution system of the future: The \acrfull{sg}.
+
+
+\section{The conversion of the Power Grid to the Smart Grid.}
+
+
+
+%As described in \cite{greer2014nist} and  \cite{MRABET2018469}, the  \acrlong{sg} consists of seven domains, defined as presented in table \ref{tab:SmartGRID-Roles-of-domains}
+
+In order to address the future demands from the modern society for a reliant and sufficient supply of electrical power, the \acrshort{pg} is transformed  to a \acrshort{sg}. As part of the \acrshort{sg} conversion, the uni-directional control mechanisms of the traditional power grid is replaced by bidirectional flow of information to the grid infrastructure by utilising networking technology.  In order to fulfill the requirements of two-directional status monitoring, infrastructure management, and demand-driven supply of electricity, the power infrastructure is connected to the Internet. 
+
+The \acrfull{sg} is the modern improvement of the classical \acrfull{pg}, meeting the increased demand for a more reliable, stable and flexible power distribution infrastructure.
+
+In order to meet the \acrfull{sg} requirements for two-way monitoring  and control capabilities, the \acrfull{wams} has been implemented.
+The \acrshort{wams} connects \acrlong{pmu}s connected with syncophasors to the \acrshort{sg} Control Center, enabling the operators to get a more fine-grained view of the operational state of the \acrshort{sg}.
+
+
+
+
+
+
+
+
+\section{Security vulnerabilities of the Smart Grid}
+
+As a consequence of the \acrshort{sg} infrastructure being connected to the Internet, the infrastructure is becoming vulnerable to Cyber attacks.   
+\subsubsection{The CIA triad  as targets of security breaches}
+As described in \cite{rawat2015cyber}, the Cyber Attacks aims to breach the security of the \acrlong{sg}, by targeting any of the areas of  the
+\acrfull{cia} triad of information security:
+
+\begin{itemize}
+    \item Breaching the \acrshort{sg} \textbf{Confidentiality} implies malicious users might take advantage of getting access to unauthorised information, possibly using the information in order to harm  others\footnote{Like stealing from people absent from homes, as indicated by low demand for electricity.}
+    \item Breaching the \acrshort{sg} \textbf{Integrity} implies unintended data alterations, or incidents of malicious actors modifying the proper data exchange of the \acrshort{sg}, by deliberate alteration, removal, or insertion, of vital information contained within \acrfull{sg}. 
+
+ \item Breaching the \acrshort{sg} \textbf{Availability} implies occurrences of unintended service outages, or incidents of malicious actors deliberately attacking the infrastructure by inflicting a \acrfull{dos} attack on the infrastructure.
+\end{itemize}
+
+
+
+
+
+As described in \cite{sundararajan2019survey}, a number of security incidents targets the \acrshort{sg} specifically, like the 2015 BlackEnergy3 attack on the Ukranian  Power Grid, the StuxNet worm of 2010, as well as the watering-hole remote access trojan attack of 2014. 
+Any online \acrshort{sg} infrastructure containing vulnerabilities, is equally inflicted by attacks not specifically targeting \acrfull{sg} like the WannaCry ransomware cryptoworm of 2017, targeting the EternalBlue vulnerability of unpatched windows computers.\\ 
+
+
+\acrfull{dos} attacks, is identified by several papers, like  \cite{sundararajan2019survey}, \cite{Asri_Pranggono_2015} and \cite{gupta2017survey} as  a threat to \acrshort{sg} availability. \\ 
+
+In addition, occurrences of the \acrfull{tsa}, sending modified \acrshort{gps} timing information to various control systems, has proven to be a real threat to \acrshort{sg} operation, as described  in \cite{ZhangTimeSync2013}. \\ 
+
+
+The modern interconnected \acrshort{sg}, featuring a \acrshort{wams} system containing an increasing number of \acrshort{gnss}-connected \acrshort{pmu}s, is increasingly dependant on Synchronised time.
+
+As explained by \cite{xue2021data}, a \acrlong{tsa} might be successfully completed without prior knowledge of the infrastructure being targeted. 
+
+Given the vulnerability of the \acrshort{gnss} to \acrshort{tsa}, the ever increasing likelihood of one or more of the \acrshort{pmu}s of the \acrshort{sg} \acrshort{wams} being the target of a \acrshort{tsa} causing any kind of havoc to the grid, makes this topic vital for further studies.
+
+
+
+The scope of my master thesis, will be to investigate vulnerabilities of \acrfull{tsa}, targeting the \acrfull{wams} in order to disturb proper \acrshort{sg} operation.
+
+\section{Research questions}
+In order to proceed with the \acrshort{tsa} vulnerability investigation, I have selected the following research questions:
+
+\begin{enumerate}
+    \item How might a \acrshort{tsa} affect Smart Grid operations?
+    \item How might a \acrshort{tsa} be detected?
+    \item How might a \acrshort{tsa} be mitigated?
+    %\item Investigate the GPS spoofing vulnerability of the \acrshort{sg} monitoring and control system.
+    %\item Investigate GPS Spoofing detection and mitigation techniques. 
+    %\item Investigate how \acrfull{sdn} might be applicable to improve \acrshort{sg} Security
+    %\item Investigate SDN-based SG \acrshort{dos} detection and mitigation potentials. 
+    %\item 
+\end{enumerate}
+
+Following the introductory study of the concept of the \acrshort{sg}, I will investigate the nature of the \acrfull{tsa}, before providing an overview of  \acrshort{tsa} detection, as well 
+as mitigation, techniques. In order to investigate the concept further, I will perform a number of experiments in order to investigate detection and mitigation performance. 
+
+
+\section{Outline of the rest of the thesis}
+
+
+This introductory chapter is followed by a background chapter, introducing related concepts, before covering \acrlong{sg} architecture and the main \acrshort{sg} components, as well as a description of \acrshort{sg} characteristics.
+
+A chapter on \acrlong{sg} security, follows, including a cyber security vulnerability assessments of the \acrshort{sg}. As the main focus will be on \acrshort{tsa} vulnerabilities, the \acrshort{sg} Control System, as well as the dependability of correct Time Synchronisation data, and finally \acrshort{tsa} attack vulnerabilities, are covered. 
+
+In order to investigate the \acrshort{tsa}  vulnerabilities of the \acrlong{sg}, a chapter covering \acrshort{tsa}  attack detection and mitigation techniques follows the chapter on \acrshort{sg} security.
+The chapter on TSA detection and mitigation techniques is followed by chapters defining methodology, experiments, and results, before the discussion and conclusion chapters finalises the thesis. 
+%\begin{itemize}
+%    \item A description of the various parts of the architecture of the \acrshort{sg}.
+ %   \item A presentation of a selection of previous vulnerability assessments of the \acrshort{sg} related to the confidentiality, integrity, availability and accountability of the \acrshort{sg}, in order to identify any vulnerabilities related to  denial of service attacks.
+ %   \item A presentation of a selection of previous studies related to utilising \acrshort{sdn}  in order to reduce the risk of  \acrshort{sg}  \acrshort{dos} attacks.
+%\end{itemize}
+
+%\begin{itemize}
+    %\item Provide an overview of \acrshort{sg} \acrshort{dos} vulnerabilities.
+  %  \item Provide an overview of possible detection and mitigation techniques.
+ %   \item Complete experiments in order to evaluate selected mitigation techniques.
+%\end{itemize}

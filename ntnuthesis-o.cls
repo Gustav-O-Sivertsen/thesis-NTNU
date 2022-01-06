@@ -14,17 +14,14 @@
  [\ntnuthesisdate\space
    CC-BY CoPCSE at NTNU 2019]
 
+%% CLASS FILE LOADING
+
+\LoadClass[a4paper,11pt,openright,twoside]{report}
 
 %% CLASS OPTIONS
 
 % Package for some reason needed before the options
 \RequirePackage{pdfpages}                   % including pdf files
-
-% One or twosided paging
-\newcommand{\paging}{twoside}
-\DeclareOption{oneside}{
-  \renewcommand{\paging}{oneside}
-}
 
 % Title Page
 \DeclareOption{titlepage}{
@@ -53,8 +50,6 @@
             \renewcommand{\contentsname}{Contents}
             \renewcommand{\listfigurename}{Figures}
             \renewcommand{\listtablename}{Tables}
-            \renewcommand{\glossaryname}{Glossary}
-            \renewcommand{\acronymname}{Acronyms}
         }
     }
 }
@@ -76,8 +71,6 @@
             \renewcommand{\contentsname}{Contents}
             \renewcommand{\listfigurename}{Figures}
             \renewcommand{\listtablename}{Tables}
-            \renewcommand{\glossaryname}{Glossary}
-            \renewcommand{\acronymname}{Acronyms}
         }
     }
 }
@@ -99,8 +92,6 @@
         \crefname{paper}{artikkel}{artikler}
         \addto\captionsnorsk{
             \renewcommand{\appendixname}{Vedlegg}
-            \renewcommand{\glossaryname}{Ordliste}
-            \renewcommand{\acronymname}{Akronymer}
         }
     }
 }
@@ -127,23 +118,17 @@
         \renewcommand{\appendixname}{Vedlegg}
         \addto\captionsnynorsk{
             \renewcommand{\appendixname}{Vedlegg}
-            \renewcommand{\glossaryname}{Ordliste}
-            \renewcommand{\acronymname}{Akronym}
         }
     }
 }
 
 \ProcessOptions
 
-%% CLASS FILE LOADING
-
-\LoadClass[a4paper,11pt,openright,\paging]{report}
-
 %% PACKAGE LOADING
 
 \RequirePackage[utf8]{inputenc}             % for special characters in input
 \RequirePackage[T1]{fontenc}                % modern font encoding
-\RequirePackage[charter, cal=cmcal]{mathdesign} % main font with math support
+\RequirePackage[charter]{mathdesign}        % main font with math support
 \RequirePackage[scaled=.88]{berasans}       % sans serif font
 \RequirePackage[scaled=.82]{DejaVuSansMono} % monospace font (for code)
 \RequirePackage{listings}                   % code listings
@@ -156,9 +141,9 @@
     font=small,                             % and customisation of captions
     labelfont=bf,
     margin=\parindent
-]{caption}
+]{caption}                    
 \RequirePackage[                           % and subfigures with captions within figures
-    font=small,
+    font-=small,
     labelfont=bf,
     margin=\parindent
 ]{subcaption}
@@ -180,14 +165,16 @@
 \RequirePackage{booktabs}                   % better formatting of tables
 \RequirePackage{gnuplottex}                 % for generating gnuplots on the fly
 \RequirePackage{hyperref}                   % interactive cross references
-\ifcapitalize
+\ifcapitalize 
     \RequirePackage[capitalize,noabbrev]{cleveref}   % automatic cross references
 \else
     \RequirePackage[noabbrev]{cleveref}
 \fi
-\RequirePackage[acronym]{glossaries}        % create a glossary and acronym list
 
 %% CUSTOMISATION
+
+
+
 
 % Page geometry and spacing (same for even and odd pages)
 \geometry{left=4cm, right=4cm, top=4cm, bottom=4.5cm}
@@ -241,6 +228,10 @@
 \def\author#1{\def\@author{#1}\def\@shortauthor{#1}}
 \def\shortauthor#1{\def\@shortauthor{#1}}
 
+
+
+
+
 % Headers and footers
 \def\ps@ntnuheadings{%
     \let\@evenfoot\@empty
@@ -249,6 +240,9 @@
     \def\@oddhead{\small\textit{\ch@ptermark}\hfil\thepage}
     \def\chaptermark##1{\def\ch@ptermark{\chaptername\ \thechapter: ##1}}
 }
+
+
+
 \pagestyle{ntnuheadings}
 
 % Itemize and enumerate: tighter and with other symbols
@@ -297,18 +291,9 @@
 
 % Settings for hyperref: setting all the links black for best printing. They will still be clickable in the PDF
 \hypersetup{
-    colorlinks=true,
+    colorlinks=true,     
     linkcolor=black,    % internal links (change box color with linkbordercolor)
     citecolor=black,    % links to bibliography
     filecolor=black,    % file links
     urlcolor=black      % external links
 }
-
-% Renew \lstlistoflistings command to avoid issues with incorrect headers for long lists
-% Uses unnumbered chapter instead of a float like in the original source code.
-% Based on source code for listings package https://ctan.uib.no/macros/latex/contrib/listings/listings.dtx line: 14635
-\renewcommand*{\lstlistoflistings}{%
-       \chapter*{\lstlistlistingname}%
-       \parskip\z@\parindent\z@\parfillskip \z@ \@plus 1fil%
-       \@starttoc{lol}%
-       }%
