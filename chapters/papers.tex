@@ -11,6 +11,49 @@
 % Second paper etc.
 
 
+\subsection{Cyber Attack models}
+
+The complexity of \acrshort{ics} systems introduces a number of challenges to anyone tasked with their protection, as well as to anyone with the intent of targeting the systems with a high impact, but stealthy  cyber attack.
+
+
+In order to visualise the increased complexity of \acrshort{ics}s, two attack models are covered, the Cyber Kill Chain and the \acrlong{ics} Cyber Kill Chain, where the latter is based on the former.
+
+\subsubsection{The Cyber kill chain}
+The Cyber Kill Chain is a model designed for the analysis of attacks on common Information Technology infrastructure. The model is an adoption of the military kill chain model developed by armed forces, based on prior military experience.
+\begin{enumerate}
+    \item \textbf{Reconnaissance} Information gathering on the target, utilising publicly available resources.
+    \item \textbf{Weaponization} Preparation of malicious payload off target premises.
+    \item \textbf{Delivery} Intruding the premises of the target, with malicious intents.  
+    \item \textbf{Exploitation} Any activity related to information gathering on th premises of the target.
+    \item \textbf{Installation} of any malicious software relevant for the attack
+    \item \textbf{Command and control} A means by which the attacker establishes a control channel, enabling further actions.
+    \item \textbf{Action on objectives} relative to the intents of the attack: Stealing information, controlling equipment, causing service disruption or termination.
+\end{enumerate}
+Given the complexity of \acrlong{ics}s, consisting of internal security barriers protecting critical system elements, it has not proven to be optimal for analysing attacks on the \acrshort{sg}.\\ 
+
+Following the introduction of the Cyber Kill Chain, the model has been extended to be more suitable for the analysis of more specialised systems, like the \acrshort{sg}.
+For the purpose of this thesis, the \acrfull{ics} Cyber Kill Chain, is described.
+
+
+\subsubsection{The ICS Cyber kill chain}
+
+\acrshort{ics} systems is, nowadays, more often then not, reachable through a common Information Technology Infrastructure, which could be attacked following the Cyber Kill Chain model.
+
+Therefore, the \acrshort{ics} Cyber Kill Chain Model contains two stages, where the first stage, similar to the cyeber Kill chain, has the goal of entering the local area network providing access to the internal network containing the specialised system being the original target of the attack. For the second phase, the attacker typically has operator-like access to the internal network. From internal network, the threat actor has the potential ability of learning the internals of the internal network, preparing for the ulitmate attack on the targeted system.
+
+
+
+
+
+\subsubsection{The CIA triad  as targets of security breaches}
+As described in \cite{rawat2015cyber}, the Cyber Attacks aims to breach the security of the \acrlong{sg}, by targeting any of the areas of  the \acrfull{cia} triad of information security:
+
+\begin{itemize}
+    \item Breaching the \acrshort{sg} \textbf{Confidentiality} implies malicious users might take advantage of getting access to unauthorised information, possibly using\footnote{Like stealing from people absent from homes, as indicated by low demand for electricity.} the information in order to harm  others.
+    \item Breaching the \acrshort{sg} \textbf{Integrity} implies unintended data alterations, or incidents of malicious actors modifying the proper data exchange of the \acrshort{sg}, by deliberate alteration, removal, or insertion, of vital information contained within \acrfull{sg}. 
+
+ \item Breaching the \acrshort{sg} \textbf{Availability} implies occurrences of unintended service outages, or incidents of malicious actors deliberately attacking the infrastructure by inflicting a \acrfull{dos} attack on the infrastructure.
+\end{itemize}
 
 
 \subsubsection{Traditional networking}

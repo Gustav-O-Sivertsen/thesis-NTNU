@@ -1,0 +1,251 @@
+\chapter{Method} 
+
+%The method chapter should describe in detail which activities you undertake to answer the research questions presented in the introduction, and why they were chosen. This includes detailed descriptions of experiments, surveys, computations, data analysis, statistical tests etc.
+
+\section{Introduction}
+
+
+
+
+The aim of the thesis, is to investigate to which degree a stealthy time delay attack on \acrshort{pmu} data may be successfully  executed. \textbf{Some papers} describes a number of varieties of the PTP delay attack, while \textbf{other papers} describes the attack to have severe consequences to the \acrshort{sg} infrastructure. The primary goal of the actual attack is to stay undetected, while exposing the infrastructure under attack to an attack having the most severe consequences possible, while still avoiding detection.  In a preliminary phase of the attack, a phase of attack simulation will provide useful information, aiming to learn more about detection probability, as well as some empirical background for the evaluation of possible consequences.
+The potential outcome of the simulation may be used in order to prepare for attacking the actual infrastructure with attacks with a low attack detection probability and, to the best possible knowledge, with foreseeable consequences of the attack.\\ 
+
+
+As part of the introductory studies of the topic selected, a couple of searches on the NTNU literature search facilities returned a number of books, like \cite{BlumeStevenW2007Epsb}, \cite{kabalci2019smart}, and \cite{momoh2012smart}, covering introductory chapters on Power Grid and Smart Grid. The introductory chapters heavily relies on descriptions from relevant book chapters. 
+
+
+%For the \acrfull{wams} Security parts, a small number of surveys, as well as a collection of papers are investigated, covering  synchrophasor protocol attack vulnerabilities, highlithing some known side effects of successful synchrophasor protocol attacks. The introductory brief coverage of \acrshort{sg} security, is followed by a coverage of common synchrophasor protocols, focusing on attack vulnerabilities of the protocols covered. \\ 
+
+
+
+
+
+
+%Several test cases utilising PMUs and PDCs
+
+
+
+%In order to investigate, systems like mininet. \\ 
+
+
+\section{Research Design}
+%This section will inform the reader of the NATURE of your study. In other words, broadly speaking: are you aiming to describe a phenomena (descriptive design), are you aiming to explore a topic (exploratory design), are you looking to identify causal relationships between factors (causal design)?
+
+%The aim of the thesis, is to present an overview of concepts, as well as to to provide examples from the literature related to the Smart Grid WAMS being vulnerable to attacks on the Synchrophasor protocols. 
+In order to be able to observe the effects of exposing a \acrshort{pmu} to a time delay attack, the real attack is dependant on getting access to expensive equipment, like a \acrshort{pmu} as well as the interconnected infrastructure.
+As previously discussed, a time delay attack on Synchrophasors imposes a high risk of causing damage to the infrastructure targeted.
+Given the high potential for damage, a good option for visualising any potential effects a time delay might have on the values produced by a \acrshort{pmu} under attack, would be to simulate the attacks.
+There exists a number of projects which utilises MATLAB and SIMULINK in order to model power grid components in general and, specifically, \acrshort{pmu}s.
+
+
+
+In order to 
+
+Based on the findings of the initial literature study concerning vulnerabilities, the literature study continues providing potential scenarios for stealthy MiTM attacks on the synchrophasor transmission system, investigating the success of the attacks maximising side effects while minimising the probability of being detected.
+
+As the final part of the thesis, a theoretical discussion, aiming to provide answers to the research questions, will be conducted.\\ 
+
+\textbf{TO DO:}
+\textit{As a experimental part of the thesis, possibilities of testing one or more detection and mitigation techniques might provide a contribution to the final discussion and conclusions based on my own experimental results}
+
+
+\section{Research Methods}
+
+%Following the description of your research design, you should also devote a section to describing the research methods you applied during your study. Each design will provide you with many possibilities of methods to use.
+
+In order to provide theoretical evidence on which to answer the research questions, a literature study will be conducted.
+For any experimental results, experiments will be described, implemented and executed.
+
+\section{Measurements}
+
+%Once you clarified the method you used, it is time to explain exactly WHAT you measured (e.g. service quality, brand image, satisfaction, purchase intention) and HOW you measured
+
+Vulnerability to time-shift attacks are quantified by articles describing theoretical aspects of the mechanisms for the calculation of valid time-stamps, and the inherent tolerance level for calculation errors. Modern Smart Grids require the time deviating from the correct time by a fraction of a millisecond. Specifically, according to \cite[p.  1953]{moussa2016security}, the allowed time deviation for a 50Hz electrical system\footnote{As used in Norway, for instance} must be within $\pm$31.8 microseconds, in order to adhere to the 1$\%$ \acrfull{tve} requirement, as specified by the  IEEE C37.118 standard. \\ 
+
+Experimental investigations reported by articles selected will be provided as relevant examples, in order to support any discussion arguments for the purpose of reaching conclusions.  
+
+\section{Sample}
+
+%In this section you should detail (at least!) the population of your study, your sampling technique (which technique you used to select the people who took part in your study) and how you established your sample size.
+The samples for my literature study will be papers relevant for the discussions, in order to provide answers to the research questions.\\ 
+
+Any execution of experiments will provide experimental samples, with the aim of supporting discussions and conclusions.
+\section{Validity and Reliability}
+
+%Now, here is a SUPER important section that 99\% get wrong(I completely made up this figure, simply because I want to convey a point!). Validity (that you measured what you intend to measure) and reliability (that the measurements used, such as your scales, are consistent and replicable) are two concepts that simply have to be addressed and have to do with your measurements.
+In order to increase the validity and reliability, a number of articles will be included as the foundation for any conclusions. My personal selection of papers deemed relevant for my discussion, will be selected highlighting on articles being included as relevant articles by survey papers, as well as papers gaining a high relevance score on literature search sites.\footnote{... like the NTNU ORIA site (\url{https://innsida.ntnu.no/litteratur}).} Another selection criteria aiming to increase validity and reliability will be a focus on selecting articles receiving a high number of quotations ratings on sites like Google Scholar. %First and foremost, though, a sound and critical validation of the relevance for the questions at hand is still mandatory. \\  
+
+
+
+For the experimental parts, my project is utilising a selection of PDC and PMU simulator packages. In order to validate the phasor data generated, the included validation capabilities of the simulator packages are utilised.
+
+\section{Infrastructure used during experiments }
+\textbf{TO DO:}
+\textit{A selection of a relevant infrastructure for experiments will be made according to  specific needs and availability.  }\\ 
+
+In order to provide practical results on which to base the discussions and conclusions, the following tools will be utilised;
+
+\begin{itemize}
+%    \item The iPMU suite, including iPDC, iPMU and PMUSimulator, running on virtual Ubuntu Linux instances
+%    \item The pyPMU suite, including tinyPDC, tinyPMU and , running on virtual Ubuntu Linux instances \cite{vsandi2015python}, \cite{vsandi2016pypmu}
+    \item A SIMULINK model, downloaded from \textbf{URL} is used as the basis for the simulations.
+    \item MATLAB, \textbf{latest version}, with SIMULINK added, is used for running the simulation. 
+    \item The SIMULINK DSP and MATLAB Digital Signal Processing toolkits are required in order to run the simulations.
+    \item The \textbf{Model inspector} functionality is used in order to compare the delayed ouput to the original one.
+    \item A Windows 10 laptop is being used for the simulations
+    
+ %   \item mininet will be utilised for networking
+ %   \item Wireshark will be utilised for synchrophasor packet analysis
+ %   \item Python will be utilised in order to visualise the results
+
+\end{itemize}
+
+%\section{Instruments or Equipment}
+
+%Sometimes, especially in causal studies when researchers are developing experiments, it is important to detail the instruments or equipment that were used in the study.
+
+
+
+\section{Simulating a Time Delay attack}
+
+
+
+\subsection{Scenarios}
+
+For the experimental part of my thesis, a number of attack scenarios will be required. The aim is to investigate various attack vectors which might be used by a sophisticated man-on-the-side threat actor in order to execute an attack while staying undetected. 
+
+\subsection{Background} 
+
+A number of assumptions is stated, in order to narrow the scope of the thesis.
+
+\subsubsection{Attacker policy assumptions}
+A sophisticated threat actor would most likely want to avoid detection by anyone protecting the targeted infrastructure.
+Therefore, executing an attack which may be detected should be avoided at all costs.
+As a consequence, any decisions related to actually executing the attack should be as a result of promising results following a stealthiness assessment process\footnote{Simulations of possible effects could be part of a stealthyness assessment process}. 
+
+\subsubsection{Attack Prerequisites}
+A stealthy attack with small impact is preferred over an attack having more severe impacts, at a higher risk of detection.
+The ideal attack would be an attack having maximal impact on the target, while the risk of detection being minimal. 
+
+
+\subsubsection{Attack design challenges}
+A part of the challenge would be to design an attack producing a high impact on the target, while staying undetected.
+
+\subsubsection{selected approach}
+One possible solution could be to determine the minimal efforts needed in order to execute an attack with a high probability of producing the effects desired, while keeping the attack detection probability low.
+
+
+
+\subsection{Definition of scenarios}
+In order to provide experimental results in order to answer the Research Questions stated, a number of attack scenarios are defined.
+
+The main method of simulation would be a delayed forwarding of values, where a specified delay $d$ is applied to the PMU input, replacing any sample $s(i)$ with the sample value $s(i-d)$, simulating clock drift, producing effects similar to a \acrlong{tda}.
+
+The simulation could be performed using a number of delay functions, for instancs:
+\begin{enumerate}
+   
+\item  Exposing the targeted PMU to a constant delay, from a specified initiation time.
+    The delay is switched on, unaltered from the time of initiation, for the duration of the simulation. 
+\item  Exposing the targeted PMU to a constant delay for a limited time, from a specified initiation time, switching it off during the simulation.  
+\item  Exposing the targeted PMU to a increasing delay for a limited time, from a specified initiation time, switching it off during the simulation.   
+\end{enumerate}
+    
+
+
+\subsection{Attack Implementation}
+%The attacks would be implemented as MATLAB functions executing attacks on targets implemented as SIMULINK simulations. The various scenarios would  be required to be sufficiently similar to be implemented as variations of a single attack framework, in order to avoid the need of creating more than a single attack framework.     
+
+%In order to prepare for attacks, a plan might be to implement the techniques described in \cite{gilad2014off}.
+
+
+
+%\textbf{\cite{barreto2016undetectable} proves the requirement of exposing more than two PMUs to a delay attack, for the attack to be undetectable.}
+
+
+
+
+A number of physical investigations related to the effects of any intended attacks on the intended targets, would increase the knowledge of a potentially complex target, increasing the probability of staying undetected during the attack. In order to avoid exposing expensive and critical power system infrastructure to physical damage or downtime,\footnote{In a test lab environment, downtime could be acceptable, whereas the risk of physical damage of typically expensive equipment may be too high, at least not in the initial phases of investigations.} such practical investigations would preferably be performed in a simulation environment.
+
+\section{Creating a Simulation environment}
+
+This approach could be taken by a threat actor during a phase of investigations in the preparation of the actual attack, for the purpose of learning more about the possible consequences of performing intended actions on the intended target. One of the most important priorities of the threat actor, is to stay undetected for as long as possible. Simulations are designed in order to investigate the selected attack scenarios. The planned attack is implemented using a combination of Simulink and MATLAB. The execution of each simulation will produce corresponding graphs, illustrating any visible effects the attack may have on the system, by analytically comparing the output produced by the attack, with the alternative output of the unmodified, and correct Synchrophasor signal corresponding to  a situation of no attack being performed.
+
+\subsection{Modelling a PMU}
+
+As the plan of the threat actor is to expose  a number of \acrshort{pmu}s to a time  delay attack, the plan is to build a model of a \acrshort{pmu}, allowing the model to be run while altering any time stamp values required, in order to investigate any observable effects on the output from the \acrshort{pmu}.
+ \begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{figures/SimPMU.png}
+\caption[PmuSIM SIMULINK model]{A SIMULINK model for the simulation of PMU time delay attacks}
+
+\end{figure}
+
+
+
+\subsection{Experimental Procedure}
+%\textbf{TO DO:} \textit{Describe experimental procedure, dependant on experiments and experimental environment selected.}.
+In order to complete one iteration of the simulation, each step should be completed, as required.
+\begin{enumerate}
+    \item Start Matlab
+    \item Open a MATLAB script, to be specified.
+    \item Inspect and modify a selection of variables, and execute the script for each run. The script will produce:
+    \begin{enumerate}
+    \item Output data logged to workspace according to the model.
+    \item One figure for each of the PMU components "Angle", "Frequency" and "Magnitude".
+    \item The figures are stored as specified in the MATLAB script.
+    \end{enumerate}
+    \item Planned analysis is to be determined. 
+\end{enumerate}
+Assumptions: 
+Focus on a few optional tolerance levels. One Option: Assume a similarity of 0.95 to be hardly detectable.  
+\begin{itemize}
+    \item Use the Simulation Data Inspector for graph comparisons.
+    \item Compare the original/native signal with the delayed version, by tolerance level.
+    \item Tolerance levels: $1\% (0.01)$, $5\% (0.05)$ and $10\% (0.1)$ 
+\end{itemize}
+
+\begin{enumerate}
+    \item The green portion of the line indicates signal similarity, indication periods with a low probability of attack detection.
+    \item The red portion of the graph is to be interpreted as time periods where the attack detection risk is too high for the attack to remain stealthy for lengthy periods of time.
+
+\end{enumerate}
+\subsection{Definition of Experiments} \label{sec:ExpDef}
+
+%As discussed in an \textbf{Earlier Chapter}, according to \textbf{SELECTED PAPERS}, the \acrshort{sg} \acrshort{se} systems analysed would detect attacks producing signal differences of various levels of similarity. %around $10-15\%$ similarity.
+
+
+
+
+
+The experiments will focus on various levels of assumed detection thresholds.
+
+My experiments will cover a selection of attack strategies for the selection of threshold levels of $1\%$, $5\%$ and $10\%$ similarities.
+
+\begin{itemize}
+    \item Square pulse signal: off, constant-delay, off
+    \item Increasing delay, drop to 0 before simulation end
+    \item Increasing delay, decreasing to 0 before simulation end
+    \item Constant delay: dela on for the duration of the simulation
+\end{itemize}
+
+The current figures of chapter \ref{chap:Results} are produced by exposing the PMU to a square pulse delay.
+%
+
+
+
+
+%The experiments, therefore, will focus on levels of delay of 0.1 to 0.15. For each level, the analysis will focus on various attack strategies, reaching the delay level in 1,2,3 and 4 steps, before keeping the delay for a total duration of  5 to 15 seconds.
+
+%The experiments will be performed utilising \acrshort{pmu} simulation software, utilising available verification tools to ensure the compliance with established standards like the <--->
+%The plan is to recreate experiments performed by <----> in a live environment, utilising  In order to test mitigation, mininet will be utilised
+
+%Generate PMU data utilising simulators verified for compliance
+
+
+%Utilise SADF \cite{SADF-framework} in MATLAB.
+
+%Once again, in case you are running a causal study and an experiment, it is important to detail the experimental procedure.
+
+%Explain, to the reader for example, what was the experimental task (what did the participants have to do?), the extraneous variables that were controlled (variables of the environment that could affect the cause and affect relationship).
+
+

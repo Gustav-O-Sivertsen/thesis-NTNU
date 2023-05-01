@@ -1,0 +1,146 @@
+
+
+\chapter{Cyber Attacks on the Smart Grid}
+
+The \acrfull{sg} is a complex system delivering electrical power to a society more dependant on electricity then ever, given the transition from traditional sources of energy to electrical energy on areas like agriculture, industrial production, heating, and more recently, transportation.
+The transition of the electrical grid from the classic \acrlong{pg} to the \acrlong{sg} exposed, as previously described, the \acrlong{ci} of the power grid to attacks from remote locations via the Internet.
+
+Before focusing on smart grid time delay attacks, an introductory overview of a selection of other cyber attacks targeting  the smart grid will be given.
+
+
+
+\section{An introduction to Smart Grid Cyber Attacks}
+
+
+\section{Attack via time protocols}
+
+Computer systems reachable\footnote{Systems could ultimately be targeted utilising USB sticks, if not accessible from the Internet.} from the outside world,  are potential targets of Cyber attacks. The eventual recoveries of the initial Cyber Attacks was followed up by defence actions, resulting in more advanced attack techniques, has evolved to a continuous battle of control between attackers and defenders. \\
+
+
+There are numerous Threat Actors of various skill levels, from so-called "Script Kiddies" to professionals, aiming to get unauthorised access to systems, for fun, fame, or for more serious reasons, like terrorism or financial gain. 
+subsubsection{Attacker Types}
+
+\begin{itemize}
+    \item The \textbf{Internal attacker} has privileged access to, at least parts of, the internal infrastructure of the target, enabling the ability to take malicious actions not available to non-internal attackers.
+    \item The \textbf{External attacker} is limited to attacking the targeted infrastructure from the outside, typically through network connections.
+    \item The \textbf{Traffic Injector attacker} adds network packages to the benign traffic of the networks of the target, in order to produce the desired effects on the state and operation of the targeted infrastructure. 
+    \item The \textbf{\acrshort{mitm} attacker} interrupts the communication between the two parties A and B, impersonating as B to A and vice-versa.
+    \item The  \textbf{\acrshort{mots} attacker} are able to eavesdrop on communications, without any privileged access to enable the direct modification of any data transmitted.
+\end{itemize}
+
+
+
+The various types of attackers possesses various malicious action capabilities, which they may use in order to attack their intended target in numerous ways.
+
+
+\subsubsection{Advanced Persistent Threat (APT)}
+
+The most advanced, sometimes stealthy, Cyber Attacks are imposing an imminent uncertainty amongst those tasked with the safe operation of critical systems like the \acrshort{sg}. Threat Actors capable of breaking in to presumably secure critical systems, staying undetected for several months or years, constitutes a persistent threat to the secure operation of the system.
+
+\subsection{Time  Protocol Threats}
+
+
+
+
+
+
+
+
+\
+\subsubsection{Attack Types}
+As described in \cite{mizrahi2014security}, a number of threats affecting the \acrshort{ntp} and  \acrshort{ptp} time protocols is observed:
+
+
+
+\begin{itemize}
+    \item Grand Master Time Source Attack
+    \item \acrfull{dos} attacks: Specialised protocol-specific \acrshort{dos} attacks, as well as traditional IP-based \acrshort{dos} attacks.
+    \item Cryptographic Performance Attacks
+    \item Packet Manipulation Attacks
+    \item Spoofing Attacks
+    \item Replay Attack   
+    \item Rouge Master attack 
+\end{itemize}
+
+
+
+\subsection{Examples of Cyber attacks}
+As described in \cite{sundararajan2019survey}, a number of security incidents targets the \acrshort{sg} specifically, like the 2015 BlackEnergy3 attack on the Ukranian  Power Grid, the StuxNet worm of 2010, as well as the watering-hole remote access trojan attack of 2014. 
+Any online \acrshort{sg} infrastructure containing vulnerabilities, is equally inflicted by attacks not specifically targeting \acrfull{sg} like the WannaCry ransomware cryptoworm of 2017, targeting the EternalBlue vulnerability of unpatched windows computers.\\ 
+
+
+
+\subsection{Types of attacks targeting the Smart Grid WAMS control systems}
+
+
+\acrfull{dos} attacks, is identified by several papers, like  \cite{sundararajan2019survey}, \cite{Asri_Pranggono_2015} and \cite{gupta2017survey} as  a threat to \acrshort{sg} availability. \\ 
+
+%In addition, occurrences of the \acrfull{tsa}, sending modified \acrshort{gps} timing information to various control systems, has proven to be a real threat to \acrshort{sg} operation, as described  in \cite{ZhangTimeSync2013}. \\ 
+
+
+
+
+
+
+
+%\subsubsection{Time Synchronisation attacks}
+\section{Cyber Attacks targeting Smart Grid}
+
+The two-way communication lines of the\acrlong{sg} systems opens the possibilities of communication between the networks of energy distributors and the networks of consumers, serving purposes as automatic measurement of energy consumption, as well as dynamic adaption of energy production according to variations in demand for energy over the hours of the day.
+The transition from networks managed by closed communication channels to networks communicating over IP-based networks, exposes\acrlong{sg} networks to Cyber attack vulnerabilities.
+
+
+
+Malicious threat actors having privileged access to the infrastructure, is able to perform various kinds of internal attacks. Traditionally, anyone aiming to attack the \acrlong{pg} infrastructure, was obliged to get physical access to the premises, from which the infrastructure in question was controlled. Following the transition to the online \acrshort{sg}, the network connecting the grid to the outside might be utilised in order to execute any Cyber attack requiring internal privileged access from the outside.
+
+
+\subsection{External Attacks}
+External attacks is characterised by malicious actors attacking the infrastructure from the outside, without having the privileged access required in order to target internal system vulnerabilities.
+
+
+
+
+\subsubsection{Denial of Service (DoS) Attack}
+
+%\subsubsection{GNSS Spoofing attacks}
+
+\subsection{Internal Attacks}
+The distinction between external and internal attacks, is the level of access required in order to perform the attack in question.
+
+\subsubsection{Man in The Middle (MiTM) Attack}
+
+
+
+\cite{itkin2017security} provides information on \acrshort{ptp} delay attacks.
+
+
+
+
+
+\section{Types of PTP delay Attacks}
+Several attacks which targets the \acrlong{ptp}  utilises vulnerabilities 
+
+
+
+As described in \cite{ullmann2009delay}
+\subsection{Put all clocks back}
+
+\begin{equation} \label{DSM}
+    D_{prox}=D_{SM}\frac{1+d}{d},d>1 
+\end{equation}
+\subsection{Put specific clock back}
+\begin{equation} \label{DMS}
+    D_{prox}=D_{MS}\frac{1+d}{d},d>1 
+\end{equation}
+
+\section{Introduction}
+Time Synchronisation protocols are used in order to synchronise the time of interconnected devices in need of synchronised time for various purposes. In the case of synchrophasor devices, the devices needs to be time synchronised in order for \acrshort{sg} \acrshort{wams} operators to get a correct overview of the system state.
+
+
+
+The \acrshort{ptp} is included in the IEC standard
+
+%\subsection{Synchrophasor data alignment attack}
+Eq \ref{DMS} about DMS, and  eq \ref{DSM} about DSM.
+
+

@@ -1,17 +1,15 @@
  \chapter{Overview of Concepts} 
  
  %Research projects should always be based on previous research on the same and/or related topics. This should be described as a background to the thesis with adequate bibliographical references. If the material needed is too voluminous to fit nicely in the review part of the introduction, it can be presented in a separate background chapter.
-In order to get a theoretical overview of topics related to the detection and mitigation of \acrlong{tsa} attacks targeting \acrlong{sg}s, the concept of \acrfull{sg} is explained, as well as aspects related to the \acrshort{sg} architecture, and \acrshort{sg} vulnerabilities. 
+In order to get a theoretical overview of topics related to the subject of my thesis, the concept of \acrfull{sg} is explained, as well as aspects related to the \acrshort{sg} architecture, and \acrshort{sg} vulnerabilities.\\  
 
-
-Before studying the \acrshort{sg} in more detail,  some introductory terms are covered.  
+However, before studying the \acrshort{sg} in more detail,  some introductory terms are covered.  
 
 
 
 \section{Critical (Information) Infrastructure}
 
-The term Critical Infrastructure, denotes infrastructure critical to the operation of some function, or service, vital to its recipients. As a result of the society being more dependant on the availability of electronic services, the flow of electricity from the \acrshort{pg} \acrfull{ci} is dependant on networking provided by \acrfull{cii}.\\ 
-
+The term Critical Infrastructure, denotes infrastructure critical to the operation of some function, or service, vital to its recipients. As a result of the society being more dependant on the availability of electronic services, the flow of electricity from the \acrshort{pg} \acrfull{ci} is dependant on networking provided by \acrfull{cii}.
 \textbf{\acrfull{ci}} is, in  \cite{luiijf2012understanding}, defined as ... 
  \begin{quote}
 "... an asset, system or part thereof located in a
@@ -53,11 +51,23 @@ As presented in figure \ref{fig:CI-CIII}, \acrfull{ci} depends on \acrfull{cii},
 \label{fig:CI-CIII-Security}
 \end{figure}
 
+
+
+
+
+
+
+
+
+
+
+
 \section{Cyber-Physical System}
 
 As described by \citeauthor{humayed2017cyber} in \cite{humayed2017cyber}, a \acrfull{cps} is characterised by using a computer-based system in order to control and monitor systems of the physical world. The \acrshort{cps} is utilised in order to control physical systems from various fields of applications. Humayed et. al., in \cite{humayed2017cyber}, describes as various appliances as \acrfull{ics}, Medical Devices, and \acrlong{sg}.
 The Smart Grid, therefore, is an example of a \acrfull{cps}, consisting of the physical system of a Power Grid, under the control of a network/Cyberspace-connected system. 
 The \acrshort{sg} is, as described by several papers, like \cite{humayed2017cyber} and \cite{alcaraz2012security}, under the control of a \acrfull{scada} system.
+
 
 
 
@@ -154,7 +164,7 @@ control, communication, and self-healing technologies to:
 \item significantly reduce the environmental impact of the whole electricity supply system;
 \item deliver enhanced levels of reliability and security of supply.
 \end{itemize}
-SmartGrid deployment must include not only technology, market and commercial
+\acrshort{sg} deployment must include not only technology, market and commercial
 considerations, environmental impact, regulatory framework, standardization usage, ICT
 (Information \& Communication Technology) and migration strategy but also societal
 requirements and governmental edicts. 
@@ -218,7 +228,7 @@ The \acrshort{sg} consists of seven domains, as shown in \figureautorefname { }\
     \subsubsection{Operations Domain} This domain consists of Electricity service operators, ensuring efficient and fail-safe \acrfull{sg} operation, by utilising \acrshort{scada} systems and \acrlong{ems}s in order to monitor and control system operational state.  
     \subsubsection{Bulk Generation Domain} The facilities for producing electricity, resides in this domain. In addition to the connection and interaction with  to the Transmission domain, it interacts with the Markets domain, as well as the operations domain.  
     \subsubsection{Transmission Domain} The actors of the Transmission domain aims to reduce energy loss while transmitting a stable and reliable stream of energy from operators in the bulk generation domain to the distribution domain. The market domain provides input on expected level of demand which may require adjustments of the amount of electricity distributed, controlled and monitored by actors in the operation domain.  
-    \subsubsection{Distribution Domain} The actors of the Distribution Domain delivers the electricity to consumers according to demand and availability, and monitors generation and consumption data. Bi-directional power-flow is supported. In the case customers have private  power producing facilities, like solar cells and wind turbines, any surplus electricity might be sold, and distributed to other customers.\\ 
+    \subsubsection{Distribution Domain} The actors of the Distribution Domain delivers the electricity to consumers according to demand and availability, and monitors generation and consumption data. Bi-directional power-flow is supported. In the case customers have private  power producing facilities, like solar cells and wind turbines, any surplus electricity might be sold, and distributed to other customers.
 
 \subsection{Smart Grid as Critical Infrastructure}
 
@@ -247,216 +257,46 @@ Recognised as critical infrastructure, the availability of the \acrlong{sg} is o
 
 
 
+\section{Protocols}
+A large number of protocols are defined, in order to standardise the operation of the \acrlong{sg}.
+A small selection of these, relevant for the scope of the thesis, are described underneath.
 
 
+\subsection{Time Synchronisation Protocols}
+Time synchronisation protocols are controlling the synchronisation of time between various devices of the grid, like the PMUs, collecting phasor measurements from a definde number of measuring devices. Synchronised time is crucial in order to ensure each PMU is able to put the correct time stamp on each phasor measurement, before transmitting the resulting synchrophasor for each time stamp, to the destined PDC device. In the event one of the synchrophasors have an erroneous time stamp, an error affecting the integrity of the synchrophasor data is introduced. As described in \cite{moussa2016security}, \acrlong{ptp} synchronisation network
+, as well as \acrlong{gnss} based synchronisation networks, are both capable of producing the precision required by the synchrophasor protocols, as opposed to the more common \acrfull{ntp} commonly used in ordinary computer networks. As my thesis covers \acrshort{ptp} time synchronisation only, my description of time synchronisation protocols is limited to the \acrfull{ptp}.
 
-%Unlike the \acrlong{cpg}, the \acrlong{sg} enables bidirectional flow of power, by customers operating micro grids enabling customers to sell excessive power back to the network.
+\subsubsection{Precision Time Protocol}
 
-
-\subsection{Smart Grid  Control system}
-The \acrlong{sg} system constitutes a complex system of subsystems, which proper operation is a prerequisite for the successful transmission of electric energy from producers to consumers, according to the current demand for energy, as controlled by the Demand Management system, dynamically adjusting the energy supply accordingly. In order to successfully reply to the dynamically changing demands for energy, a close monitoring of the production and transmission of energy through the Wide Area network is required. \\ 
-
-The \acrshort{sg} consists of a vast number of both conventional and modern, more dynamic, production facilities, which requires thorough monitoring in order to ensure the optimal distribution of electrical energy. The requirement of a consistently stable and reliable supply of energy is constant, while the amount of energy demanded is dynamically changing according to the demand for power at any time. \\ 
-
-Therefore, the proper \acrshort{sg} operation might be considered virtually impossible without a  close monitoring of current power flow, as well as the ability to instantly adjust the supply of power according to present needs,  without the risk of causing power surges or blackouts. For this purpose, the Wide Area Monitoring System analyses the levels of electrical power as monitored by sensors, synchronised according to a common GPS-controlled time source. \\ 
-
-The correctness of this time source is critical to the reliability, and therefore, the proper operation of the monitoring system, constituting the primary decision criteria for actions controlling the supply of power.
-
-
-
-\section{Smart Grid Control System}
-
-Analogous with the modernisation of the classic \acrlong{pg} into the \acrlong{sg}, the \acrshort{scada} subsystem of the \acrshort{pg} is the predecessor of the control system of the modern \acrlong{sg}.
-Therefore, a description of the \acrshort{scada} system, evolving from the centralised subsystem controlling the Classic \acrshort{pg}, to the modernised verion of the \acrshort{scada} subsystem, initiates the description of the \acrlong{sg} Control System. 
-
-
-
- 
-   \begin{figure}[ht]
-
-    \includegraphics[width=\textwidth]{figures/SCADA-CentralisedAndDistributed.png}    
-
-
-\caption[A Centralised and Distributed SCADA system]{A Centralised and Distributed SCADA system \cite[p. 123]{alcaraz2012security}}
-\label{fig:SCADA-CentralisedAndDistributed}
-\end{figure}
-
-
-
-The characteristics of the three generations of SCADA systems described by \Citeauthor{alcaraz2012security} in \cite{alcaraz2012security}, may be summarised below:
- 
-
- \begin{enumerate}
-     \item A Monolithic SCADA system utilises a centralised offline control center  infrastructure, in order to monitor and control the physical system by proprietary control mechanisms.
-     \item A Distributed SCADA system utilises a networked, but centralised control  center in order to monitor and control the physical system by proprietary control mechanisms. 
-     \item A Networked SCADA system utilises a networked, and online control  center in order to monitor and control the physical system by standardised control mechanisms.
- \end{enumerate}
-
-
-
- \begin{figure}[ht]
-\centering
-    \includegraphics[trim=20 20 20 10, clip, width=\textwidth]{figures/SCADA-Current.png}
-\caption[A Current SCADA system]{A Current SCADA system \cite[p. 124]{alcaraz2012security}}
-
-\end{figure}
+The \acrfull{ptp} was, as described in \cite{alghamdi2021precision} ...
 
 
 
 
+\subsection{Synchrophasor Protocols}
 
-\subsection{The Modernised SCADA system}
- 
- The \acrshort{scada} system is, as described in \cite{alcaraz2012security}, a system utilised to supervise and control \acrfull{ci} systems, including \acrshort{pg} infrastructures. Initially designed in order to control physical infrastructure systems like the classic \acrlong{pg}, the Monolithic SCADA system emerged into the Distributed SCADA system. The transition from a Monolithic SCADA system to a Distributed SCADA system transforms, as indicated by figure \ref{fig:SCADA-CentralisedAndDistributed}, the central management center from a centrally controlled mainframe environment, to a networked server environment controlled by operators connected through a \acrfull{lan}
-  
-  
- The \acrshort{sg} control center emerged from the Distributed SCADA system, into the Networked SCADA system used in order to control modern \acrlong{cps}s, like the \acrshort{sg}.\\ 
- 
+The introduction of Synchrophasors in the \acrlong{pg}, 
 
-
- 
+\subsubsection{Introduction}
 
 
 
+As described in \cite{martin2011synchrophasor} and \cite{ali2016performance}, the \acrfull{pmu}, along with the \acrfull{pdc}, were introduced in the 1980s. The communication and data exchange from the PMU to the PDC was standardised by the introduction of the IEEE 1344 standard in 1995, which was the standard communication protocol for synchrophasor data exchange, until the introduction of the IEEE C37.118 in 2005.
+The  IEEE C37.118 protocol was derived from the original IEEE 1344 standard, and has undergone a number of revisions, over the years.
 
 
- 
-
-
-
-
-However, as explained by \Citeauthor{zamani2020introduction} in \Cite{zamani2020introduction}, the \acrshort{scada} system has a number of shortcomings, making it unsuitable for a \acrshort{sg} enegy distribution monitoring system:
+In \cite{martin2013synchrophasor}, \citeauthor{martin2013synchrophasor}describes the history of ...
 
 \begin{itemize}
-    \item The data polling rate is once every 2-10s, which is not sufficient in order to get real-time measurements.
-    \item No time-stamps are attached to samples, making it hard to monitor rate of change over time
-    \item State Estimation is not performed with sufficient frequency, if at all.
-    \item The ability to observe dynamics is not supported by the system.
+    \item The IEEE C37.118-2005,
+    \item The IEEE C37.118-2011
+    \item The IEEE C37.118-2018
 \end{itemize}
 
 
 
 
-
-In order to address these shortcomings, the \acrfull{wams} system\footnote{WAMS is also known as the Wide Area \textbf{Monitoring} System}, described next, was invented.
-
-
-
-
-
-
-
-
-
-
-
-\subsection{Wide Area Measurement System}
-\begin{figure}[ht]
-\includegraphics[width=\linewidth]{figures/Kumar-WAMS-architecture.png}
-\caption[WAMS architecture]{WAMS architecture, as presented in \cite{kumar2015monitoring}}
-\label{fig:Kumar-WAMS-architecture}
-\end{figure}
-
-
-
-
-
-
-
-
-
-
-\textit{DESCRIPTION:}
-\textbf{\cite{kumar2015monitoring} \fullcite{kumar2015monitoring} }\\
-
-
-    
-
-In order to ensure the continuous monitoring of the modern \acrlong{sg} energy distribution system, the \acrfull{wams} is utilised. An overview of the \acrshort{wams} architecture, as presented in   \cite{kumar2015monitoring}, is shown as \figureautorefname  { } \ref{fig:Kumar-WAMS-architecture}:
-
-The \acrshort{wams} is, as described in  \cite{kumar2015monitoring}, a  system, consisting of:
-
-(1) \acrshort{pmu}s, (2) \acrshort{pdc}s, (3) The super \acrshort{pdc}, and (4) Communication networks.\\ 
-
-The various components might be described as follows, from (4) to (1):
-\begin{itemize}
-    \item The \textbf{Communication Networks}, providing data transport between \acrshort{wams} components, as required.
-    \item The \textbf{Super \acrshort{pdc}} controls several \acrshort{pdc}s constituting a distributed \acrshort{wams}.
-\item The \textbf{\acrfull{pdc}} is responsible for collecting and interpreting \acrshort{pmu} measurements, before synchronising the measurements according to timestamps, in order to get more complete status information based on a combination of measurements.
-    \item The \textbf{\acrfull{pmu}} is an intelligent measuring device, responsible for registering sensor measurements,  performing calculations like, for instance, phase angles, as well as voltage and current magnitudes. The data registered and processed by the \acrshort{pmu}, is transferred to the nearest \acrshort{pdc}.
-    \end{itemize}
-
-\begin{figure}[ht]
-\includegraphics[width=\linewidth]{figures/PMU-in-out.png}
-\caption[PMU inputs and outputs]{PMU inputs and outputs, as presented in \Cite[p.12]{iec2018measuring}
-}
-\label{fig:PMU-in-out}
-\end{figure}
-
-
-\subsection{Synchrophasor}
-%\cite{ali2016wide}
-
-
-%\Cite{rana2015exploring}
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[ width=\textwidth]{figures/syncrophasors-vs-scada.png}
-    \caption[Difference between Synchrophasor and SCADA measurements]{As presented in \cite[p. 3]{dagle2019importance}: Notional representation of the difference between synchrophasor and SCADA
-measurement. Figure credit: \citeauthor{dagle2019importance}}.
-    \label{fig:syncrophasors-vs-scada}
-\end{figure}  
-
-
-
-The \acrshort{pmu} is receiving values from sensors, on which it is able to calculate voltage level and phase angle of the energy flow. It is utilising a time-source to pinpoint measurements in time, producing synchrophasors, to be transmitted to the nearest \acrshort{pdc}. 
-
-As described by \citeauthor{dagle2019importance} in \cite{dagle2019importance}, the data received from traditional \acrshort{scada} systems are time-stamped after arriving at the control station. The synchrophasors of the \acrshort{wams} on the other hand are, as described by \Citeauthor{ali2016wide} in \cite{ali2016wide}, being time-stamped in real-time before being transferred to the control system. The sampling rate of the \acrshort{pmu}, results in synchrophasor data enabling operators of the \acrshort{wams} to get real-time visualisation of critical elements, like the state of energy flow  of the \acrlong{sg}. The increased granularity of the measurement system allows for the detection of anomalies undetectable by traditional \acrshort{scada} systems, as illustrated by \figureautorefname { }\ref{fig:syncrophasors-vs-scada}. 
-
-The increased sampling rate, of the synchrophasors of the \acrshort{wams} systems enables a more fine-grained view of energy distribution system state changes. However, in order for the \acrshort{wams} system to get the correct system state information, correct time stamps is critical. 
-Therefore, the time-synchronisation mechanisms of the \acrshort{pmu} system is of critical importance. \\ 
-
-
-
-The GPS signal transmits timing information, which enables 
-
-
-$$t_{UTC}=t_{rcv}-t_{p}-\Delta t_{UTC}$$
-A synchrophasor is, as described by 
-
-
-
-%\textbf{TO DO:}
-%\textit{Introduction:}
-
-%\textit{What is it?}
-%\textit{Which functions does it have?}
-
-
-
-
-
-%Explain TimeSync 
-
-
-
-
-
-A periodic signal $x(t)=X_m\cos\left(\omega t+\phi \right)$ has, according to \Cite{schofield2018design}, a synchrophasor representation $\mathbf{X}$, defined by $ \mathbf{X} = \frac{X_m}{\sqrt{2}}e^{j\phi} $ where $ \mathbf{X} = |X| = X_m / \sqrt{2} $ is  the RMS and $  \phi = angle(\mathbf{X}) $ is the angle.
-
-
-%\[x(t)=X_m\cdot\cos\left(\phi + \int\displaylimits_{-\infty}^t\omega (\tau)\cdot\mathrm{d}\tau\right)\]
-
-%\[\overline{X} = X_m{\angle\phi} \]
-
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[ width=\textwidth]{figures/Synchrophasor-Definition.png}
-    \caption[Convention for synchrophasor representation]{As presented in \Cite{schofield2018design}: Convention for synchrophasor representation.}.
-    \label{fig:Synchrophasor-Definition}
-\end{figure}  
+%Unlike the \acrlong{cpg}, the \acrlong{sg} enables bidirectional flow of power, by customers operating micro grids enabling customers to sell excessive power back to the network.
 
 
 
@@ -470,7 +310,7 @@ The dependency on networking favors the usage of low-cost \acrshort{gnss} receiv
 
 
 
-\subsection{The Importance of Time Synchronisation}
+\subsubsection{The Importance of Time Synchronisation}
 
 In \cite{dagle2019importance}, \citeauthor{dagle2019importance} states the following aspects as the benefits for Smart Grid operation, of ensuring correct time synchronisation:
 
@@ -483,7 +323,7 @@ In \cite{dagle2019importance}, \citeauthor{dagle2019importance} states the follo
     
 \end{itemize}
 
-\subsection{Possible effects of Time Synchronisation errors}
+\subsubsection{Possible effects of Time Synchronisation errors}
 Timing errors will, according to ,,, render the data introduced to the \acrshort{wams} system inadequate to enable \acrshort{sg} operatiors to get overview of the Energy supply state of the \acrshort{sg}.
 
 In \Cite{martin2019impact}, \citeauthor{martin2019impact} lists a number of side-effects which could result form the absence of high-quality data material from the \acrshort{wams}.
@@ -503,26 +343,15 @@ In \Cite{martin2019impact}, \citeauthor{martin2019impact} lists a number of side
 
 \end{enumerate}
 
-\subsection{Smart Grid Time Synchronisation}
 
-
-\subsubsection{Introduction}
-
-
-The \acrlong{sg} is dependant on precise Time Synchronisation, as a Time Synchronisation error of a few $\mu$-seconds may result in \acrshort{sg} instability. The time stamps produced by Synchrophasors, pinpointing the exact time of any system event, is vital in order to ensure precise and reliable system state information.
-In the event of a system alert being triggered by erroneous system state Information, corrective actions by operators might have undesired effects. 
-
-\subsubsection[Smart Grid Time Sync Precision Requirements]{Smart Grid Time Synchronisation Precision Requirements}
-
-In order to ensure the time precision required for the \acrshort{sg}, the correct selection of time synchronisation mechanisms is vital. 
-\section{Time Synchronisation Sources}
+\subsection{Time Synchronisation Sources}
 
 As described by \citeauthor{moussa2016security} in \cite{moussa2016security}, both PTP and GNSS is able to achieve the precision level required, as opposed to NTP and PPS.  Based on this observation, the \acrshort{tsa} Detection and Mitigation coverage is limited to \acrshort{gnss} and  \acrshort{ptp} systems only.
 
 
 
 
-\subsection{Global Navigation Satellite Systems}
+\subsubsection{Global Navigation Satellite Systems}
 
 A \acrfull{gnss}, is a system of communication satellites orbiting the Earth, in order to determine the current position for, usually,\footnote{\acrlong{sg} systems utilises \acrshort{gnss} systems for time synchronisation, not navigational, purposes.} navigation  purposes. As described by \citeauthor{schmidt2016survey} in \cite{schmidt2016survey}, there exists several \acrshort{gnss} constellations,\footnote{In \cite{schmidt2016survey}, both the United States "GPS" and the Russian "GLONASS" systems, as well as the European "Galileo" and the Chinese "Beidou-2" systems are mentioned.} each being classified as "strikingly similar" to the other \acrshort{gnss} systems. 
 
@@ -560,7 +389,7 @@ The time signal available from \acrfull{gnss} systems is by several papers descr
 
 
 
-\subsection{Precision Time Protocol services}
+\subsubsection{Precision Time Protocol services}
 The \acrfull{ptp} is a network-based time protocol, enabling the time difference between devices to be synchronised within a fraction (in the order of a few $\mu$s) of a second, satisfying the requirements of the \acrshort{sg}. 
 
 \begin{figure}[ht]
@@ -580,8 +409,7 @@ A device, being synchronised  by the \acrshort{ptp} protocol, reads its system t
 The time of the slave clock, is being adjusted according to the following process:
 
 
-Following the message exchange visualised by \figureautorefname { } \ref{fig:PTP-timing-Diagram}, the Slave clock  uses the time offset from the Master clock time, $offset = [(t_2 - t_1) + (t_4 - t_3)]\div 2$, in order to synchronise with the Master clock. \\ 
-
+Following the message exchange visualised by \figureautorefname { } \ref{fig:PTP-timing-Diagram}, the Slave clock  uses the time offset from the Master clock time, $offset = [(t_2 - t_1) + (t_4 - t_3)]\div 2$, in order to synchronise with the Master clock. 
 In order to be able to achieve the time difference required, the \acrshort{ptp}, as described by  \citeauthor{Eidson2006}, in \cite{Eidson2006}, is dependant on:
 
 \begin{itemize}
@@ -590,110 +418,144 @@ In order to be able to achieve the time difference required, the \acrshort{ptp},
     \item Overcoming any timing impairments introduced by system components.
 \end{itemize}
 
-\section{Smart Grid Network Reliability and Security}
 
-Two interrelated concepts are essential for the safe operation of the \acrshort{sg}:  
-\begin{itemize}
-    \item \acrlong{sg} \textbf{Network Reliability } which is important for the correct \acrshort{sg} operation, minimising the risk of \acrshort{sg} operational failures caused by \textbf{unintentional disruptive events} affecting \acrshort{sg} operations.
+
+
+\subsection{Smart Grid Time Synchronisation}
+
+
+
+\subsubsection{Introduction}
+
+
+The \acrlong{sg} is dependant on precise Time Synchronisation, as a Time Synchronisation error of a few $\mu$-seconds may result in \acrshort{sg} instability. The time stamps produced by Synchrophasors, pinpointing the exact time of any system event, is vital in order to ensure precise and reliable system state information.
+In the event of a system alert being triggered by erroneous system state Information, corrective actions by operators might have undesired effects. 
+
+\subsubsection[Smart Grid Time Sync Precision Requirements]{Smart Grid Time Synchronisation Precision Requirements}
+
+In order to ensure the time precision required for the \acrshort{sg}, the correct selection of time synchronisation mechanisms is vital. 
+
+
+\section{Wide Area Measurement System}
+\begin{figure}[ht]
+\includegraphics[width=\linewidth]{figures/Kumar-WAMS-architecture.png}
+\caption[WAMS architecture]{WAMS architecture, as presented in \cite{kumar2015monitoring}}
+\label{fig:Kumar-WAMS-architecture}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+\textit{DESCRIPTION:}
+\textbf{\cite{kumar2015monitoring} \fullcite{kumar2015monitoring} }
+
+
     
-    \item \acrlong{sg} \textbf{Network Security}  which is important for the correct \acrshort{sg} operation, minimising the risk of \acrshort{sg} operational failures caused by \textbf{intentional malicious events}  affecting \acrshort{sg} operations.
-\end{itemize}
 
+In order to ensure the continuous monitoring of the modern \acrlong{sg} energy distribution system, the \acrfull{wams} is utilised. An overview of the \acrshort{wams} architecture, as presented in   \cite{kumar2015monitoring}, is shown as \figureautorefname  { } \ref{fig:Kumar-WAMS-architecture}:
 
+The \acrshort{wams} is, as described in  \cite{kumar2015monitoring}, a  system, consisting of:
 
-\subsection{Smart Grid Network Reliability}
+(1) \acrshort{pmu}s, (2) \acrshort{pdc}s, (3) The super \acrshort{pdc}, and (4) Communication networks.
 
-\subsection{Smart Grid Network Security}
-
-
-    
-\section{Cyber Attacks}
-
-
-
-Computer systems reachable\footnote{Systems could ultimately be targeted utilising USB sticks, if not accessible from the Internet.} from the outside world,  are potential targets of Cyber attacks. The eventual recoveries of the initial Cyber Attacks was followed up by defence actions, resulting in more advanced attack techniques, has evolved to a continuous battle of control between attackers and defenders. \\
-
-
-There are numerous Threat Actors of various skill levels, from so-called "Script Kiddies" to professionals, aiming to get unauthorised access to systems, for fun, fame, or for more serious reasons, like terrorism or financial gain. 
-
-
-
-
-
-\subsection{Cyber Attack models}
-
-In order to analyse previous attacks, as well as to avoid future attacks, models have been developed. 
-
-\Cite{straub2020modeling}
-
-%\subsubsection{The Diamond model}
- \subsubsection{MITRE ATT\&K framework}
- 
- 
- \Cite{strom2018mitre}
-\subsubsection{STRIDE}
-
-\cite{khan2017stride}
-
-
-\subsubsection{The Cyber kill chain}
-The Cyber Kill Chain is a model designed for the analysis of attacks on Information Technology infrastructure. The model is an adoption of the military kill chain model developed by armed forces, based on prior military experience.
-\begin{enumerate}
-    \item \textbf{Reconnaissance} Information gathering on the target, utilising publicly available resources.
-    \item \textbf{Weaponization} Preparation of malicious payload off target premises.
-    \item \textbf{Delivery} Intruding the premises of the target, with malicious intents.  
-    \item \textbf{Exploitation} Any activity related to information gathering on th premises of the target.
-    \item \textbf{Installation} of any malicious software relevant for the attack
-    \item \textbf{Command and control} A means by which the attacker establishes a control channel, enabling further actions.
-    \item \textbf{Action on objectives} relative to the intents of the attack: Stealing information, controlling equipment, causing service disruption or termination.
-\end{enumerate}
-Given the complexity of \acrlong{ics}s, consisting of internal security barriers protecting critical system elements, it has not proven to be optimal for analysing attacks on the \acrshort{sg}.\\ 
-
-Following the introduction of the Cyber Kill Chain, the model has been extended to be more suitable for the analysis of more specialised systems, like the \acrshort{sg}.
-For the purpose of this thesis, the \acrfull{ics} Cyber Kill Chain, is described.
-\subsubsection{The ICS Cyber kill chain}
-
-
-
-\subsection{Time Protocol Threats}
-Given the criticality of Time Synchronisation for the correct operation of the \acrshort{sg}, it is of vital importance to be aware of which threats imposes security risks related to the underlying Time Protocol. As explained by \citeauthor{mizrahi2014security} in \Cite{mizrahi2014security}, several attacker types could inflict a number of attacks on various time protocols. My introductory coverage of time protocol threats includes descriptions on attacker types and attack types, for reference purposes.
-
-\subsubsection{Attacker Types}
-
+The various components might be described as follows, from (4) to (1):
 \begin{itemize}
-    \item The \textbf{Internal attacker} has privileged access to, at least parts of, the internal infrastructure of the target, enabling the ability to take malicious actions not available to non-internal attackers.
-    \item The \textbf{External attacker} is limited to attacking the targeted infrastructure from the outside, typically through network connections.
-    \item The \textbf{Traffic Injector attacker} adds network packages to the benign traffic of the networks of the target, in order to produce the desired effects on the state and operation of the targeted infrastructure. 
-    \item The \textbf{\acrshort{mitm} attacker} interrupts the communication between the two parties A and B, impersonating as B to A and vice-versa.
-\end{itemize}
+    \item The \textbf{Communication Networks}, providing data transport between \acrshort{wams} components, as required.
+    \item The \textbf{Super \acrshort{pdc}} controls several \acrshort{pdc}s constituting a distributed \acrshort{wams}.
+\item The \textbf{\acrfull{pdc}} is responsible for collecting and interpreting \acrshort{pmu} measurements, before synchronising the measurements according to timestamps, in order to get more complete status information based on a combination of measurements.
+    \item The \textbf{\acrfull{pmu}} is an intelligent measuring device, responsible for registering sensor measurements,  performing calculations like, for instance, phase angles, as well as voltage and current magnitudes. The data registered and processed by the \acrshort{pmu}, is transferred to the nearest \acrshort{pdc}.
+    \end{itemize}
+
+\begin{figure}%[ht]
+\includegraphics[width=\linewidth]{figures/PMU-in-out.png}
+\caption[PMU inputs and outputs]{PMU inputs and outputs, as presented in \Cite[p.12]{iec2018measuring}
+}
+\label{fig:PMU-in-out}
+\end{figure}
+
+\begin{figure}%[ht]
+    \centering
+    \includegraphics[ width=\textwidth]{figures/syncrophasors-vs-scada.png}
+    \caption[Difference between Synchrophasor and SCADA measurements]{As presented in \cite[p. 3]{dagle2019importance}: Notional representation of the difference between synchrophasor and SCADA
+measurement. Figure credit: \citeauthor{dagle2019importance}}.
+    \label{fig:syncrophasors-vs-scada}
+\end{figure}  
+
+
+\subsection{Synchrophasor}
+%\cite{ali2016wide}
+
+
+%\Cite{rana2015exploring}
 
 
 
-The various types of attackers possesses various malicious action capabilities, which they may use in order to attack their intended target in numerous ways.
+The \acrshort{pmu} is receiving values from sensors, on which it is able to calculate voltage level and phase angle of the energy flow. It is utilising a time-source to pinpoint measurements in time, producing synchrophasors, to be transmitted to the nearest \acrshort{pdc}. 
+
+As described by \citeauthor{dagle2019importance} in \cite{dagle2019importance}, the data received from traditional \acrshort{scada} systems are time-stamped after arriving at the control station. The synchrophasors of the \acrshort{wams} on the other hand are, as described by \Citeauthor{ali2016wide} in \cite{ali2016wide}, being time-stamped in real-time before being transferred to the control system. The sampling rate of the \acrshort{pmu}, results in synchrophasor data enabling operators of the \acrshort{wams} to get real-time visualisation of critical elements, like the state of energy flow  of the \acrlong{sg}. The increased granularity of the measurement system allows for the detection of anomalies undetectable by traditional \acrshort{scada} systems, as illustrated by \figureautorefname { }\ref{fig:syncrophasors-vs-scada}. 
+
+The increased sampling rate, of the synchrophasors of the \acrshort{wams} systems enables a more fine-grained view of energy distribution system state changes. However, in order for the \acrshort{wams} system to get the correct system state information, correct time stamps is critical. 
+Therefore, the time-synchronisation mechanisms of the \acrshort{pmu} system is of critical importance. \\ 
+
+\begin{figure}
+    \centering
+    \includegraphics[ width=\textwidth]{figures/Synchrophasor-Definition.png}
+    \caption[Convention for synchrophasor representation]{As presented in \Cite{schofield2018design}: Convention for synchrophasor representation.}.
+    \label{fig:Synchrophasor-Definition}
+\end{figure}  
 
 
-\subsubsection{Attack Types}
-As described in \cite{mizrahi2014security}, a number of threats affecting the \acrshort{ntp} and  \acrshort{ptp} time protocols is observed:
+The GPS signal transmits timing information, which enables 
+
+
+$$t_{UTC}=t_{rcv}-t_{p}-\Delta t_{UTC}$$
+A synchrophasor is, as described by 
 
 
 
-\begin{itemize}
-    \item Grand Master Time Source Attack
-    \item \acrfull{dos} attacks: Specialised protocol-specific \acrshort{dos} attacks, as well as traditional IP-based \acrshort{dos} attacks.
-    \item Cryptographic Performance Attacks
-    \item Packet Manipulation Attacks
-    \item Spoofing Attacks
-    \item Replay Attack   
-    \item Rouge Master attack 
-\end{itemize}
+%\textbf{TO DO:}
+%\textit{Introduction:}
 
-
+%\textit{What is it?}
+%\textit{Which functions does it have?}
 
 
 
 
-\subsection{Advanced Persistent Threat (APT)}
 
-The most advanced, sometimes stealthy, Cyber Attacks are imposing an imminent uncertainty amongst those tasked with the safe operation of critical systems like the \acrshort{sg}. Threat Actors capable of breaking in to presumably secure critical systems, staying undetected for several months or years, constitutes a persistent threat to the secure operation of the system.
+%Explain TimeSync 
 
 
+
+
+
+
+
+
+A periodic signal $x(t)=X_m\cos\left(\omega t+\phi \right)$ has, according to \Cite{schofield2018design}, a synchrophasor representation $\mathbf{X}$, defined by $ \mathbf{X} = \frac{X_m}{\sqrt{2}}e^{j\phi} $ where $ \mathbf{X} = |X| = X_m / \sqrt{2} $ is  the RMS and $  \phi = angle(\mathbf{X}) $ is the angle.
+
+
+%\[x(t)=X_m\cdot\cos\left(\phi + \int\displaylimits_{-\infty}^t\omega (\tau)\cdot\mathrm{d}\tau\right)\]
+
+%\[\overline{X} = X_m{\angle\phi} \]
+
+
+
+
+
+
+
+
+\section{cyber attacks}
+\subsection{Introduction}
+\subsection{type of attacks}
+\subsection{Threat Actors}
+\subsubsection{Introduction}
+\subsubsection{Type of Threat Actors}
+\subsection{Attack strategies}

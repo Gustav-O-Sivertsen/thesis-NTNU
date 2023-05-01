@@ -1,0 +1,156 @@
+
+
+
+
+
+
+  
+
+\chapter[Smart Grid TSA Detection]{Smart Grid Time Synchronisation Attack Detection}
+
+
+
+
+
+In order to cover the topic of \acrfull{tsa}s,  a general description of \acrshort{tsa} countermeasures, like detection and mitigation will be presented, before a number of case studies are presented and investigated.  
+
+
+\section{Description}
+
+   
+
+\textbf{TO DO}
+
+\textit{A description of the papers will be performed, focusing on case studies showing evidence of methods and techniques used for detection.}  \\ 
+
+
+Some suggestions on relevant papers are:
+
+    \begin{itemize}
+    
+    % Time synchronizationattack in smart grid: Impact and analysis
+    \item  \cite{ZhangTimeSync2013}  \fullcite{ZhangTimeSync2013}
+    
+    % Vulnerability analysis of smart grids to gps spoofing
+    \item  \cite{risbud2018vulnerability} \fullcite{risbud2018vulnerability}
+
+    % Spatio-temporal characterization of synchrophasor data against spoofing attacks insmart grids
+    \item  \cite{cui2019spatio}  \fullcite{cui2019spatio}
+
+    % Vulnerab-ility of synchrophasor-based wampac applications’ to time synchronizationspoofing
+    \item  \cite{almas2017vulnerability} \fullcite{almas2017vulnerability}
+    
+    % A gps spoofingresilient wams for smart grid
+    \item  \cite{garofalo2013gps} \fullcite{garofalo2013gps}
+
+    % Spoofing resilient state estimation forthe power grid using an extended kalman filter
+    \item  \cite{chauhan2021spoofing} \fullcite{chauhan2021spoofing}
+
+    % Multi-view con-volutional neural network for data spoofing cyber-attack detection in dis-tribution synchrophasors
+    \item  \cite{qiu2020multi}  \fullcite{qiu2020multi}
+
+    % A multi-layer perceptron neural network tomitigate the interference of time synchronization attacks in stationary gps receivers
+    \item  \cite{orouji2021multi}  \fullcite{orouji2021multi}
+
+
+    % Gps spoofing detection forthe power grid network using a multireceiver hierarchical framework archi-tecture
+    \item  \cite{mina2019gps}  \fullcite{mina2019gps}
+
+    % Precision time protocol attack strategiesand their resistance to existing security extensions
+    \item  \cite{alghamdi2021precision} \fullcite{alghamdi2021precision}
+
+
+
+    \end{itemize}
+    
+
+\section{Examples}
+
+
+\textbf{TO DO:}
+\textit{Describe examples of Smart Grid Time Synchronisation attack detection, found in the papers selected. }\\ 
+
+
+
+ \section{Time Synchronisation attack Vulnerabilities}
+%\subsubsection{Syncophasors}
+%\subsubsection{Phasor Measurement Units}
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+ 
+\subsection{Attacks targeting the GNSS system}
+
+In \cite{schmidt2016survey}, \citeauthor{schmidt2016survey} highlights jamming and spoofing as vulnerabilities affecting the service quality of GNSS systems:
+
+
+\subsubsection{GNSS Jamming}
+GNSS Jamming denotes the deliberate act of disturbing the signals from one or more GNSS satellites, lowering system reliability, utlimately rendering the GNSS devices\footnote{Devices utilising the GNSS system} useless. 
+\subsubsection{GNSS Spoofing} 
+GNSS Spoofing denotes the deliberate act of modifying, or replacing, the signal of one or more satellites, which could result in GNSS device position or timestamp calculation errors. Ultimately the GPS spoofing remains undetected for a sufficient time frame in order to achieve the desired effect on the target.
+
+
+
+
+
+\subsection{Attacks targeting the PTP systems}
+
+
+Several attacks targeting the \acrlong{ptp} are being described by \citeauthor{alghamdi2021precision} in \cite{alghamdi2021precision}:
+
+
+
+
+
+
+
+
+
+Attack types:
+\begin{itemize}
+    \item \textbf{Simple internal attack}  
+    \item \textbf{Advanced internal attack}
+    \item \textbf{External attack} 
+\end{itemize}
+
+Attacker types:
+\begin{itemize}
+    \item \textbf{man in the middle attacker}  
+    \item \textbf{packet injector attacker}
+\end{itemize}
+
+
+Safeguards: \textit{SEVERAL SAFEGUARDS TO BE DESCRIBED}
+
+
+
+
+In \cite{alghamdi2021precision}, \citeauthor{alghamdi2021precision} specifies the following attack types:
+
+\begin{itemize}
+
+\item A \textbf{Packet Content Manipulation Attack} involves the modification of network packets affecting suitable timeprotocol fields, mainly related to the alteration of time synchronisation values. 
+\item A \textbf{Packet Removal Attack} constitutes the removal of time protocol packages, thereby introducing time synchronisation errors.
+\item A \textbf{Packet Delay Manipulation Attack} involves deliberately delaying the transmission of time protocol packets, thereby introducing time synchronisations error caused by the late arrival of some packets.
+\item A \textbf{Time Source Degradation Attack} is the result of a time source degradation, deliberately altering the time of a master time source, thereby deliberately degrading the quality of a number of downstream clock associated with the master time source. 
+\item A \textbf{Master Spoofing Attack} involves the deliberate replacement of the true master time source with a phony one.   
+\item A \textbf{Slave Spoofing Attack} involves the deliberate replacement of the true slave time source with a phony one. 
+\item A \textbf{Replay Attack} involves the delayed un-altered transmission of prerecorded packets, thereby intorducing time synchronisation errors.
+\item A \textbf{BMCA Attack} involves the deliberate tampering of the master clock selection algorithm, introducing a new master clock, thereby taking control over time synchronisation.
+\item A \textbf{Denial of Service Attack} involves the deliberate interruption of access to the service under attack in a number of ways, as described in the previous chapter.
+\end{itemize}
+
+
+

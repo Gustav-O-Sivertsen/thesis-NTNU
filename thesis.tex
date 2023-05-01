@@ -1,10 +1,9 @@
 %\documentclass[british]{ntnuthesis}
-\documentclass[british,titlepage]{ntnuthesis}
+\documentclass[british,titlepage,twoside]{ntnuthesis}
 \setlength{\parindent}{0em}
 %\renewcommand{\baselinestretch}{1.5} 
-\title{Smart Grid Wide Area Measurement System\\ Time Synchronisation Attack\\  
-Detection and Mitigation}
-\shorttitle{SG WAMS TSA Detection and Mitigation}
+\title{Effects of Selected\\ Phasor Measurement Unit\\ Time Delay Attacks}
+\shorttitle{Effects of selected PMU time delay attacks}
 \author{Gustav Oskar Sivertsen}
 \shortauthor{Gustav O. Sivertsen}
 %\date{CC-BY \ntnuthesisdate}
@@ -18,9 +17,9 @@ Detection and Mitigation}
 %\setglossarystyle{index}
 %\setglossarystyle{listdotted}
 \usepackage{floatflt}
-
+\usepackage{setspace}
 %\usepackage{natbib}
- 
+ \usepackage{tocvsec2}
 \makeglossaries
 %\addbibresource{thesis-template.bib}
 \addbibresource{thesis.bib}
@@ -43,7 +42,7 @@ Detection and Mitigation}
         {\printnames[labelname][-\value{listtotal}]{labelname}}
         {\ifciteseen
           {\printnames{shortauthor}}
-          {\printnames[labelname][-\value{listtotal}]{author}\addspace\printnames[sabrackets]{shortauthor}}}%
+          {\printnames[labelname][-\value{listtotal}]{author}\addspace\printnames[sabrackets]{shortauthor}}}
 %      \setunit{\nameyeardelim}%
 %      \usebibmacro{cite:plabelyear+extrayear}%
       \savefield{namehash}{\cbx@lasthash}}}%
@@ -54,36 +53,44 @@ Detection and Mitigation}
    \usebibmacro{prenote}}
   {\usebibmacro{citeindex}%
    \usebibmacro{cite:author}}
-  {}
-  {\usebibmacro{postnote}}
+  %{}
+  %{\usebibmacro{postnote}}https://www.overleaf.com/project/5e2c288573fa800001d123b0
 
 \makeatother
 
 
 
+
+
 \begin{document}
+
+
+\setstretch{1.05}
 
 \input{chapters/0a-abstract.tex}
 \input{chapters/0b-sammendrag.tex}
 \input{chapters/0d-Acknowledgments.tex}
 
-\tableofcontents
 \listoffigures
 %\listoftables
+
+ \input{chapters/99-acronyms}
+ \tableofcontents
+
 %\lstlistoflistings
+
 \input{chapters/01-introduction}
 \input{chapters/02-Concepts}
-\input{chapters/03-SmartGridSecurity}
-\input{chapters/04-TSA-Detection}
-\input{chapters/05-TSA-Mitigation}
-%\input{chapters/06-DDoS-Attacks}
-\input{chapters/07-Method}
-\input{chapters/08-Results}
-\input{chapters/09-Discussion}
-\input{chapters/10-Conclusion}
+\input{chapters/03-SmartGridWAMS}
+\input{chapters/04-SmartGridSecurity}
+\input{chapters/05-Attacks}
+%\input{chapters/06-Simulation}
+\input{chapters/06-Method}
+\input{chapters/07-Results}
+\input{chapters/08-Discussion}
+\input{chapters/09-Conclusion}
 %\input{chapters/92-usage.tex}
 %\input{chapters/93-structure.tex}
-\input{chapters/99-acronyms}
 
 \chapter*{Bibliography}
 \printbibliography[heading=none]
@@ -93,5 +100,12 @@ Detection and Mitigation}
 
 %\appendix
 %\input{appendices/a-appendix}
+
+
+
+%\input{chapters/04-TSA-Detection}
+%\input{chapters/05-TSA-Mitigation}
+%\input{chapters/06-DDoS-Attacks}
+
 
 \end{document}
