@@ -187,21 +187,23 @@ As the plan of the threat actor is to expose  a number of \acrshort{pmu}s to a t
 In order to complete one iteration of the simulation, each step should be completed, as required.
 \begin{enumerate}
     \item Start Matlab
-    \item Open a MATLAB script, to be specified.
+    \item Open a MATLAB script, named \textbf{PMUsimScript.m}.
     \item Inspect and modify a selection of variables, and execute the script for each run. The script will produce:
     \begin{enumerate}
     \item Output data logged to workspace according to the model.
-    \item One figure for each of the PMU components "Angle", "Frequency" and "Magnitude".
+    \item For each variation, a numeric comparison, followed by a corresponding colored (Green/Red) similarity classification.
+    \item One combined figure showing original and delayed signal, as well as one figure for each of the PMU components "Angle", "Frequency" and "Magnitude".
     \item The figures are stored as specified in the MATLAB script.
     \end{enumerate}
-    \item Planned analysis is to be determined. 
+    \item Planned analysis is to be determined, using component output generated. 
 \end{enumerate}
 Assumptions: 
 Focus on a few optional tolerance levels. One Option: Assume a similarity of 0.95 to be hardly detectable.  
 \begin{itemize}
-    \item Use the Simulation Data Inspector for graph comparisons.
-    \item Compare the original/native signal with the delayed version, by tolerance level.
-    \item Tolerance levels: $1\% (0.01)$, $5\% (0.05)$ and $10\% (0.1)$ 
+    \item Use the lowermost drawings appearing in each component output generated for graph comparisons.
+    \item Visually inspect the green portion, indicating tolerable difference as well as any red portions.
+    \item The graphs may provide indications on attack stealthiness, by no, (or minimal) red portions in the lower drawing. 
+    \item Tolerance levels: $1\% (0.01)$, $5\% (0.05)$ and $10\% (0.1)$ For now $1\%$ is covered.
 \end{itemize}
 
 \begin{enumerate}
@@ -221,16 +223,14 @@ The experiments will focus on various levels of assumed detection thresholds.
 
 My experiments will cover a selection of attack strategies for the selection of threshold levels of $1\%$, $5\%$ and $10\%$ similarities.
 
-\begin{itemize}
-    \item Square pulse signal: off, constant-delay, off
-    \item Increasing delay, drop to 0 before simulation end
-    \item Increasing delay, decreasing to 0 before simulation end
-    \item Constant delay: dela on for the duration of the simulation
-\end{itemize}
+\begin{enumerate}
+    \item \textbf{d\_mode = 1:} Delay on a constant level for the entire duration of the simulation. 
+    \item \textbf{d\_mode = 2:} Square pulse signal: Starting off, turning constant-delay on,  before dropping to 0 before simulation end. 
+    \item \textbf{d\_mode = 3:} Increasing to delay level specified, before dropping to 0 before simulation end. 
+    %\item Increasing delay, drop to 0 before simulation end
+\end{enumerate}
 
-The current figures of chapter \ref{chap:Results} are produced by exposing the PMU to a square pulse delay.
-%
-
+The current figures of chapter \ref{chap:Results} are produced by exposing the PMU to a variety of \textbf{d\_mode}s, as well as a selection of delay levels.
 
 
 
