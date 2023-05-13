@@ -3,7 +3,7 @@
 
 %[Introduction:] The introduction would serve the same purpose as for a smaller research project described in \cref{sec:development}, but would normally be somewhat more extensive. The \emph{agenda} part should inform the reader about the structure of the rest of the document, since this may vary significantly between theses.
 
-During the last few centuries, the society  has become increasingly dependant on access to a stable and reliant supply of electrical power. The usage of electrical power in order to provide heating, lighting, as well as running various electrical appliances, like washing machines and wireless access points, has created an increased demand for electricity. The increased demand for electricity has transformed the classical \acrfull{pg} infrastructure, initially consisting of local electricity distribution infrastructure,  into a nationwide power distribution infrastructure network, known as the \acrfull{sg}.
+During the last few centuries, the society  has become increasingly dependant on access to a stable and reliant supply of electrical power. The usage of electrical power in order to provide heating, lighting, as well as running various electrical appliances, like washing machines and wireless access points, has created an increased demand for electricity. The increased demand for electricity has transformed the classical \acrfull{pg} infrastructure, initially consisting of local electricity distribution infrastructure,  into a nation-wide power distribution infrastructure network, known as the \acrfull{sg}.
 
 
 
@@ -16,9 +16,9 @@ As described in \cite{BlumeStevenW2007Epsb}, electricity is supplied by the Powe
 
 
 The classic \acrlong{pg} was under manual and centralised control, and monitored through a centralised and unidirectional \acrfull{scada} system.
-The society has, over the last few decades, become ever more dependant on a reliable supply of electrical power. Power outages will result in reduced temperature in buildings lacking alternative sources of heating, as well as the absence of services vital to society, like electronic payments, telecommunications, and transportation.
+The progressively increasing dependency on a reliable supply of electrical power makes it vital to avoid power outages, which will result in reduced temperature in buildings lacking alternative sources of heating, as well as the absence of vital services, like electronic payments, telecommunications, and transportation.
 %As described in \cite{rehmani2019software}, the traditional \acrlong{pg} has proven to be unable to meet the demands of the future for a flexible and reliable power distribution system.
-Therefore, several organisations\footnote{like the \acrfull{nist}, amongst others.} has made considerable efforts in order to produce standards defining the  power distribution system of the future: The \acrfull{sg}.
+Therefore, several organisations, like the \acrfull{nist} and the \acrfull{ieee}\footnote{amongst others.} has made considerable efforts in order to produce standards, in order to define the \acrlong{sg}.
 
 
 \subsection{The conversion of the Power Grid to the Smart Grid.}
@@ -27,13 +27,12 @@ Therefore, several organisations\footnote{like the \acrfull{nist}, amongst other
 
 %As described in \cite{greer2014nist} and  \cite{MRABET2018469}, the  \acrlong{sg} consists of seven domains, defined as presented in table \ref{tab:SmartGRID-Roles-of-domains}
 
-In order to address the future demands from the modern society for a reliant and sufficient supply of electrical power, the uni-directional control mechanisms of the traditional power grid is replaced by the bidirectional flow of information characteristic of the modern \acrshort{sg}. The control mechanisms of the modern \acrshort{sg} infrastructure is utilising standardised computer networking technology for bidrectional communication.  In order to fulfill the requirements of two-directional status monitoring, infrastructure management, and demand-driven supply of electricity, the power infrastrsucture is connected to the Internet. 
+In order to address the future demands for electrical power, the uni-directional control mechanisms of the traditional power grid is replaced by the bidirectional flow of information characteristic of the modern \acrshort{sg}. The control mechanisms of the modern \acrshort{sg} infrastructure is utilising standardised computer networking technology for bidrectional communication.  In order to meet the new requirements for monitoring, the \acrshort{pg} is connected to the Internet. 
 The authors of \cite{colak2020effects}  describes the transition from the classical power grid to the smart grid as unavoidable.
-
 %The \acrfull{sg} is the modern improvement of the classical \acrfull{pg}, meeting the increased demand for a more reliable, stable and flexible power distribution infrastructure.
 
-In order to meet the \acrfull{sg} requirements for two-way monitoring  and control capabilities, the \acrfull{wams} has been implemented.
-The \acrshort{wams} connects \acrlong{pmu}s connected with syncophasors to the \acrshort{sg} Control Center, enabling the operators to get a more fine-grained view of the operational state of the \acrshort{sg}.
+For the system to meet the \acrlong{sg} monitoring  and control capability requirements, the \acrfull{wams} has been implemented. 
+A number of \acrlong{pmu}s are connected to a \acrlong{pdc}, which transmits synchronised phasors to the \acrshort{wams} Control Center. The usage of the resulting synchrophasors enables the \acrshort{sg} operators to get a more fine-grained view of the operational state of the \acrshort{sg}, than obtainable by a classic \acrshort{scada} system. As part of a modern \acrshort{wams} system, \acrfull{se} algorithms has been developed, in order to counter cyber attacks or unintentional \acrshort{pg} failures. In addition to the \acrshort{se} algorithms, several security enhancements to relevant \acrshort{sg} protocols are being implemented in an attempt to reduce the attack surface available to potential threat actors.
 
 
 
@@ -42,47 +41,50 @@ The \acrshort{wams} connects \acrlong{pmu}s connected with syncophasors to the \
 
 
 \subsection{Security vulnerabilities of the Smart Grid WAMS}
+As a consequence of the \acrlong{sg} infrastructure being connected to the Internet, the infrastructure is becoming vulnerable to cyber attacks.   The \acrlong{sg} \acrlong{wams} is the main control system of the \acrshort{sg} and, as such, constitutes a complex system vulnerable to numerous cyber attacks, as identified by several papers,  like for instance \cite{li2019review} and  \cite{kateb2018enhancing}.
 
-As a consequence of the \acrshort{sg} infrastructure being connected to the Internet, the infrastructure is becoming vulnerable to Cyber attacks.   The \acrlong{sg} \acrlong{wams} is the main control system of the \acrshort{sg} and, as such, constitutes a tempting cyber attack target, as identified by numerous papers, \textbf{like for instance .... \#\#}. 
-The modern interconnected \acrshort{sg}, featuring a \acrshort{wams} system receiving an increasing number of synchronised phasors,\footnote{Phasors are synchronised at \acrshort{pmu}s, before being transferred via \acrshort{pdc}s to the WAMS,}  is increasingly dependant on Synchronised time.
-
+The modern interconnected \acrshort{sg}, featuring a \acrshort{wams} system receiving an increasing number of synchronised phasors,\footnote{Phasors are synchronised at \acrshort{pmu}s, before being transferred via \acrshort{pdc}s to the WAMS,}  is increasingly dependant on synchronised time.
 %As explained by \cite{xue2021data}, a \acrlong{tsa} might be successfully completed without prior knowledge of the infrastructure being targeted. \\ 
-
 %Given the vulnerability of the \acrshort{gnss} to \acrshort{tsa}, the ever increasing likelihood of one or more of the \acrshort{pmu}s of the \acrshort{sg} \acrshort{wams} being the target of a \acrshort{tsa} causing any kind of havoc to the grid, makes this topic vital for further studies.
-
-In \cite{ullmann2009delay}, several types of attacks are identified. Most of the attacks described by \citeauthor{ullmann2009delay}in \cite{ullmann2009delay}, with the exception of the "Delay of synchronization messages" attack are, to some extent, being mitigated by various means. The Delay  synchronization messages attack however, may\footnote{if performed by a sophisticated threat actor having sufficient knowledge of valid traffic patterns.} prove to be a stealthy attack, thereby avoiding detection.  The aim of these sophisticated threat actors would, therefore, be to stay undetected, while creating a substantial amount of disturbance to the operation of the \acrshort{sg}.
-
+In \cite{ullmann2009delay}, several types of cyber attacks are identified. Most of the attacks described by \citeauthor{ullmann2009delay}in \cite{ullmann2009delay}, with the exception of the "Delay of synchronization messages" attack are, to some extent, being mitigated by various means. The 
+Delay  synchronization messages attack however, may\footnote{if performed by a sophisticated threat actor having sufficient knowledge of valid traffic patterns.} prove to be a stealthy attack, thereby avoiding detection.  The aim of these sophisticated threat actors would, therefore, be to stay undetected, while creating a substantial amount of disturbance to the operation of the \acrshort{sg}. \\ 
 % Given the aforementioned tendency of going online with components essential to the proper control of the \acrshort{sg}, opens the possibilities for attackers to  interfere with, for instance,  unencrypted synchrophasor data transmission from \acrlong{pmu}s to their corresponding \acrlong{pdc}s, by exposing them to a \acrlong{mitm} attack.
-
 %A presentation of various attack strategies are given by \citeauthor{li2019review} in \cite{li2019review}, as well as by \citeauthor{paudel2017attack}in \cite{paudel2017attack}.
-
 %The scope of my master thesis, will be to investigate vulnerabilities of \acrfull{tsa}, targeting the \acrfull{wams} in order to disturb proper \acrshort{sg} operation.
-
-
 %The scope of my master thesis, will be to investigate vulnerabilities of the synchrophasor protocols, targeting the \acrfull{wams} in order to disturb proper \acrshort{sg} operation.
+My thesis will be focusing on time delay attacks against \acrshort{pmu}s, and investigate which effects a number of selected delay attacks may have on the \acrshort{pmu} output, as visualised by a simulation. 
 
-My thesis will be focusing on time delay attacks against \acrshort{pmu}s, and investigate the effects a delay attack has on the phasors being forwarded to the WAMS for monitoring purposes. 
 
 \section{Definition of scope}
-The introduction of Synchrophasors have enabled the \acrshort{sg} operators to gain control over the operational state of the modern \acrlong{pg}, to an extent not obtainable by traditional SCADA systems. \textbf{REF!} As described by  \cite{ullmann2009delay}, the standardisation of Synchrophasor data transmissions from \acrshort{pmu}s via \acrshort{pdc} to the \acrshort{wams} will, with the introduction of transmission encryption, as well as improved \acrlong{se} algorithms, impose increasingly higher levels of security to the \acrlong{sg}. 
-As further described by \cite{ullmann2009delay}, the \acrshort{ptp} delay attack still remains a threat to the \acrlong{ptp} which, according to \cite{bishop2022iec}, is identified as the preferred standard to be used for Time Synchronisation  for \acrshort{sg}s operating according to the IEC 61850 standard.
-Additionally, as \citeauthor{moussa2016security}denotes in \textbf{TABLE II} of \cite[p. 1959]{moussa2016security}, the paper \cite{ullmann2009delay},\footnote{Identifiable as reference [13] in \cite{moussa2016security}.} is lacking experimental verification of the attack, the countermeasures suggested, as well as any effects of the \acrshort{ptp} delay attack. 
-On the other hand, the quantitative study of \cite{ullmann2009delay}, is evaluating the consequences of the \acrshort{ptp} delay attack.\footnote{ as identified by the \textbf{Advantage} column of \textbf{TABLE II} of \cite[p. 1959]{moussa2016security}. }
-Given the absence of experimental verification, identified by \cite{moussa2016security} as a disadvantage of \cite{ullmann2009delay}, my aim is to contribute by investigating possible effects of \acrshort{ptp} delay attacks. My aim is to investigate possible effects of comparing the original signal from a PMU, with the simulated delayed version of the same original PMU signal. \\
+
+%The introduction of Synchrophasors have enabled the \acrshort{sg} operators to gain increased\footnote{as compared to the traditional SCADA system} control over the operational state of the modern \acrlong{pg}. 
+%As described by  \cite{ullmann2009delay}, the standardisation of Synchrophasor data transmissions will, with the introduction of transmission encryption, impose increasingly higher levels of security to the \acrlong{sg}. 
+%As further described by \cite{ullmann2009delay}, the \acrlong{tda} still remains a threat to the \acrlong{ptp}.% which, according to \cite{bishop2022iec}, is identified as the preferred standard to be used for Time Synchronisation  for \acrshort{sg}s operating according to the IEC 61850 standard.
+
+
+As \citeauthor{moussa2016security}denotes in \textbf{TABLE II} of \cite[p. 1959]{moussa2016security}, the paper \cite{ullmann2009delay}\footnote{ The paper, entitled "Delay attacks — Implication on NTP and PTP Time Synchronization",\\ is  identifiable as reference [13] in \cite{moussa2016security}.} by \citeauthor{ullmann2009delay}, is lacking experimental verification of the attack, the countermeasures  
+suggested, \textit{as well as any effects of the \acrshort{ptp} delay attack}. 
+
+%On the other hand, the quantitative study of \cite{ullmann2009delay}, is evaluating the consequences of the \acrshort{ptp} delay attack.\footnote{ as identified by the \textbf{Advantage} column of \textbf{TABLE II} of \cite[p. 1959]{moussa2016security}. }\\ 
+Given the unresolved \acrshort{tda} vulnerability of the \acrshort{ptp}, in addition to the absence of a description of any effects of the attack, identified by \cite{moussa2016security} as a disadvantage of \cite{ullmann2009delay}, my contribution will, specifically, be to investigate possible effects of exposing a \acrlong{pmu} to a \acrlong{tda}. 
 %The simulation is performed by producing a new signal by shifting the original signal by a number of steps, according to the formula $y(timeStamp)= x(timeStamp + delay)$.
-
-The main goal of my project, is thus to investigate potential effects a time delay attack might have on PMU output. 
-Given an attack stealthiness requirement: Which delay level produces a result within the graph signal similarity tolerance level specified?
-
-
-
+%Given an attack stealthiness requirement, which delay level produces a result within the graph signal similarity tolerance level specified?
+%In order to limit the scope of my investigation, two categories of attacks are specified:
+%\begin{enumerate}
+%    \item An attack by which the delay level is 0 before the attack, and increasing instantly to the specified level is reached.
+%    \item An attack by which the delay level is 0 before the attack, and increasing one sample each second until the specified level. 
+%    
+%\end{enumerate}
+%In each case, the attack is initiated at a specified sample time, and terminated at a specified time during the time span of the simulation. The termination of a real Time Delay attack could be intentional\footnote{Like the simulated controlled attack termination initiated by the threat actor}, or caused by a genuine synchronisation of the PTP clock under attack.
 \section{Research questions}
-In order to proceed with the \acrshort{ptp} delay attack vulnerability investigation, I have selected the following research questions:
+The main goal of my project, is thus to investigate which potential effects a selection of \acrlong{tda}s might have on \acrshort{pmu} output. 
+
+In order to proceed with the \acrlong{tda} vulnerability investigation, I have selected the following research questions:
 
 \begin{enumerate}
-    \item Which effects do the time delay attack have on PMU output?
-    \item For a selected similarity requirement, what delay level could be within similarity tolerance levels?
-    \item What would characterise the optimal delay function, for the malicious actor to stay undetected?    
+    \item Which effects of the time delay attack simulations covered by this study, is observable on the visualised output of the PMU simulated?
+    \item For a selected similarity requirement, what delay level could be observed as being within similarity tolerance levels?
+    \item Which of the delay functions covered would be preferred, in order for the malicious threat actor to stay undetected?    
 
     %\item How might a \acrshort{sp} attack be mitigated?
     %\item Investigate the GPS spoofing vulnerability of the \acrshort{sg} monitoring and control system.
@@ -92,8 +94,7 @@ In order to proceed with the \acrshort{ptp} delay attack vulnerability investiga
     %\item 
 \end{enumerate}
 
-
-In order to investigate the concept further, I will conduct a theoretical study of relevant concepts, before performing a number of experiments in order to be able to answer the research questions. 
+In order to investigate the concept further, I will conduct a theoretical study of relevant concepts, before performing a number of experiments before discussing the results presented, with the aim of being able to conclude on possible answers to the research questions. 
 
 
 
@@ -102,11 +103,12 @@ In order to investigate the concept further, I will conduct a theoretical study 
 %Following the introductory study of the concept of the \acrshort{sg}, I will study relevant protocols, before investigating the nature of a number of  time delay attacks.
 
 
-This introductory chapter is followed by a background chapter, introducing related concepts like time synchronisation and relevant protocols, before covering the main \acrlong{sg} components and characteristics.
-A chapter on \acrlong{sg} security, follows, including a cyber security vulnerability assessments of the \acrshort{sg}. As the main focus will be on \acrshort{sp} attack vulnerabilities, the \acrshort{sg} Control System, as well as the dependability of correct Time Synchronisation data, and finally time synchronisation attack vulnerabilities, are covered. 
+This introductory chapter is followed by a theoretical part, consisting of a chapter introducing the (smart) power grid, followed by a chapters covering topics like the \acrshort{wams} control system, monitoring of power flows status information being transmitted to the control system, and cyber attacks and threat actors. 
+%A chapter on \acrlong{sg} security, follows, including a cyber security vulnerability assessments of the \acrshort{sg}. As the main focus will be on \acrshort{sp} attack vulnerabilities, the \acrshort{sg} Control System, as well as the dependability of correct Time Synchronisation data, and finally time synchronisation attack vulnerabilities, are covered. 
 %In order to investigate the \acrshort{sp} attack  vulnerabilities of the \acrlong{sg}, a chapter presenting aa number of \acrshort{sp}s, covering ther vulnerabilities,   attack detection and mitigation techniques follows the chapter on \acrshort{sg} security.
 %The chapter on TSA detection and mitigation techniques is 
-My thesis is finalised by the inclusion of chapters defining methodology, experiments, and results, before the discussion and conclusion chapters at the end of the thesis. 
+The remaining chapters covers the experimental investigation of the \acrlong{tda} on \acrlong{pmu} output. The methodology chapter includes a detailed description of the model implementation and usage, before a number of experiments are presented and described in detail.
+My thesis is finalised by the inclusion of a chapter presenting results, before the discussion and conclusion chapters, including the suggestions for future work, at the end of the thesis. 
 %\begin{itemize}
 %    \item A description of the various parts of the architecture of the \acrshort{sg}.
  %   \item A presentation of a selection of previous vulnerability assessments of the \acrshort{sg} related to the confidentiality, integrity, availability and accountability of the \acrshort{sg}, in order to identify any vulnerabilities related to  denial of service attacks.

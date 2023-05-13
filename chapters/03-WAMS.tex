@@ -1,8 +1,35 @@
+\chapter{The Power Grid Control System}
+%Control system
+\section{The Conventional Power grid control system}
+%- SCADA (historical)
 
-\chapter{The Smart Grid Control System}
+%\subsection{The Classic SCADA subsystem}
+
+The \acrshort{scada} system constituted the core part of the control center of the classic \acrlong{pg}, utilising one-directional communication lines in order to manually control and monitor the operational state of the power grid.
+
+Figure \ref{fig:Blume-SCADA-system} shows the main components of the SCADA system.
+
+\begin{figure}[ht]
+\includegraphics[width=\linewidth]{figures/Blume-SCADA-system.png}
+\caption[SCADA system]{SCADA system , as presented in \cite{BlumeStevenW2007Epsb}}
+\label{fig:Blume-SCADA-system}
+\end{figure}
+
+%[ \fullcite{el2008introduction} ] \\ 
 
 
-\section{Introduction}
+A centrally located control center, optionally being backed up by control centers at one or more locations for redundancy, displays status information from the equipment at the associated substations, received for monitoring purposes. As a response to alarms indicating operational issues, commands enabling remote control of affected infrastructure is issued in order to address the issue, in order to resolve the issue and receive updated status information clearing the alarm. 
+
+
+
+
+%\section{Description}
+%- WAMS description
+
+\section{The Smart Grid Control System}
+
+
+\subsection{Introduction}
 
 Analogous with the modernisation of the classic \acrlong{pg} into the \acrlong{sg}, the \acrshort{scada} subsystem of the \acrshort{pg} is the predecessor of the control system of the modern \acrlong{sg}.
 Therefore, a description of the \acrshort{scada} system, evolving from the centralised subsystem controlling the Classic \acrshort{pg}, to the modernised version of the \acrshort{scada} subsystem, initiates the description of the \acrlong{sg} Control System. 
@@ -68,7 +95,7 @@ In order to address these shortcomings, the \acrfull{wams} system\footnote{WAMS 
 
 
 
-\subsection{Smart Grid  Control system}
+\subsection{Description of the Smart Grid  Control system}
 The \acrlong{sg} system constitutes a complex system of subsystems, which proper operation is a prerequisite for the successful transmission of electric energy from producers to consumers, according to the current demand for energy, as controlled by the Demand Management system, dynamically adjusting the energy supply accordingly. In order to successfully reply to the dynamically changing demands for energy, a close monitoring of the production and transmission of energy through the Wide Area network is required. \\ 
 
 The \acrshort{sg} consists of a vast number of both conventional and modern, more dynamic, production facilities, which requires thorough monitoring in order to ensure the optimal distribution of electrical energy. The requirement of a consistently stable and reliable supply of energy is constant, while the amount of energy demanded is dynamically changing according to the demand for power at any time. \\ 
@@ -81,16 +108,8 @@ The correctness of this time source is critical to the reliability, and therefor
 
 
 
-\section{WAMS state estimation}
-In order to monitor 
 
-
-\subsection{WAMS Security} 
-
-The \acrfull{sg} \acrfull{wams} is a \acrshort{sg} subsystem enabling \acrshort{sg} system operators to monitor the state of \acrshort{sg} energy flow, and general system state. 
-A vital requirement for the view of the current state of the \acrshort{sg} energy distribution to be correct is, as described in previous chapters, the ability of the \acrshort{wams} Super \acrshort{pdc}  to utilise synchrophasors collected from the \acrshort{pdc}s to produce a view of the system state. In order for the view to be correct, however, the correctness of the timestamps i critical.  Therefore, in order to produce correct time stamps, the reliability of the Time Synchronisation source is of Critical importance.
-
-
+\
 % In \cite{el2018cyber}, \citeauthor{el2018cyber} ...
  
 
@@ -100,3 +119,71 @@ A vital requirement for the view of the current state of the \acrshort{sg} energ
 
 
 
+
+\section{Advantages}
+%  - advantages
+\section{Security Issues}
+%  - security issues
+%\subsection{WAMS Security} 
+
+The \acrfull{sg} \acrfull{wams} is a \acrshort{sg} subsystem enabling \acrshort{sg} system operators to monitor the state of \acrshort{sg} energy flow, and general system state. 
+A vital requirement for the view of the current state of the \acrshort{sg} energy distribution to be correct is, as described in previous chapters, the ability of the \acrshort{wams} Super \acrshort{pdc}  to utilise synchrophasors collected from the \acrshort{pdc}s to produce a view of the system state. In order for the view to be correct, however, the correctness of the timestamps i critical.  Therefore, in order to produce correct time stamps, the reliability of the Time Synchronisation source is of Critical importance.
+
+
+\section{State Estimation}
+
+%  - State Estimation: Intro, to explain means to improve grid security.
+
+%\section{WAMS state estimation}
+In order to monitor 
+
+\section{Wide Area Measurement System}
+\begin{figure}[ht]
+\includegraphics[width=\linewidth]{figures/Kumar-WAMS-architecture.png}
+\caption[WAMS architecture]{WAMS architecture, as presented in \cite{kumar2015monitoring}}
+\label{fig:Kumar-WAMS-architecture}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+\textit{DESCRIPTION:}
+\textbf{\cite{kumar2015monitoring} \fullcite{kumar2015monitoring} }
+
+
+    
+
+In order to ensure the continuous monitoring of the modern \acrlong{sg} energy distribution system, the \acrfull{wams} is utilised. An overview of the \acrshort{wams} architecture, as presented in   \cite{kumar2015monitoring}, is shown as \figureautorefname  { } \ref{fig:Kumar-WAMS-architecture}:
+
+The \acrshort{wams} is, as described in  \cite{kumar2015monitoring}, a  system, consisting of:
+
+(1) \acrshort{pmu}s, (2) \acrshort{pdc}s, (3) The super \acrshort{pdc}, and (4) Communication networks.
+
+The various components might be described as follows, from (4) to (1):
+\begin{itemize}
+    \item The \textbf{Communication Networks}, providing data transport between \acrshort{wams} components, as required.
+    \item The \textbf{Super \acrshort{pdc}} controls several \acrshort{pdc}s constituting a distributed \acrshort{wams}.
+\item The \textbf{\acrfull{pdc}} is responsible for collecting and interpreting \acrshort{pmu} measurements, before synchronising the measurements according to timestamps, in order to get more complete status information based on a combination of measurements.
+    \item The \textbf{\acrfull{pmu}} is an intelligent measuring device, responsible for registering sensor measurements,  performing calculations like, for instance, phase angles, as well as voltage and current magnitudes. The data registered and processed by the \acrshort{pmu}, is transferred to the nearest \acrshort{pdc}.
+    \end{itemize}
+
+\begin{figure}%[ht]
+\includegraphics[width=\linewidth]{figures/PMU-in-out.png}
+\caption[PMU inputs and outputs]{PMU inputs and outputs, as presented in \Cite[p.12]{iec2018measuring}
+}
+\label{fig:PMU-in-out}
+\end{figure}
+
+\begin{figure}%[ht]
+    \centering
+    \includegraphics[ width=\textwidth]{figures/syncrophasors-vs-scada.png}
+    \caption[Difference between Synchrophasor and SCADA measurements]{As presented in \cite[p. 3]{dagle2019importance}: Notional representation of the difference between synchrophasor and SCADA
+measurement. Figure credit: \citeauthor{dagle2019importance}}.
+    \label{fig:syncrophasors-vs-scada}
+\end{figure}  
