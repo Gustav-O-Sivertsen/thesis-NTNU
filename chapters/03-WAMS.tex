@@ -95,8 +95,6 @@ In order to address these shortcomings, the \acrfull{wams} system\footnote{WAMS 
 
 
 
-\subsection{Description of the Smart Grid  Control system}
-The \acrlong{sg} system constitutes a complex system of subsystems, which proper operation is a prerequisite for the successful transmission of electric energy from producers to consumers, according to the current demand for energy, as controlled by the Demand Management system, dynamically adjusting the energy supply accordingly. In order to successfully reply to the dynamically changing demands for energy, a close monitoring of the production and transmission of energy through the Wide Area network is required. \\ 
 
 The \acrshort{sg} consists of a vast number of both conventional and modern, more dynamic, production facilities, which requires thorough monitoring in order to ensure the optimal distribution of electrical energy. The requirement of a consistently stable and reliable supply of energy is constant, while the amount of energy demanded is dynamically changing according to the demand for power at any time. \\ 
 
@@ -153,10 +151,6 @@ In order to monitor
 
 
 
-\textit{DESCRIPTION:}
-\textbf{\cite{kumar2015monitoring} \fullcite{kumar2015monitoring} }
-
-
     
 
 In order to ensure the continuous monitoring of the modern \acrlong{sg} energy distribution system, the \acrfull{wams} is utilised. An overview of the \acrshort{wams} architecture, as presented in   \cite{kumar2015monitoring}, is shown as \figureautorefname  { } \ref{fig:Kumar-WAMS-architecture}:
@@ -173,17 +167,4 @@ The various components might be described as follows, from (4) to (1):
     \item The \textbf{\acrfull{pmu}} is an intelligent measuring device, responsible for registering sensor measurements,  performing calculations like, for instance, phase angles, as well as voltage and current magnitudes. The data registered and processed by the \acrshort{pmu}, is transferred to the nearest \acrshort{pdc}.
     \end{itemize}
 
-\begin{figure}%[ht]
-\includegraphics[width=\linewidth]{figures/PMU-in-out.png}
-\caption[PMU inputs and outputs]{PMU inputs and outputs, as presented in \Cite[p.12]{iec2018measuring}
-}
-\label{fig:PMU-in-out}
-\end{figure}
 
-\begin{figure}%[ht]
-    \centering
-    \includegraphics[ width=\textwidth]{figures/syncrophasors-vs-scada.png}
-    \caption[Difference between Synchrophasor and SCADA measurements]{As presented in \cite[p. 3]{dagle2019importance}: Notional representation of the difference between synchrophasor and SCADA
-measurement. Figure credit: \citeauthor{dagle2019importance}}.
-    \label{fig:syncrophasors-vs-scada}
-\end{figure}  

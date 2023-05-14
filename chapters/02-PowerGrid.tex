@@ -4,7 +4,7 @@
 
 \chapter{The power grid}
 %\section{History of the power grid}
-%classical power Grid
+%conventional power Grid
 
 
 
@@ -35,7 +35,7 @@ The \acrlong{cpg}, as described in \cite{BlumeStevenW2007Epsb}, consists of the 
  \end{itemize}
 
 As described in Chatpter 2.3 of \cite{Rihan2018} %\cite{SmartGridOverview2013}
-, the classic \acrshort{pg} is facing challenges, related to Black Outs adhering to the increased demands for electrical power . 
+, the \acrlong{cpg} is facing challenges, related to Black Outs adhering to the increased demands for electrical power . 
 
 
 %\section{The Smart Grid}
@@ -45,7 +45,7 @@ As described in Chatpter 2.3 of \cite{Rihan2018} %\cite{SmartGridOverview2013}
 
 
 
-In order to provide a description of the \acrfull{sg}, a description of the characteristics of the classic \acrshort{pg} is provided.
+In order to provide a description of the \acrfull{sg}, a description of the characteristics of the \acrshort{cpg} is provided.
 
 
 
@@ -55,40 +55,16 @@ As described in  \cite{BlumeStevenW2007Epsb} by \citeauthor{BlumeStevenW2007Epsb
 
 \begin{itemize}
 \item Power is generated in real time. In the event a consumer is "flipping a power switch," the power grid must have sufficient resources in order to keep the voltage levels at an acceptable level.
-\item The Classic \acrlong{pg} is controlled by a central management facility known as the \acrfull{scada} subsystem. The monitoring and management of the \acrshort{pg} is initiated from the Control Center, utilising unidirectional communication channels. 
-\item The Classic \acrlong{pg} \acrlong{scada} subsystem is offline, i. e. not connected to any publicly available network. Therefore, operational duties must be performed by personnel physically located at dedicated operational sites.
+\item The \acrlong{cpg} is controlled by a central management facility known as the \acrfull{scada} subsystem. The monitoring and management of the \acrshort{pg} is initiated from the Control Center, utilising unidirectional communication channels. 
+\item The \acrlong{cpg} \acrlong{scada} subsystem is offline, i. e. not connected to any publicly available network. Therefore, operational duties must be performed by personnel physically located at dedicated operational sites.
 
 \end{itemize}
 
-The classic \acrlong{pg} originates from the local society-serving power generation facilities initiating the supply of electrical power, which over the years were interconnected to form a grid, connecting consumers to a network of several power generating facilities, providing a more flexible power distribution infrastructure. 
+The \acrlong{cpg} originates from the local society-serving power generation facilities initiating the supply of electrical power, which over the years were interconnected to form a grid, connecting consumers to a network of several power generating facilities, providing a more flexible power distribution infrastructure. 
 
 
 \subsection{Overview of The Smart Grid}
-The \acrshort{sg} is a part of the Critical Infrastructure of a Society, delivering a constant and reliable flow of stable and electrical power to consumers according to demand, in ways both cost efficient and friendly to the environment. The \acrshort{sg} consists of a modernised \acrshort{pg}, under the control of a network based control system. 
 
-
-
-As described in \cite{gopstein2021nist}, the following may constitute a definition of the \acrlong{sg}:
-
-\begin{displayquote}[{\cite[p 27]{gopstein2021nist}}]
-''A SmartGrid is an electricity network that can intelligently integrate the actions of all
-users connected to it - generators, consumers and those that do both – in order to
-efficiently deliver sustainable, economic and secure electricity supplies.
-A SmartGrid employs innovative products and services together with intelligent monitoring,
-control, communication, and self-healing technologies to:
-\begin{itemize}
-\item better facilitate the connection and operation of generators of all sizes and technologies;
-\item allow consumers to play a part in optimizing the operation of the system;
-\item provide consumers with greater information and choice of supply;
-\item significantly reduce the environmental impact of the whole electricity supply system;
-\item deliver enhanced levels of reliability and security of supply.
-\end{itemize}
-\acrshort{sg} deployment must include not only technology, market and commercial
-considerations, environmental impact, regulatory framework, standardization usage, ICT
-(Information \& Communication Technology) and migration strategy but also societal
-requirements and governmental edicts. 
-'' 
-\end{displayquote}
 
 The \acrfull{nist} has published a conceptual model of the smart grid, as shown in 
 figure \ref{fig:NIST-SmartGRID-ConceptualModel}.
@@ -97,7 +73,7 @@ figure \ref{fig:NIST-SmartGRID-ConceptualModel}.
 
 \begin{figure}[ht]
 \includegraphics[width=\linewidth]{figures/NIST-SmartGRID-ConceptualModel.png}
-\caption[Interactions of roles in SmartGrid Domains]{Interaction of Roles in Different \acrlong{sg} Domains through Secure Communication, as presented in \cite{gopstein2021nist}}
+\caption[Smart Grid Conceptual Model]{Updated \acrlong{sg} conceptual model, as presented in \cite[p. 13]{gopstein2021nist}, Figure 4}
 \label{fig:NIST-SmartGRID-ConceptualModel}
 \end{figure}
 
@@ -106,7 +82,7 @@ figure \ref{fig:NIST-SmartGRID-ConceptualModel}.
 
 
 
-The \acrlong{sg} adds Information and Communication Technology (ICT) to the classic \acrlong{pg}, in order to transform the  unidirectional communication lines of the monitoring and control infrastructure of the \acrlong{cpg}, into an infrastructure utilising two-way communication between the various parts of the \acrlong{sg} infrastructure. 
+The \acrlong{sg} adds Information and Communication Technology (ICT) to the \acrlong{cpg}, in order to transform the  unidirectional communication lines of the monitoring and control infrastructure of the \acrlong{cpg}, into an infrastructure utilising two-way communication between the various parts of the \acrlong{sg} infrastructure. 
 
 
 
@@ -117,7 +93,7 @@ The \acrlong{sg} adds Information and Communication Technology (ICT) to the clas
 %According to \cite[p. 610]{Bîrleanu2019}, the \acrlong{sg} consists of the following subsystems:
 
 %\begin{itemize}
-%\item \textbf{the classic  power grid}
+%\item \textbf{the conventional  power grid}
 %\item \textbf{intelligent equipment} 
 %\item \textbf{communication infrastructure}
 %\end{itemize}
@@ -148,3 +124,21 @@ The \acrshort{sg} consists of seven domains, as shown in \figureautorefname { }\
     \subsubsection{Bulk Generation Domain} The facilities for producing electricity, resides in this domain. In addition to the connection and interaction with  to the Transmission domain, it interacts with the Markets domain, as well as the operations domain.  
     \subsubsection{Transmission Domain} The actors of the Transmission domain aims to reduce energy loss while transmitting a stable and reliable stream of energy from operators in the bulk generation domain to the distribution domain. The market domain provides input on expected level of demand which may require adjustments of the amount of electricity distributed, controlled and monitored by actors in the operation domain.  
     \subsubsection{Distribution Domain} The actors of the Distribution Domain delivers the electricity to consumers according to demand and availability, and monitors generation and consumption data. Bi-directional power-flow is supported. In the case customers have private  power producing facilities, like solar cells and wind turbines, any surplus electricity might be sold, and distributed to other customers.
+
+
+
+
+
+\cite{2021arXiv210311657E} describes communication protocols in \acrshort{sg}.
+\section{Protocols}
+A large number of protocols are defined, in order to standardise the operation of the \acrlong{sg}.
+A small selection of these, relevant for the scope of the thesis, are described underneath.
+
+
+\subsection{Time Synchronisation Protocols}
+Time synchronisation protocols are controlling the synchronisation of time between various devices of the grid, like the PMUs, collecting phasor measurements from a definde number of measuring devices. Synchronised time is crucial in order to ensure each PMU is able to put the correct time stamp on each phasor measurement, before transmitting the resulting synchrophasor for each time stamp, to the destined PDC device. In the event one of the synchrophasors have an erroneous time stamp, an error affecting the integrity of the synchrophasor data is introduced. As described in \cite{moussa2016security}, \acrlong{ptp} synchronisation network
+, as well as \acrlong{gnss} based synchronisation networks, are both capable of producing the precision required by the synchrophasor protocols, as opposed to the more common \acrfull{ntp} commonly used in ordinary computer networks. As my thesis covers \acrshort{ptp} time synchronisation only, my description of time synchronisation protocols is limited to the \acrfull{ptp}.
+
+\subsubsection{Precision Time Protocol}
+
+The \acrfull{ptp} was, as described in \cite{alghamdi2021precision} ...
