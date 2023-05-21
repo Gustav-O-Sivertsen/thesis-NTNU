@@ -12,6 +12,11 @@
 \usepackage{csquotes}
 \usepackage{amsmath}
 \usepackage{array}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\let\includegraphicsold\includegraphics
+\renewcommand{\includegraphics}[2][ ]{\tcbox[size=tight]{\includegraphicsold[#1]{#2}}}
+\usepackage{soul}
 %\setglossarystyle{index}
 %\usepackage{glossary-mcols}
 %\setglossarystyle{index}
@@ -67,7 +72,7 @@
 \begin{document}
 
 
-\setstretch{1.05}
+\setstretch{1.1}
 
 \input{chapters/0a-abstract.tex}
 \input{chapters/0b-sammendrag.tex}
@@ -87,7 +92,7 @@
 \input{chapters/04-Monitoring}
 \input{chapters/05-Attacks}
 \input{chapters/06-Method}
-\input{chapters/07-Results}
+%\input{chapters/07-Results}
 \input{chapters/08-Discussion}
 \input{chapters/09-Conclusion}
 

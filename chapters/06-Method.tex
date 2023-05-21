@@ -5,17 +5,14 @@
 \section{Introduction}
 
 
-As a background for the thesis, a scenario where a threat aactor
- In a preliminary phase of the attack, a phase of attack simulation will provide useful information, aiming to learn more about detection probability, as well as some empirical background for the evaluation of possible consequences.
+As a background for the thesis, assume a threat actor is
+ in a preliminary phase of an attack. The decision to initiate a phase of attack simulation is made, with the aim of gathering useful information in order to learn more about possible risks of being detected, as well as to gain some empirical background for the evaluation of possible consequences of a successful attack.
 The potential outcome of the simulation may be used in order to prepare for attacking the actual infrastructure with attacks with a low attack detection probability and, to the best possible knowledge, with foreseeable consequences of the attack.
 
 As described previously, the aim of the thesis is to investigate any observable effects of specific time delay attack simulations. Such simulations could be executed in a preparation phase, preparing for the execution of an actual time delay attack.
 
- \textbf{Some papers} describes a number of varieties of the PTP delay attack, while \textbf{other papers} describes the attack to have severe consequences to the \acrshort{sg} infrastructure. The primary goal of the actual attack is to stay undetected, while exposing the infrastructure under attack to an attack having the most severe consequences possible, while still avoiding detection.  
+ \hl{Some papers} describes a number of varieties of the PTP delay attack, while \hl{other papers} describes the attack to have severe consequences to the \acrshort{sg} infrastructure. The primary goal of the actual attack is to stay undetected, while exposing the infrastructure under attack to an attack having the most severe consequences possible, while still avoiding detection.  
  
-
-
-As part of the introductory studies of the topic selected, a couple of searches on the NTNU literature search facilities returned a number of books, like \cite{BlumeStevenW2007Epsb} and \cite{kabalci2019smart}, covering introductory chapters on Power Grid and Smart Grid. The introductory chapters heavily relies on descriptions from relevant book chapters. 
 
 
 %For the \acrfull{wams} Security parts, a small number of surveys, as well as a collection of papers are investigated, covering  synchrophasor protocol attack vulnerabilities, highlithing some known side effects of successful synchrophasor protocol attacks. The introductory brief coverage of \acrshort{sg} security, is followed by a coverage of common synchrophasor protocols, focusing on attack vulnerabilities of the protocols covered. \\ 
@@ -41,21 +38,29 @@ As previously discussed, a time delay attack on Synchrophasors imposes a high ri
 Given the high potential for damage, a good option for visualising any potential effects a time delay might have on the values produced by a \acrshort{pmu} under attack, would be to simulate the attacks.
 There exists a number of projects which utilises MATLAB and SIMULINK in order to model power grid components in general and, specifically, \acrshort{pmu}s.
 
+My selected approach, however is to produce a SIMULINK model, using standard components from the Simscape Electrical addon to MATLAB/SIMULINK. The simulation produces pair-wise (original, delayed) PMU output values for each of the channels Magnitude, Angle and Frequency, making them available for comparison and further analysis. \hl{The analytic part could be one obvious candidate for further work.}
 
+%
+%Two identical copies of the PLL PMU is connected to a power source, one directly, the other via the delay function. The resulting output is pair-wise collected to one channel for each of the components Magnitude, frequenct
 
-In order to 
+%In order to 
 
-Based on the findings of the initial literature study concerning vulnerabilities, the literature study continues providing potential scenarios for stealthy MiTM attacks on the synchrophasor transmission system, investigating the success of the attacks maximising side effects while minimising the probability of being detected.
+%Based on the findings of the initial literature study concerning vulnerabilities, the literature study continues providing potential scenarios for stealthy MiTM attacks on the synchrophasor transmission system, investigating the success of the attacks maximising side effects while minimising the probability of being detected.
 
 As the final part of the thesis, a theoretical discussion, aiming to provide answers to the research questions, will be conducted.\\ 
 
-\textbf{TO DO:}
-\textit{As a experimental part of the thesis, possibilities of testing one or more detection and mitigation techniques might provide a contribution to the final discussion and conclusions based on my own experimental results}
+%\textbf{TO DO:}
+%\hl{As a experimental part of the thesis, possibilities of testing one or more detection and mitigation techniques might provide a contribution to the final discussion and conclusions based on my own experimental results}
 
 
 \section{Research Methods}
-
+As the thesis includes both a theoretical, as well as a more practical phase, the methods are dependant on the phase in question.
 %Following the description of your research design, you should also devote a section to describing the research methods you applied during your study. Each design will provide you with many possibilities of methods to use.
+\subsection{Theoretical phase}
+As part of the introductory studies of the topic selected, a couple of searches on the NTNU literature search facilities returned a number of books, like \cite{BlumeStevenW2007Epsb} and \cite{kabalci2019smart}, covering introductory chapters on Power Grid and Smart Grid. The introductory chapters heavily relies on descriptions from relevant book chapters. 
+
+\subsection{Practical phase}
+
 
 In order to provide theoretical evidence on which to answer the research questions, a literature study will be conducted.
 For any experimental results, experiments will be described, implemented and executed.
@@ -64,9 +69,13 @@ For any experimental results, experiments will be described, implemented and exe
 
 %Once you clarified the method you used, it is time to explain exactly WHAT you measured (e.g. service quality, brand image, satisfaction, purchase intention) and HOW you measured
 
-Vulnerability to time-shift attacks are quantified by articles describing theoretical aspects of the mechanisms for the calculation of valid time-stamps, and the inherent tolerance level for calculation errors. Modern Smart Grids require the time deviating from the correct time by a fraction of a millisecond. Specifically, according to \cite[p.  1953]{moussa2016security}, the allowed time deviation for a 50Hz electrical system\footnote{As used in Norway, for instance} must be within $\pm$31.8 microseconds, in order to adhere to the 1$\%$ \acrfull{tve} requirement, as specified by the  IEEE C37.118 standard. \\ 
+%Vulnerability to time-shift attacks are quantified by articles describing theoretical aspects of the mechanisms for the calculation of valid time-stamps, and the inherent tolerance level for calculation errors. 
+%Modern Smart Grids require the time deviating from the correct time by a fraction of a millisecond. Specifically, according to \cite[p.  1953]{moussa2016security}, the allowed time deviation for a 50Hz electrical system\footnote{As used in Norway, for instance} must be within $\pm31.8\mu s$, in order to adhere to the 1$\%$ \acrfull{tve} requirement, as specified by the  IEEE C37.118 standard. \\ 
 
-Experimental investigations reported by articles selected will be provided as relevant examples, in order to support any discussion arguments for the purpose of reaching conclusions.  
+
+The simulations to be defined and executed provides examples of \acrlong{pmu} output, where two identical \acrshort{pmu}s are given a signal from a simulated power source as input. One of the PMUs are fed the original power source signal, whereas the other PMU is fed a delayed version of the original power source signal. The resulting PMU output measurements may be compared for similarity. 
+
+Where possible, experimental investigations reported by articles selected will be provided as relevant examples, in order to support any discussion arguments for the purpose of reaching conclusions.  
 
 \section{Sample}
 
@@ -74,6 +83,11 @@ Experimental investigations reported by articles selected will be provided as re
 The samples for my literature study will be papers relevant for the discussions, in order to provide answers to the research questions.\\ 
 
 Any execution of experiments will provide experimental samples, with the aim of supporting discussions and conclusions.
+The samples originating from the experiments, consists of:
+\begin{itemize}
+    \item Three channels of PMU output, denoted \textbf{Magnitude}, \textbf{Frequency} and \textbf{Angle} 
+    \item Two arrays of numerical values for each channel of PMU output: One for the original signal, the other for the delayed signal. 
+\end{itemize}
 \section{Validity and Reliability}
 
 %Now, here is a SUPER important section that 99\% get wrong(I completely made up this figure, simply because I want to convey a point!). Validity (that you measured what you intend to measure) and reliability (that the measurements used, such as your scales, are consistent and replicable) are two concepts that simply have to be addressed and have to do with your measurements.
@@ -81,21 +95,34 @@ In order to increase the validity and reliability, a number of articles will be 
 
 
 
-For the experimental parts, my project is utilising a selection of PDC and PMU simulator packages. In order to validate the phasor data generated, the included validation capabilities of the simulator packages are utilised.
+For the experimental parts, my project is utilising a selection of PDC and PMU simulator packages. In order to validate the phasor data generated, the included validation capabilities of the simulator packages are utilised. 
+\subsection{Validation of the model}
+A experiment of running the simulation with a delay leve of 0, could serve two purposes:
+\begin{itemize}
+    \item Validation of the delay function
+    \item Validation of the two copies of the PMU as being identical.
+\end{itemize}
+As a hyphothesis, running the simulation with a delay of zero should produce identical channel-wise output.
+
+A $d=0$ test result  producing identical output for the who PMUs , would increase the 
+confidence of the model both being valid and reliable.
+
+Another criterion for a valid model would be for the data to show alterations which could be explained by a change of delay level.
+
+
 
 \section{Infrastructure used during experiments }
-\textbf{TO DO:}
-\textit{A selection of a relevant infrastructure for experiments will be made according to  specific needs and availability.  }\\ 
+\hl{A selection of a relevant infrastructure for experiments will be made according to  specific needs and availability.  }\\ 
 
 In order to provide practical results on which to base the discussions and conclusions, the following tools will be utilised;
 
 \begin{itemize}
 %    \item The iPMU suite, including iPDC, iPMU and PMUSimulator, running on virtual Ubuntu Linux instances
 %    \item The pyPMU suite, including tinyPDC, tinyPMU and , running on virtual Ubuntu Linux instances \cite{vsandi2015python}, \cite{vsandi2016pypmu}
-    \item A SIMULINK model, downloaded from \textbf{URL} is used as the basis for the simulations.
-    \item MATLAB, \textbf{latest version}, with SIMULINK added, is used for running the simulation. 
-    \item The SIMULINK DSP and MATLAB Digital Signal Processing toolkits are required in order to run the simulations.
-    \item The \textbf{Model inspector} functionality is used in order to compare the delayed ouput to the original one.
+    %\item A SIMULINK model, downloaded from \textbf{URL} is used as the basis for the simulations.
+    \item MATLAB, R2023a, with SIMULINK added, is used for running the simulation. 
+    \item Simscape Electric, and its dependency Simscape, are required in order to build, and run, the simulations.
+    \item The Simulation is executed by running a MATLAB script.
     \item A Windows 10 laptop is being used for the simulations
     
  %   \item mininet will be utilised for networking
@@ -118,40 +145,45 @@ In order to provide practical results on which to base the discussions and concl
 
 For the experimental part of my thesis, a number of attack scenarios will be required. The aim is to investigate various attack vectors which might be used by a sophisticated man-on-the-side threat actor in order to execute an attack while staying undetected. 
 
-\subsection{Background} 
+\subsection{Assumptions} 
 
-A number of assumptions is stated, in order to narrow the scope of the thesis.
+A number of assumptions is stated, in order to narrow the scope of the thesis:
 
-\subsubsection{Attacker policy assumptions}
+\begin{itemize}
+    
+\item \textbf{Attacker Policy} 
 A sophisticated threat actor would most likely want to avoid detection by anyone protecting the targeted infrastructure.
 Therefore, executing an attack which may be detected should be avoided at all costs.
-As a consequence, any decisions related to actually executing the attack should be as a result of promising results following a stealthiness assessment process\footnote{Simulations of possible effects could be part of a stealthyness assessment process}. 
+As a consequence, any decisions related to actually executing the attack should be as a result of promising results following a stealthiness assessment process. Simulations of possible effects could be part of the stealthiness assessment process. 
 
-\subsubsection{Attack Prerequisites}
+\item \textbf{Attack Prerequisites} 
 A stealthy attack with small impact is preferred over an attack having more severe impacts, at a higher risk of detection.
 The ideal attack would be an attack having maximal impact on the target, while the risk of detection being minimal. 
 
 
-\subsubsection{Attack design challenges}
+\item \textbf{Attack Design Policy} 
 A part of the challenge would be to design an attack producing a high impact on the target, while staying undetected.
-
-\subsubsection{selected approach}
+\end{itemize}
+\subsection{Approach Selected for the Attack} 
 One possible solution could be to determine the minimal efforts needed in order to execute an attack with a high probability of producing the effects desired, while keeping the attack detection probability low.
+
 
 
 
 \subsection{Definition of scenarios}
 In order to provide experimental results in order to answer the Research Questions stated, a number of attack scenarios are defined.
-
 The main method of simulation would be a delayed forwarding of values, where a specified delay $d$ is applied to the PMU input, replacing any sample $s(i)$ with the sample value $s(i-d)$, simulating clock drift, producing effects similar to a \acrlong{tda}.
 
-The simulation could be performed using a number of delay functions, for instancs:
+The simulation could be performed using a number of delay functions. In order to investigate some specific effects the following characteristics are selected:
+
+
+
 \begin{enumerate}
-   
-\item  Exposing the targeted PMU to a constant delay, from a specified initiation time.
-    The delay is switched on, unaltered from the time of initiation, for the duration of the simulation. 
-\item  Exposing the targeted PMU to a constant delay for a limited time, from a specified initiation time, switching it off during the simulation.  
-\item  Exposing the targeted PMU to a increasing delay for a limited time, from a specified initiation time, switching it off during the simulation.   
+\item In order for the model to stabilise\footnote{The PMU needs some samples of input before being able to stabilise the output values.}, data used for visualisation does not include the first second of the simulation ($t < 1$).
+\item In order to be able to conclude on the effect of delay cancellation, each simulation is executed  with a delay level of 0 for the next second ($1 < t < 2$). 
+\item  The instant attack involves raising the delay level instantly to a level $d > 0,  d \in \mathbb{N}$, at the time $t = 2$
+\item  The step-wise attack involves raising the delay level in steps of one each second from $t = 2$ until reaching the level $d$ at $t = 1+d$.  
+\item  In order to be able investigate any effects of attack cancellations, the targeted PMU is exposed to a delay attack for a limited time, thus reducing the delay level $d$ to $0$ before reaching the last second of the pre-set simulation running time.   
 \end{enumerate}
     
 
@@ -225,16 +257,18 @@ Focus on a few optional tolerance levels. One Option: Assume a similarity of 0.9
 
 The experiments will focus on various levels of assumed detection thresholds.
 
-My experiments will cover a selection of attack strategies for the selection of threshold levels of $1\%$, $5\%$ and $10\%$ similarities.
+%My experiments will cover a selection of attack strategies for the selection of threshold levels of $1\%$, $5\%$ and $10\%$ similarities.
 
 \begin{enumerate}
-    \item \textbf{d\_mode = 1:} Delay on a constant level for the entire duration of the simulation. 
-    \item \textbf{d\_mode = 2:} Square pulse signal: Starting off, turning constant-delay on,  before dropping to 0 before simulation end. 
-    \item \textbf{d\_mode = 3:} Increasing to delay level specified, before dropping to 0 before simulation end. 
+    \item \textbf{Immediate delay} Square pulse signal: Starting off, turning constant-delay on,  before dropping to 0 before simulation end. 
+    \item \textbf{Step-wise delay} Increasing to delay level specified, in step-wise increse of delay level by one each second, before dropping to 0 before simulation end. 
     %\item Increasing delay, drop to 0 before simulation end
 \end{enumerate}
 
-The current figures of chapter \ref{chap:Results} are produced by exposing the PMU to a variety of \textbf{d\_mode}s, as well as a selection of delay levels.
+Additonally, the  \textbf{No delay attack}, running the simulation on a constant delay level of $0$ for the entire duration of the simulation, will be executed in order to produce output for model validation purposes. 
+
+\hl{The simulations need re-run}
+%The current figures of chapter \ref{chap:Results} are produced by exposing the PMU to a variety of \textbf{d\_mode}s, as well as a selection of delay levels.
 
 
 

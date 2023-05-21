@@ -96,12 +96,70 @@ In order to address these shortcomings, the \acrfull{wams} system\footnote{WAMS 
 
 
 
-The \acrshort{sg} consists of a vast number of both conventional and modern, more dynamic, production facilities, which requires thorough monitoring in order to ensure the optimal distribution of electrical energy. The requirement of a consistently stable and reliable supply of energy is constant, while the amount of energy demanded is dynamically changing according to the demand for power at any time. \\ 
+\section{Wide Area Measurement System}
+\begin{figure}[ht]
+\includegraphics[width=\linewidth]{figures/Kumar-WAMS-architecture.png}
+\caption[WAMS architecture]{WAMS architecture, as presented in \cite{kumar2015monitoring}}
+\label{fig:Kumar-WAMS-architecture}
+\end{figure}
 
-Therefore, the proper \acrshort{sg} operation might be considered virtually impossible without a  close monitoring of current power flow, as well as the ability to instantly adjust the supply of power according to present needs,  without the risk of causing power surges or blackouts. For this purpose, the Wide Area Monitoring System analyses the levels of electrical power as monitored by sensors, synchronised according to a common GPS-controlled time source. \\ 
+   
 
-The correctness of this time source is critical to the reliability, and therefore, the proper operation of the monitoring system, constituting the primary decision criteria for actions controlling the supply of power.
+In order to ensure the continuous monitoring of the modern \acrlong{sg} energy distribution system, the \acrfull{wams} is utilised. An overview of the \acrshort{wams} architecture, as presented in   \cite{kumar2015monitoring}, is shown as \figureautorefname  { } \ref{fig:Kumar-WAMS-architecture}:
 
+The \acrshort{wams} is, as described in  \cite{kumar2015monitoring}, a  system, consisting of:
+
+(1) \acrshort{pmu}s, (2) \acrshort{pdc}s, (3) The super \acrshort{pdc}, and (4) Communication networks.
+
+The various components might be described as follows, from (4) to (1):
+\begin{itemize}
+    \item The \textbf{Communication Networks}, providing data transport between \acrshort{wams} components, as required.
+    \item The \textbf{Super \acrshort{pdc}} controls several \acrshort{pdc}s constituting a distributed \acrshort{wams}.
+\item The \textbf{\acrfull{pdc}} is responsible for collecting and interpreting \acrshort{pmu} measurements, before synchronising the measurements according to timestamps, in order to get more complete status information based on a combination of measurements.
+    \item The \textbf{\acrfull{pmu}} is an intelligent measuring device, responsible for registering sensor measurements,  performing calculations like, for instance, phase angles, as well as voltage and current magnitudes. The data registered and processed by the \acrshort{pmu}, is transferred to the nearest \acrshort{pdc}.
+    \end{itemize}
+
+
+
+
+
+\section{Smart grid Monitoring}
+The \acrlong{sg} system constitutes a complex system of subsystems, which proper operation is a prerequisite for the successful transmission of electric energy from producers to consumers. 
+In order for the \acrshort{wams} to receive status monitoring data, a controlled process for retrieving and transmitting sensor data, is a prerequisite for proper system operation.
+
+
+
+\subsection{Description of the Smart Grid  Monitoring system}
+Electricity is produced according to the current demand for energy, as controlled by the Demand Management system, dynamically adjusting the energy supply accordingly. In order to successfully reply to the dynamically changing demands for energy, a close monitoring of the production, transmission and distribution of energy is required. In order for the monitoring system to obtain status information, the proper transmission of monitoring data from power status sensors to the   \acrshort{wams}  is essential.
+
+
+%\section{Storing and transmitting data for monitoring}
+
+\subsection{Phasor Measurene units}
+
+%\subsection{Introduction}
+
+\begin{figure}%[ht]
+\includegraphics[width=\textwidth]{figures/phasorMaeasuremantSystems.png}
+
+\caption[Phasor Measurement Systems]{Phasor Measurement Systems, as presented in 
+
+\cite{johnson2018standards} Slide 3
+
+}
+\label{fig:PhasorMeasurementSystems}
+\end{figure}
+
+
+
+\begin{figure}%[ht]
+\includegraphics[width=\linewidth]{figures/PMU-in-out.png}
+\caption[PMU inputs and outputs]{PMU inputs and outputs, as presented in \Cite[p.12]{iec2018measuring}
+}
+\label{fig:PMU-in-out}
+\end{figure}
+
+\subsection{Phasor data Concentrator}
 
 
 
@@ -133,38 +191,6 @@ A vital requirement for the view of the current state of the \acrshort{sg} energ
 %  - State Estimation: Intro, to explain means to improve grid security.
 
 %\section{WAMS state estimation}
-In order to monitor 
-
-\section{Wide Area Measurement System}
-\begin{figure}[ht]
-\includegraphics[width=\linewidth]{figures/Kumar-WAMS-architecture.png}
-\caption[WAMS architecture]{WAMS architecture, as presented in \cite{kumar2015monitoring}}
-\label{fig:Kumar-WAMS-architecture}
-\end{figure}
-
-
-
-
-
-
-
-
-
-
-    
-
-In order to ensure the continuous monitoring of the modern \acrlong{sg} energy distribution system, the \acrfull{wams} is utilised. An overview of the \acrshort{wams} architecture, as presented in   \cite{kumar2015monitoring}, is shown as \figureautorefname  { } \ref{fig:Kumar-WAMS-architecture}:
-
-The \acrshort{wams} is, as described in  \cite{kumar2015monitoring}, a  system, consisting of:
-
-(1) \acrshort{pmu}s, (2) \acrshort{pdc}s, (3) The super \acrshort{pdc}, and (4) Communication networks.
-
-The various components might be described as follows, from (4) to (1):
-\begin{itemize}
-    \item The \textbf{Communication Networks}, providing data transport between \acrshort{wams} components, as required.
-    \item The \textbf{Super \acrshort{pdc}} controls several \acrshort{pdc}s constituting a distributed \acrshort{wams}.
-\item The \textbf{\acrfull{pdc}} is responsible for collecting and interpreting \acrshort{pmu} measurements, before synchronising the measurements according to timestamps, in order to get more complete status information based on a combination of measurements.
-    \item The \textbf{\acrfull{pmu}} is an intelligent measuring device, responsible for registering sensor measurements,  performing calculations like, for instance, phase angles, as well as voltage and current magnitudes. The data registered and processed by the \acrshort{pmu}, is transferred to the nearest \acrshort{pdc}.
-    \end{itemize}
+In order to detect abnormalities or errors in the monitoring data received, the \acrshort{wams} includes applications capable of validating the quality of the state information received. Various state estimations exist, some of which give alerts on dubious system state based on comparisons with known good system states. State estimation systems increases the risk of attack detection, thus lowerses the probability of a threat actor being capable of pulling off a stealthy attack.   
 
 

@@ -34,7 +34,7 @@ The \acrlong{cpg}, as described in \cite{BlumeStevenW2007Epsb}, consists of the 
  \item The \textbf{Distribution Subsystem} which distributes electric power to end users, after converting the high voltage input into lower voltage levels, suitable for consumption.
  \end{itemize}
 
-As described in Chatpter 2.3 of \cite{Rihan2018} %\cite{SmartGridOverview2013}
+As described in Chapter 2.3 of \cite{Rihan2018} %\cite{SmartGridOverview2013}
 , the \acrlong{cpg} is facing challenges, related to Black Outs adhering to the increased demands for electrical power . 
 
 
@@ -45,7 +45,7 @@ As described in Chatpter 2.3 of \cite{Rihan2018} %\cite{SmartGridOverview2013}
 
 
 
-In order to provide a description of the \acrfull{sg}, a description of the characteristics of the \acrshort{cpg} is provided.
+In order to provide a description of the \acrfull{sg}, a description of the characteristics of the \acrlong{cpg} is provided.
 
 
 
@@ -66,7 +66,7 @@ The \acrlong{cpg} originates from the local society-serving power generation fac
 \subsection{Overview of The Smart Grid}
 
 
-The \acrfull{nist} has published a conceptual model of the smart grid, as shown in 
+The \acrfull{nist} has published a \hl{conceptual} model of the smart grid, as shown in 
 figure \ref{fig:NIST-SmartGRID-ConceptualModel}.
 
 
@@ -127,18 +127,42 @@ The \acrshort{sg} consists of seven domains, as shown in \figureautorefname { }\
 
 
 
+The authors of \cite{uslar2019applying}, \citeauthor{uslar2019applying} describes an alternative model for the \acrshort{sg}, originating from , and visualised in figure \ref{fig:SGAM}. The model consists of three dimensions, named "Domains", "Zones", and the "Interoperability dimension". 
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth]{figures/SGAM.png}
+\caption[SGAM Smart Grid Model]{SGAM Smart Grid Model , as presented in \cite{uslar2019applying}}
+\label{fig:SGAM}
+\end{figure}
+
+The "Domains" dimension consists of the following domains:
+
+\begin{itemize}
+    \item The \textbf{Generation} domain:
+    \item The \textbf{Transmission} domain:
+    \item The \textbf{Distribution} domain:
+    \item The \textbf{DER} domain:
+    \item The \textbf{Customer Premise} domain:
+\end{itemize}
 
 
-\cite{2021arXiv210311657E} describes communication protocols in \acrshort{sg}.
+
+
 \section{Protocols}
 A large number of protocols are defined, in order to standardise the operation of the \acrlong{sg}.
+
 A small selection of these, relevant for the scope of the thesis, are described underneath.
 
+\cite{2021arXiv210311657E} \hl{describes communication protocols} in the  \acrshort{sg}.
 
-\subsection{Time Synchronisation Protocols}
-Time synchronisation protocols are controlling the synchronisation of time between various devices of the grid, like the PMUs, collecting phasor measurements from a definde number of measuring devices. Synchronised time is crucial in order to ensure each PMU is able to put the correct time stamp on each phasor measurement, before transmitting the resulting synchrophasor for each time stamp, to the destined PDC device. In the event one of the synchrophasors have an erroneous time stamp, an error affecting the integrity of the synchrophasor data is introduced. As described in \cite{moussa2016security}, \acrlong{ptp} synchronisation network
-, as well as \acrlong{gnss} based synchronisation networks, are both capable of producing the precision required by the synchrophasor protocols, as opposed to the more common \acrfull{ntp} commonly used in ordinary computer networks. As my thesis covers \acrshort{ptp} time synchronisation only, my description of time synchronisation protocols is limited to the \acrfull{ptp}.
 
-\subsubsection{Precision Time Protocol}
 
-The \acrfull{ptp} was, as described in \cite{alghamdi2021precision} ...
+
+
+The \acrshort{sg} consists of a vast number of both conventional and modern, more dynamic, production facilities, which requires thorough monitoring in order to ensure the optimal distribution of electrical energy. The requirement of a consistently stable and reliable supply of energy is constant, while the amount of energy demanded is dynamically changing according to the demand for power at any time. \\ 
+
+Therefore, the proper \acrshort{sg} operation might be considered virtually impossible without a  close monitoring of current power flow, as well as the ability to instantly adjust the supply of power according to present needs,  without the risk of causing power surges or blackouts. For this purpose, the Wide Area Monitoring System analyses the levels of electrical power as monitored by sensors, synchronised according to a common GPS-controlled time source. \\ 
+
+The correctness of this time source is critical to the reliability, and therefore, the proper operation of the monitoring system, constituting the primary decision criteria for actions controlling the supply of power.
+
+

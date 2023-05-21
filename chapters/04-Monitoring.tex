@@ -2,42 +2,10 @@
 
 
 
-\section{Smart grid Monitoring}
-The \acrlong{sg} system constitutes a complex system of subsystems, which proper operation is a prerequisite for the successful transmission of electric energy from producers to consumers. 
-In order for the \acrshort{wams} to receive status monitoring data, a controlled process for retrieving, transmitting, and more often than not temporarily storing, sensor data is a prerequisite for proper system operation.
 
-
-
-\subsection{Description of the Smart Grid  Monitoring system}
-Electricity is produced according to the current demand for energy, as controlled by the Demand Management system, dynamically adjusting the energy supply accordingly. In order to successfully reply to the dynamically changing demands for energy, a close monitoring of the production, transmission and distribution of energy is required. In order for the monitoring system to obtain status information, the proper transmission of monitoring data from power status sensors to the   \acrshort{wams}  is essential.
-
-
-\section{Storing and transmitting data for monitoring}
-
+\section{Time Synchronisation Protocols}
 
 \subsection{Introduction}
-
-
-
-
-\subsection{Phasor Measurene units}
-
-
-\begin{figure}%[ht]
-\includegraphics[width=\linewidth]{figures/PMU-in-out.png}
-\caption[PMU inputs and outputs]{PMU inputs and outputs, as presented in \Cite[p.12]{iec2018measuring}
-}
-\label{fig:PMU-in-out}
-\end{figure}
-
-\subsection{Phasor data Concentrator}
-
-
-
-
-\subsection{Time Synchronisation Protocols}
-
-\section{Introduction}
 Time Synchronisation protocols are used in order to synchronise the time of interconnected devices in need of synchronised time for various purposes. In the case of synchrophasor devices, the devices needs to be time synchronised in order for \acrshort{sg} \acrshort{wams} operators to get a correct overview of the system state.
 
 
@@ -53,20 +21,18 @@ Eq \ref{DMS} about DMS, and  eq \ref{DSM} about DSM.
 
 
 \subsection{Synchrophasor Protocols}
-\cite[p. 11]{johnson2018standards} figure 2
 
-The introduction of Synchrophasors in the \acrlong{pg}, 
+\hl{The introduction of Synchrophasors in the} \acrlong{pg}, 
 
 \subsubsection{Introduction}
 
 
 
-As described in \cite{martin2011synchrophasor} and \cite{ali2016performance}, the \acrfull{pmu}, along with the \acrfull{pdc}, were introduced in the 1980s. The communication and data exchange from the PMU to the PDC was standardised by the introduction of the IEEE 1344 standard in 1995, which was the standard communication protocol for synchrophasor data exchange, until the introduction of the IEEE C37.118 in 2005.
-The  IEEE C37.118 protocol was derived from the original IEEE 1344 standard, and has undergone a number of revisions, over the years.
+As described in \cite{martin2011synchrophasor} and \cite{ali2016performance}, the \acrfull{pmu}, along with the \acrfull{pdc}, were introduced in the 1980s. The communication and data exchange from the PMU to the PDC was standardised by the introduction of the IEEE 1344 standard in 1995, which was established as the standard communication protocol for synchrophasor data exchange. According to \cite{appasani2018review}, the IEEE 1344 was revised in 2001 , before the introduction of the IEEE C37.118 in 2005. The  IEEE C37.118 protocol was derived from the IEEE 1344 standard, and has undergone a number of revisions, over the years.
 
 
-In \cite{martin2013synchrophasor}, \citeauthor{martin2013synchrophasor}describes the history of ...
-
+In \cite{martin2013synchrophasor}, \citeauthor{martin2013synchrophasor}describes the history of the 
+IEEE C37.118-series of satndards. The characterisitcs of the various generations, might be summarised as:
 \begin{itemize}
     \item The IEEE C37.118-2005,
     \item The IEEE C37.118-2011
@@ -125,7 +91,12 @@ In \cite{martin2013synchrophasor}, \citeauthor{martin2013synchrophasor}describes
 
 
 \section{Time Synchronisation}
-In order to synchronise the samples received from the \acrshort{pmu}, the \acrshort{pdc}, as well as the \acrshort{pmu} devices producing the samples, is required to adjust their clock by utilising a precise and reliable times source.  Given the distributed nature of the \acrshort{pmu} devices providing samples from locations distributed over a Wide Area Network, the \acrfull{gps} is the  time source selected. 
+In order to synchronise the samples received from the \acrshort{pmu}, the \acrshort{pdc}, as well as the \acrshort{pmu} devices producing the samples, precise timing adjustments is vital, in order to establish a precise and correct overview of system state. Incorrect synchronisation of measurements caused by erroneous timing information, will produice an equally wrong system state overview, as presented in the \acrshort{sg} \acrshort{wams}. \\ 
+
+
+In order to be able to synchronise events in time, it is mandatory to adjust the clock of each participating actor, analogous to the classic pre-operational physical watch-synchronisation meetings in the physical domain. \\ 
+
+The \acrshort{sg} time synchronisation requirements are, to say the least, a bit more demanding than a simultaneous press on a button. Several articles, of which \cite{appasani2018review} may serve as an example,  of by utilising a precise and reliable times source.  Given the distributed nature of the \acrshort{pmu} devices providing samples from locations distributed over a Wide Area Network, the \acrfull{gps} is the  time source selected. 
 
 \subsection{Introduction}
 
@@ -181,13 +152,35 @@ The \acrfull{ptp} is a network-based time protocol, enabling the time difference
 
 
 
-A device, being synchronised  by the \acrshort{ptp} protocol, reads its system time from a slave clock, being periodically synchronised with a master clock.
+A device, being synchronised  by the \acrshort{ptp} protocol, reads its system time from a clock which is continuously synchronised by a network of one or more slave clocks, being periodically synchronised via various types of hybrid\footnote{Hybrid clocks are a master clock for some clocks, while being a slave clock for others.} clocks, ultimately synchronised with a grand master clock.
 
 
 The time of the slave clock, is being adjusted according to the following process:
 
 
-Following the message exchange visualised by \figureautorefname { } \ref{fig:PTP-timing-Diagram}, the Slave clock  uses the time offset from the Master clock time, $offset = [(t_2 - t_1) + (t_4 - t_3)]\div 2$, in order to synchronise with the Master clock. 
+Following the message exchange visualised by \figureautorefname { } \ref{fig:PTP-timing-Diagram}, the Slave clock  uses the time offset $\theta$ from the Master clock time, calculated by Equation \ref{eq:offset}, in order to synchronise with the Master clock. 
+
+
+\begin{equation}
+t_1 = t_0 + \theta + d_1 \label{eq:t1}
+\end{equation}
+
+
+\begin{equation}
+t_3 = t_2 - \theta + d_2
+\end{equation}
+
+\begin{equation}
+d_1 = d_2 = d
+\end{equation}
+
+\textbf{Bla bla }Equation \ref{eq:t1}
+
+\begin{equation}
+%offset
+\theta = \frac{(t_2 - t_1) + (t_4 - t_3)}{2} \label{eq:offset}
+%\div 2    
+\end{equation}
 In order to be able to achieve the time difference required, the \acrshort{ptp}, as described by  \citeauthor{Eidson2006}, in \cite{Eidson2006}, is dependant on:
 
 \begin{itemize}
@@ -245,3 +238,20 @@ Therefore, the time-synchronisation mechanisms of the \acrshort{pmu} system is o
     \caption[Convention for synchrophasor representation]{As presented in \Cite{schofield2018design}: Convention for synchrophasor representation.}.
     \label{fig:Synchrophasor-Definition}
 \end{figure}  
+
+
+
+
+
+
+
+
+
+\subsection{Time Synchronisation Protocols}
+Time synchronisation protocols are controlling the synchronisation of time between various devices of the grid, like the PMUs, collecting phasor measurements from a definde number of measuring devices. Synchronised time is crucial in order to ensure each PMU is able to put the correct time stamp on each phasor measurement, before transmitting the resulting synchrophasor for each time stamp, to the destined PDC device. In the event one of the synchrophasors have an erroneous time stamp, an error affecting the integrity of the synchrophasor data is introduced. As described in \cite{moussa2016security}, \acrlong{ptp} synchronisation network
+, as well as \acrlong{gnss} based synchronisation networks, are both capable of producing the precision required by the synchrophasor protocols, as opposed to the more common \acrfull{ntp} commonly used in ordinary computer networks. As my thesis covers \acrshort{ptp} time synchronisation only, my description of time synchronisation protocols is limited to the \acrfull{ptp}.
+
+\subsubsection{Precision Time Protocol}
+
+The \acrfull{ptp} was, \hl{as described in} \cite{alghamdi2021precision} ...
+
