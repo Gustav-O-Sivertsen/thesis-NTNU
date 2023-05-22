@@ -211,8 +211,27 @@ This approach could be taken by a threat actor during a phase of investigations 
 As the plan of the threat actor is to expose  a number of \acrshort{pmu}s to a time  delay attack, the plan is to build a model of a \acrshort{pmu}, allowing the model to be run while altering any time stamp values required, in order to investigate any observable effects on the output from the \acrshort{pmu}.
  \begin{figure}[ht]
 \centering
-\includegraphics[width=\textwidth]{figures/SimPMU.png}
+\includegraphics[width=0.9\textwidth]{figures/pmuSIM-overview.png}
 \caption[PmuSIM SIMULINK model]{A SIMULINK model for the simulation of PMU time delay attacks}
+
+\end{figure}
+
+
+\subsubsection{The PowerSource subsystem}
+
+ \begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/PowerSourceSubsystem.png}
+\caption[PowerSource SIMULINK subsystem]{A SIMULINK subsystem for the generation of power voltage and Impedance}
+
+\end{figure}
+
+\subsubsection{The DualPMU subsystem}
+
+ \begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/DualPMUsubsystem.png}
+\caption[DualPMU SIMULINK subsystem]{A SIMULINK subsystem for generating PMU output}
 
 \end{figure}
 
