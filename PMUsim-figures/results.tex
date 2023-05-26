@@ -2,10 +2,14 @@
 For model verification purposes, the output for the delay level of zero is included.
 \newpage  \textbf{Results for Magnitude Output}
 
-         \begin{itemize}
+\begin{small}
+     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
+     Comment on the figure:}{
+          \begin{itemize}
          \item      The delayed signal (blue) overlaps the original signal (red), producing a straight line, colored neither red nor blue.
          \item  The blue Normalised diff signal also overlaps the grey delay function.
-          \end{itemize} 
+          \end{itemize} }
+\end{small}
 
 
 \begin{floatingfigure}[p]{\textwidth}
@@ -16,11 +20,9 @@ For model verification purposes, the output for the delay level of zero is inclu
     \label{fig:PMUsim_Zero_Magnitude}
 \end{floatingfigure}
 
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comment on the figure:}{
- end{small}
-
+  
 \newpage \textbf{Results for Frequency Output}
+
 \begin{floatingfigure}[p]{\textwidth}
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_0/Zero_vFrequency.png}    
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_0/Zero_iFrequency.png}    
@@ -28,14 +30,6 @@ For model verification purposes, the output for the delay level of zero is inclu
     \label{fig:PMUsim_Zero_Frequency}
 	\end{floatingfigure}
 
-\begin{small}
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comment on the figure:}{
-          \begin{itemize}
-         \item      The delayed signal (blue) overlaps the original signal (red), producing a straight line, colored neither red nor blue.
-         \item  The blue Normalised diff signal also overlaps the grey delay function.
-          \end{itemize} }
-\end{small}
 
 \newpage \textbf{Results for Angle Output}
 
@@ -51,6 +45,7 @@ For model verification purposes, the output for the delay level of zero is inclu
 \section{Instant Delay Functions}
 \newpage \subsection{Delay Level of One}
 \textbf{Results for Magnitude Output}
+
 \begin{floatingfigure}[p]{\textwidth}[bp]
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_1/Instant_vMagnitude.png}    
       \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_1/Instant_iMagnitude.png}      
@@ -59,6 +54,7 @@ For model verification purposes, the output for the delay level of zero is inclu
 \end{floatingfigure}
 
 \newpage \textbf{Results for Frequency Output}
+
 \begin{floatingfigure}[p]{\textwidth}[bp]
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_1/Instant_vFrequency.png}    
   \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_1/Instant_iFrequency.png}    
@@ -67,6 +63,7 @@ For model verification purposes, the output for the delay level of zero is inclu
 \end{floatingfigure}
 
 \newpage \textbf{Results for Angle Output}
+
 \begin{floatingfigure}[p]{\textwidth}
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_1/Instant_vAngle.png}    
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_1/Instant_iAngle.png}    
@@ -76,6 +73,7 @@ For model verification purposes, the output for the delay level of zero is inclu
 
 \newpage \subsection{Delay Level of Two}
 \textbf{Results for Magnitude Output}
+
 \begin{floatingfigure}[p]{\textwidth}
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_2/Instant_vMagnitude.png}    
       \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_2/Instant_iMagnitude.png}
@@ -84,6 +82,7 @@ For model verification purposes, the output for the delay level of zero is inclu
 \end{floatingfigure}
 
 \newpage \textbf{Results for Frequency Output}
+
 \begin{floatingfigure}[p]{\textwidth}
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_2/Instant_vFrequency.png}    
     \label{fig:PMUsim_Two_vFrequency}
@@ -95,7 +94,6 @@ For model verification purposes, the output for the delay level of zero is inclu
 
 \newpage \textbf{Results for Angle Output}
 
-
 \begin{floatingfigure}[p]{\textwidth}
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_2/Instant_vAngle.png}    
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_2/Instant_iAngle.png}    
@@ -105,6 +103,7 @@ For model verification purposes, the output for the delay level of zero is inclu
 
 
 \newpage \subsection{Delay Level of Three}
+
 \textbf{Results for Magnitude Output}
 
 \begin{floatingfigure}[p]{\textwidth}
@@ -115,7 +114,6 @@ For model verification purposes, the output for the delay level of zero is inclu
 \end{floatingfigure}
 
 \newpage \textbf{Results for Frequency Output}
-
 
 \begin{floatingfigure}[p]{\textwidth}
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_3/Instant_vFrequency.png}    
@@ -128,14 +126,12 @@ For model verification purposes, the output for the delay level of zero is inclu
 
 \newpage \textbf{Results for Angle Output}
 
-
 \begin{floatingfigure}[p]{\textwidth}
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_3/Instant_vAngle.png}    
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_3/Instant_iAngle.png}    
     \label{fig:PMUsim_Three_Angle}
     \caption{Instant Delay Angle Output for the Delay Level of Three}
 \end{floatingfigure}
-
 
 \newpage \subsection{Delay Level of Four}
 \textbf{Results for Magnitude Output}
@@ -146,8 +142,8 @@ For model verification purposes, the output for the delay level of zero is inclu
     \caption{Instant Delay Magnitude Output for the Delay Level of Four}
 \end{floatingfigure}
 
-\newpage \textbf{Results for Frequency Output}
 
+\newpage \textbf{Results for Frequency Output}
 
 \begin{floatingfigure}[p]{\textwidth}
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_4/Instant_vFrequency.png}    
@@ -159,7 +155,6 @@ For model verification purposes, the output for the delay level of zero is inclu
  
 
 \newpage \textbf{Results for Angle Output}
-
 
 \begin{floatingfigure}[p]{\textwidth}
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_4/Instant_vAngle.png}    
@@ -181,7 +176,6 @@ For model verification purposes, the output for the delay level of zero is inclu
  
 \newpage \textbf{Results for Frequency Output}
 
-
 \begin{floatingfigure}[p]{\textwidth}
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_5/Instant_vFrequency.png}    
     \label{fig:PMUsim_Five_vFrequency}
@@ -192,7 +186,6 @@ For model verification purposes, the output for the delay level of zero is inclu
   
 
 \newpage \textbf{Results for Angle Output}
-
 
 \begin{floatingfigure}[p]{\textwidth}
     \caption{Instant Delay Angle Output for the Delay Level of Five}
@@ -213,7 +206,6 @@ For model verification purposes, the output for the delay level of zero is inclu
 
 \newpage \textbf{Results for Frequency Output}
 
-
 \begin{floatingfigure}[p]{\textwidth}
     \caption{Instant Delay Frequency Output for the Delay Level of Six}
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_6/Instant_vFrequency.png}    
@@ -225,7 +217,6 @@ For model verification purposes, the output for the delay level of zero is inclu
 
 
 \newpage \textbf{Results for Angle Output}
-
 
 \begin{floatingfigure}[p]{\textwidth}
     \caption{Instant Delay Angle Output for the Delay Level of Six}
@@ -249,7 +240,6 @@ For model verification purposes, the output for the delay level of zero is inclu
  
 \newpage \textbf{Results for Frequency Output}
 
-
 \begin{floatingfigure}[p]{\textwidth}
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_2/Step_vFrequency.png}    
     \label{fig:PMUsimStep_Two_vFrequency}
@@ -261,7 +251,6 @@ For model verification purposes, the output for the delay level of zero is inclu
 
 
 \newpage \textbf{Results for Angle Output}
-
 
 \begin{floatingfigure}[p]{\textwidth}
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_2/Step_vAngle.png}    
@@ -285,7 +274,6 @@ For model verification purposes, the output for the delay level of zero is inclu
 
 \newpage \textbf{Results for Frequency Output}
 
-
 \begin{floatingfigure}[p]{\textwidth}
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_3/Step_vFrequency.png}    
     \label{fig:PMUsimStep_Three_vFrequency}
@@ -298,7 +286,6 @@ For model verification purposes, the output for the delay level of zero is inclu
 
 
 \newpage \textbf{Results for Angle Output}
-
 
 \begin{floatingfigure}[p]{\textwidth}
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_3/Step_vAngle.png}    
@@ -322,7 +309,6 @@ For model verification purposes, the output for the delay level of zero is inclu
 
 \newpage \textbf{Results for Frequency Output}
 
-
 \begin{floatingfigure}[p]{\textwidth}
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_4/Step_vFrequency.png}    
     \label{fig:PMUsimStep_Four_vFrequency}
@@ -335,7 +321,6 @@ For model verification purposes, the output for the delay level of zero is inclu
 
 
 \newpage \textbf{Results for Angle Output}
-
 
 \begin{floatingfigure}[p]{\textwidth}
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_4/Step_vAngle.png}    
@@ -358,7 +343,6 @@ For model verification purposes, the output for the delay level of zero is inclu
 
 \newpage \textbf{Results for Frequency Output}
 
-
 \begin{floatingfigure}[p]{\textwidth}
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_5/Step_vFrequency.png}    
     \label{fig:PMUsimStep_Five_vFrequency}
@@ -369,7 +353,6 @@ For model verification purposes, the output for the delay level of zero is inclu
 
 
 \newpage \textbf{Results for Angle Output}
-
 
 \begin{floatingfigure}[p]{\textwidth}
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_5/Step_vAngle.png}    
@@ -394,7 +377,6 @@ For model verification purposes, the output for the delay level of zero is inclu
 
 \newpage \textbf{Results for Frequency Output}
 
-
 \begin{floatingfigure}[p]{\textwidth}
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_6/Step_vFrequency.png}    
     \label{fig:PMUsimStep_Six_vFrequency}
@@ -405,7 +387,6 @@ For model verification purposes, the output for the delay level of zero is inclu
 
  
 \newpage \textbf{Results for Angle Output}
-
 
 \begin{floatingfigure}[p]{\textwidth}
     \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_6/Step_vAngle.png}    
