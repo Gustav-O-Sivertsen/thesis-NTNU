@@ -112,7 +112,7 @@ Another criterion for a valid model would be for the data to show alterations wh
 
 
 \section{Infrastructure used during experiments }
-\hl{A selection of a relevant infrastructure for experiments will be made according to  specific needs and availability.  }\\ 
+%\hl{A selection of a relevant infrastructure for experiments will be made according to  specific needs and availability.  }\\ 
 
 In order to provide practical results on which to base the discussions and conclusions, the following tools will be utilised;
 
@@ -151,44 +151,79 @@ A number of assumptions is stated, in order to narrow the scope of the thesis:
 
 \begin{itemize}
     
-\item \textbf{Attacker Policy} 
-A sophisticated threat actor would most likely want to avoid detection by anyone protecting the targeted infrastructure.
+\item \textbf{Attacker Policy:}\\   A sophisticated threat actor would most likely want to avoid detection by anyone protecting the targeted infrastructure.
 Therefore, executing an attack which may be detected should be avoided at all costs.
 As a consequence, any decisions related to actually executing the attack should be as a result of promising results following a stealthiness assessment process. Simulations of possible effects could be part of the stealthiness assessment process. 
 
-\item \textbf{Attack Prerequisites} 
-A stealthy attack with small impact is preferred over an attack having more severe impacts, at a higher risk of detection.
+\item \textbf{Attack Prerequisites:}\\   A stealthy attack with small impact is preferred over an attack having more severe impacts, at a higher risk of detection.
 The ideal attack would be an attack having maximal impact on the target, while the risk of detection being minimal. 
 
 
-\item \textbf{Attack Design Policy} 
-A part of the challenge would be to design an attack producing a high impact on the target, while staying undetected.
+\item \textbf{Attack Design Policy:}\\   A part of the challenge would be to design an attack producing a high impact on the target, while staying undetected.
 \end{itemize}
-\subsection{Approach Selected for the Attack} 
-One possible solution could be to determine the minimal efforts needed in order to execute an attack with a high probability of producing the effects desired, while keeping the attack detection probability low.
+\subsection{Approach Selected for the Attack:}
+%One possible solution could be to determine the minimal efforts needed in order to execute an attack with a high probability of producing the effects desired, while keeping the attack detection probability low.
 
+
+Consider targeting a system able to detect PMU output deviations exceeding a specified threshold. The detection system may classify a suspicious PMU output pattern as one of four categories, analogous to the classification categories described in \cite[p. 5]{kunang2021attack}: 
+\begin{itemize}
+    \item \acrfull{tp}: Output pattern correctly classified as an attack.
+    \item \acrfull{tn}:  Output pattern correctly classified as no attack.
+    \item \acrfull{fp}: Output pattern incorrectly classified as an attack.
+    \item \acrfull{fn}: Output pattern incorrectly classified as no attack.
+
+\end{itemize}
+
+ 
+A viable strategy could be to focus on a few optional tolerance levels. Even without knowing the detection threshold of the system targeted, the attacker could benefit from being able to predict any consequences of a future attack. Three levels of tolerance could cover three potential scenarios:
+\begin{enumerate}
+    \item A tolerance level of 1\% may impose a high attack detection risk before the attacker is able to do much harm.
+    \item A tolerance level of 5\% may impose a lower detection risk, enabling the attacker to do more harm
+\label{item:i2}    \item A tolerance level of 10\% will impose an even lower detection risk, enabling the attacker to do even more harm, than in the previous case (Item \ref{item:i2}.).
+    
+\end{enumerate}
+
+It may also be a good approach to determine any effects of a small increase in delay level, versus executing the attack using a fixed delay level.
+%\begin{itemize}
+%    \item Use the lowermost drawings appearing in each component output generated for graph comparisons.
+%    \item Visually inspect the drawing for any red portions, indicating difference beyond the specified tolerance  level, indicating risk of attack detection.
+%    \item The graphs may provide indications on attack stealthiness, by no, (or minimal) red portions in the lower drawing. 
+%    \item Tolerance levels: $1\% (0.01)$, $5\% (0.05)$ and $10\% (0.1)$.
+%\end{itemize}
+
+%\begin{enumerate}
+%    \item The green portion of the line indicates signal similarity, indication periods with a low probability of attack detection.
+%    \item The red portion of the graph is to be interpreted as time periods where the attack detection risk is too high for the attack to remain stealthy for lengthy periods of time.
+
+%\end{enumerate}
 
 
 
 \subsection{Definition of scenarios}
 In order to provide experimental results in order to answer the Research Questions stated, a number of attack scenarios are defined.
-The main method of simulation would be a delayed forwarding of values, where a specified delay $d$ is applied to the PMU input, replacing any sample $s(i)$ with the sample value $s(i-d)$, simulating clock drift, producing effects similar to a \acrlong{tda}.
+The main method of simulation would be a delayed forwarding of values, where a specified number of delayed samples, $d$, is applied to the PMU input. The value of $d$ is used to replace any sample $s(i)$ with the sample value $s(i-d)$, simulating\footnote{A specific SIMULINK delay module is performing the simulated delay of samples.} clock drift, producing effects similar to a \acrlong{tda}.
+The simulation could be performed using a number of delay functions. For the thesis, two types of approaches are used:
+\begin{itemize}
+    \item The \textbf{Instant Delay Attack}, Increases the delay level to the targeted level at attack initiation. The attack maintains a constant delay level for the entire duration of the attack. 
+    \item The \textbf{Step-wise Delay attack}, increasing the delay level by one sample each second, until the targeted delay level is reached. The attack maintains a constant delay level for the remaining duration of the attack.
+\end{itemize}
 
-The simulation could be performed using a number of delay functions. In order to investigate some specific effects the following characteristics are selected:
+
+In order to investigate some specific effects of the attack, the following characteristics are selected:
 
 
 
 \begin{enumerate}
 \item In order for the model to stabilise\footnote{The PMU needs some samples of input before being able to stabilise the output values.}, data used for visualisation does not include the first second of the simulation ($t < 1$).
-\item In order to be able to conclude on the effect of delay cancellation, each simulation is executed  with a delay level of 0 for the next second ($1 < t < 2$). 
-\item  The instant attack involves raising the delay level instantly to a level $d > 0,  d \in \mathbb{N}$, at the time $t = 2$
-\item  The step-wise attack involves raising the delay level in steps of one each second from $t = 2$ until reaching the level $d$ at $t = 1+d$.  
+\item In order to be able to conclude on the effect of delay cancellation, knowledge of the system state prior to the attack is required. Therefore, each simulation is executed  with a delay level of 0 for the next second ($1 < t < 2$). 
+\item  The Instant Delay Attack involves raising the delay level instantly to a level $d > 0,  d \in \mathbb{N}$, at the time $t = 2$.
+\item  The Step-Wise Delay Attack involves raising the delay level in steps of one each second, from $t = 2$ until reaching the level $d$ at $t = 1+d$.  
 \item  In order to be able investigate any effects of attack cancellations, the targeted PMU is exposed to a delay attack for a limited time, thus reducing the delay level $d$ to $0$ before reaching the last second of the pre-set simulation running time.   
 \end{enumerate}
     
 
 
-\subsection{Attack Implementation}
+\subsection{Attack Simulation Implementation}
 %The attacks would be implemented as MATLAB functions executing attacks on targets implemented as SIMULINK simulations. The various scenarios would  be required to be sufficiently similar to be implemented as variations of a single attack framework, in order to avoid the need of creating more than a single attack framework.     
 
 %In order to prepare for attacks, a plan might be to implement the techniques described in \cite{gilad2014off}.
@@ -200,71 +235,85 @@ The simulation could be performed using a number of delay functions. In order to
 
 
 
-A number of physical investigations related to the effects of any intended attacks on the intended targets, would increase the knowledge of a potentially complex target, increasing the probability of staying undetected during the attack. In order to avoid exposing expensive and critical power system infrastructure to physical damage or downtime,\footnote{In a test lab environment, downtime could be acceptable, whereas the risk of physical damage of typically expensive equipment may be too high, at least not in the initial phases of investigations.} such practical investigations would preferably be performed in a simulation environment.
+A number of physical investigations related to the effects of any attacks on the intended targets, would increase the knowledge of a potentially complex target, increasing the probability of staying undetected during the attack. As previously explained, those investigations will be done in a simulation environment.
+%In order to avoid exposing expensive and critical power system infrastructure to physical damage or downtime,\footnote{In a test lab environment, downtime could be acceptable, whereas the risk of physical damage of typically expensive equipment may be too high, at least not in the initial phases of investigations.} such practical investigations would preferably be performed in a simulation environment.
 
 \section{Creating a Simulation environment}
 
-This approach could be taken by a threat actor during a phase of investigations in the preparation of the actual attack, for the purpose of learning more about the possible consequences of performing intended actions on the intended target. One of the most important priorities of the threat actor, is to stay undetected for as long as possible. Simulations are designed in order to investigate the selected attack scenarios. The planned attack is implemented using a combination of Simulink and MATLAB. The execution of each simulation will produce corresponding graphs, illustrating any visible effects the attack may have on the system, by analytically comparing the output produced by the attack, with the alternative output of the unmodified, and correct Synchrophasor signal corresponding to  a situation of no attack being performed.
+%This approach could be taken by a threat actor during a phase of investigations in the preparation of the actual attack, for the purpose of learning more about the possible consequences of performing intended actions on the intended target. One of the most important priorities of the threat actor, is to stay undetected for as long as possible. 
+Simulations are designed, in order to investigate the attack scenarios previously described. The planned attack is implemented using a combination of Simulink and MATLAB. The simulation produces three pairs of PMU channel output, one pair for each of the \textbf{Magnitude}, \textbf{Angle} and \textbf{Frequency} channels.
+Each pair consists of the native\footnote{Native PMU output equals the PMU output with no input delay.} and delayed  PMU output signals. 
 
+The execution of each simulation will, after the completion of the execution of the SIMULINK model, produce corresponding graphical output, included in the thesis as figures. The graphical representations are used to illustrate any visible effects the attack may have on the system. The graphs enable visual pair-wise comparison of the output produced by the attack. In addition, the graphical result of a numerical check for tolerance compliance is presented for visual inspection.
+
+A PMU may be including output channels for both Voltage and Impedance PMU input. The simulation covers both cases.
 \subsection{Modelling a PMU}
 
-As the plan of the threat actor is to expose  a number of \acrshort{pmu}s to a time  delay attack, the plan is to build a model of a \acrshort{pmu}, allowing the model to be run while altering any time stamp values required, in order to investigate any observable effects on the output from the \acrshort{pmu}.
- \begin{figure}[ht]
-\centering
+As the plan of the threat actor is to expose  a number of \acrshort{pmu}s to a time  delay attack, the plan is to build a model of a \acrshort{pmu}, allowing the model to be run for both Instant and Step-Wise attacks involving various time delay levels, in order to investigate any observable effects on the output from the \acrshort{pmu}.
+\subsection{Model Description}
+The SIMULINK model implemented consists of two SIMULINK Subsystems:
+\begin{itemize}
+    \item The \textbf{PowerSource} Subsystem, consists of a number of SimScape Electric components, producing simulated three-phase signals for both  Voltage and Impedance.
+    \item \textbf{The DualPMU} Subsystem, accepts a simulated three-phase power input, and a delay level, and produces a six-channel signal for external processing. 
+\end{itemize}
+
+ \begin{figure}
 \includegraphics[width=0.9\textwidth]{figures/pmuSIM-overview.png}
 \caption[PmuSIM SIMULINK model]{A SIMULINK model for the simulation of PMU Time Delay Attacks.}
-
+\label{fig:PMUsim-Overview}
 \end{figure}
+The model, shown in figure \ref{fig:PMUsim-Overview}, consists of one PowerSource Subsystem, connected to two DualPMU sysbystem, one for each of the Voltage and Impedance PowerSource outputs.
 
 
 \subsubsection{The PowerSource subsystem}
 
- \begin{figure}[ht]
-\centering
-\includegraphics[width=0.9\textwidth]{figures/PowerSourceSubsystem.png}
-\caption[PowerSource SIMULINK subsystem]{PowerSource: Generating  V and I PMU Input to DualPMU.}
+The composition of the PowerSource Subsytem is visualised in figure \ref{fig:PowerSource}.
 
-\end{figure}
+The main components of the sub system is available from the component libraries of the Simscape Electic addition to the SIMULINK/MATLAB software suite.
+
+\begin{itemize}
+    \item \textbf{Three-Phase source} 
+    \item \textbf{Three-Phase V-I Measurement}  Providing Voltage and Impedance levels.
+    \item \textbf{Three-Phase Parallel RLC Load}. Documentation at \cite{mathworksImplementThreephase}. 
+\end{itemize}
+In addition, two signals are provided as output from the subsystem to be used as PMU inputs:
+\begin{enumerate}
+    \item \textbf{Voltage\_ Native}: The non-delayed voltage signal.
+    \item \textbf{Impedance\_Native}: The non-delayed Impedance signal.
+\end{enumerate}
 
 \subsubsection{The DualPMU subsystem}
+The composition of the DualPMU Subsytem is visualised in figure \ref{fig:DualPMU}.
 
- \begin{figure}[ht]
-\centering
-\includegraphics[width=0.9\textwidth]{figures/DualPMUsubsystem.png}
-\caption[DualPMU SIMULINK subsystem]{DualPMU: Generating PMU output from V or I from PowerSource.}
+The DualPMU subsystem consists of the following components:
+\begin{itemize}
+    \item A three-phase input, as provided by the Voltage or, alternatively, Impedance output of the PowerSource subsystem previously described.
+    \item A numeric integer input, representing the delay level by which to 
+    \item An Enabled Delay object\hl{(?)} which produces a delayed signal from the PowerSystem Output, delayed by the DualPMU Delay input.
+    \item Two identical PMUs, One accepting the original input, the other accepts the delayed input.
+    \item Three two-to-one MUxes, collecting one PMU channel output pair each.
+    \item One four-to-one  MUX, collecting the single outputs from the three two-channel muxes, in addition to the unmodified delay input, in order to store the corresponding delay function for each simulation session.
+\end{itemize}
 
-\end{figure}
 
 
 
 \subsection{Experimental Procedure}
 %\textbf{TO DO:} \textit{Describe experimental procedure, dependant on experiments and experimental environment selected.}.
-In order to complete one iteration of the simulation, each step should be completed, as required.
+In order to execute the simulation, each step should be completed, as required.
 \begin{enumerate}
     \item Start Matlab
     \item Open a MATLAB script, named \textbf{PMUsimScript.m}.
     \item Inspect and modify a selection of variables, and execute the script for each run. The script will produce:
     \begin{enumerate}
-    \item Output data logged to workspace according to the model.
-    \item For each variation, a numeric comparison, followed by a corresponding colored (Green/Red) similarity classification.
-    \item One combined figure showing original and delayed signal, as well as one figure for each of the PMU components "Angle", "Frequency" and "Magnitude".
-    \item The figures are stored as specified in the MATLAB script.
+    \item Output data logged to workspace for each of the DualPMU subsystems voltage(V) and Impedance(I), to be further processed by the script at the end of each execution of the SIMULINK model.
+    \item For each variation of PMU type (V/I), and channel (Magnitude/Angle/Frequency), a numeric comparison is followed by a corresponding colored (Red) similarity classification.
+    \item One figure for each channel,  PMU type,  Delay function type, and Delay Level, is produced.
+    \item Each figure is showing, for the specific configuration, a combined plot of the original and delayed signals. A number of plots, one for each of the tolerance levels of 0.01 (1\%), 0.05 (5\%), and 0.1 (10\%), is included in the same figure.
+    \item The tolerance plots, shows  tolerance compliance information for a level, as well as a visualisation of the Delay function, and the normalised ([0,1]) difference between the native and delayed signals, for the signals in the plot above.
+    \item Failure to comply to the tolerance level is visualised as red portions on the time scale.
     \end{enumerate}
-    \item Planned analysis is to be determined, using component output generated. 
-\end{enumerate}
-Assumptions: 
-Focus on a few optional tolerance levels. One Option: Assume a similarity of 0.95 to be hardly detectable.  
-\begin{itemize}
-    \item Use the lowermost drawings appearing in each component output generated for graph comparisons.
-    \item Visually inspect the green portion, indicating tolerable difference as well as any red portions.
-    \item The graphs may provide indications on attack stealthiness, by no, (or minimal) red portions in the lower drawing. 
-    \item Tolerance levels: $1\% (0.01)$, $5\% (0.05)$ and $10\% (0.1)$ For now $1\%$ is covered.
-\end{itemize}
-
-\begin{enumerate}
-    \item The green portion of the line indicates signal similarity, indication periods with a low probability of attack detection.
-    \item The red portion of the graph is to be interpreted as time periods where the attack detection risk is too high for the attack to remain stealthy for lengthy periods of time.
-
+    \item During script execution, each figure is displayed on screen for visual inspection, before being automatically saves at a specified location. 
 \end{enumerate}
 \subsection{Definition of Experiments} \label{sec:ExpDef}
 
@@ -280,13 +329,13 @@ The experiments will focus on various levels of assumed detection thresholds.
 
 \begin{enumerate}
     \item \textbf{Immediate delay} Square pulse signal: Starting off, turning constant-delay on,  before dropping to 0 before simulation end. 
-    \item \textbf{Step-wise delay} Increasing to delay level specified, in step-wise increse of delay level by one each second, before dropping to 0 before simulation end. 
+    \item \textbf{Step-wise delay} Increasing to delay level specified, in step-wise increase of delay level by one each second, before dropping to 0 before simulation end. 
     %\item Increasing delay, drop to 0 before simulation end
 \end{enumerate}
 
-Additonally, the  \textbf{No delay attack}, running the simulation on a constant delay level of $0$ for the entire duration of the simulation, will be executed in order to produce output for model validation purposes. 
+Additionally, the  \textbf{No delay attack}, running the simulation on a constant delay level of $0$ for the entire duration of the simulation, will be executed in order to produce output for model validation purposes. 
 
-\hl{The simulations need re-run}
+%\hl{The simulations need re-run}
 %The current figures of chapter \ref{chap:Results} are produced by exposing the PMU to a variety of \textbf{d\_mode}s, as well as a selection of delay levels.
 
 
@@ -305,4 +354,18 @@ Additonally, the  \textbf{No delay attack}, running the simulation on a constant
 
 %Explain, to the reader for example, what was the experimental task (what did the participants have to do?), the extraneous variables that were controlled (variables of the environment that could affect the cause and affect relationship).
 
+
+ \begin{figure}
+\includegraphics[width=0.9\textwidth]{figures/PowerSourceSubsystem.png}
+\caption[PowerSource SIMULINK subsystem]{PowerSource: Generating  V and I PMU Input to DualPMU.}
+\label{fig:PowerSource}
+\end{figure}
+
+
+ \begin{figure}
+\includegraphics[width=0.9\textwidth]{figures/DualPMUsubsystem.png}
+\caption[DualPMU SIMULINK subsystem]{DualPMU: Generating PMU output from V or I from PowerSource.}
+\label{fig:DualPMU}
+
+\end{figure}
 
