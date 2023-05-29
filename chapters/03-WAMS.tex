@@ -93,9 +93,6 @@ In order to address these shortcomings, the \acrfull{wams} system\footnote{WAMS 
 
 
 
-
-
-
 \section{Wide Area Measurement System}
 \begin{figure}[ht]
 \includegraphics[width=\linewidth]{figures/Kumar-WAMS-architecture.png}
@@ -135,7 +132,13 @@ Electricity is produced according to the current demand for energy, as controlle
 
 %\section{Storing and transmitting data for monitoring}
 
-\subsection{Phasor Measurene units}
+\subsection{Phasor Measurment Units}
+The \acrfull{pmu} is a system which receives samples from a number of sensors monitoring  real-time power line status, related to the electrical Voltage and Impedance the of the infrastructure being monitored. 
+The entities monitored are known as electrical phases, most often part of a three-phase system, where each phase is separated by $120^0$.
+Each \acrshort{pmu} is continuously calculating the phasor values of all sensors, alligning all values corresponding to a time stamp as synchrophasors, before transmitting a synchrophasor record for each timestamp to the single \acrfull{pdc} to which the \acrshort{pmu} has a  TCP or UDP network connection.
+
+%target for the planned attack. 
+
 
 %\subsection{Introduction}
 
@@ -161,7 +164,8 @@ Electricity is produced according to the current demand for energy, as controlle
 
 \subsection{Phasor data Concentrator}
 
-
+The \acrfull{pdc} is a networked system responsible for forwarding synchronised phasor data from as number of \acrshort{pmu}s 
+, to a more centralised \acrshort{pdc}, most often denoted a Super \acrshort{pdc}.
 
 
 

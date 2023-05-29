@@ -1,12 +1,113 @@
 \chapter{Smart Grid Power Flow Status Monitoring}
 
+The \acrshort{sg} consists of a vast number of both conventional and modern, more dynamic, production facilities, which requires thorough monitoring in order to ensure the optimal distribution of electrical energy. The requirement of a consistently stable and reliable supply of energy is constant, while the amount of energy demanded is dynamically changing according to the demand for power at any time. \\ 
+
+Therefore, the proper \acrlong{sg} operation might be considered virtually impossible without a  close monitoring of current power flow, as well as the ability to instantly adjust the supply of power according to present needs,  without the risk of causing power surges or blackouts. For this purpose, the Wide Area Monitoring System analyses the levels of electrical power as monitored by sensors, continuously sampled and forwarded to the \acrshort{wams}, through  a networked infrastructure continuously time-synchronised within a fraction of a second tolerance, for the less demanding subsystems.
+
+
+The correctness of this time source is critical to the reliability, and therefore, the proper operation of the monitoring system, constituting the primary decision criteria for actions controlling the supply of power.
+
+
+
+
+\section{Time Synchronisation}
+
+In order to be able to synchronise events in time, it is mandatory to adjust the clock of each participating actor, analogous to the classic pre-operational physical watch-synchronisation meetings in the physical domain. \\ 
+
+The \acrshort{sg} time synchronisation requirements are, to say the least, a bit more demanding than a simultaneous(-ish) press on buttons to start timing from a common time reference.
+
+Several articles, of which \cite{appasani2018review} may serve as an example, stresses the importance of utilising a precise and reliable times source.
+
+%
+  %Given the distributed nature of the \acrshort{pmu} devices providing samples from locations distributed over a Wide Area Network, the \acrfull{gps} is the  time source selected. 
+
+
+\subsection[Smart Grid Time Sync Precision Requirements]{Smart Grid Time Synchronisation Precision Requirements}
+
+In order to ensure the time precision required for the \acrshort{sg}, the correct selection of time synchronisation mechanisms is vital. 
+
+
+
+
+
+
+
+
+
+
+\subsection{The Importance of Time Synchronisation}
+
+In \cite{dagle2019importance}, \citeauthor{dagle2019importance} states the following aspects as the benefits for Smart Grid operation, of ensuring correct time synchronisation:
+
+
+\begin{itemize}
+    \item  Situational Awareness and Wide-Area Monitoring
+    \item  Real-Time Operations
+    \item  Power System Planning 
+    \item  Forensic Event Analysis
+    
+\end{itemize}
+
+\subsection{Possible effects of Time Synchronisation errors}
+Timing errors will, according to ,,, render the data introduced to the \acrshort{wams} system inadequate to enable \acrshort{sg} operatiors to get overview of the Energy supply state of the \acrshort{sg}.
+
+In \Cite{martin2019impact}, \citeauthor{martin2019impact} lists a number of side-effects which could result form the absence of high-quality data material from the \acrshort{wams}.
+
+
+\begin{enumerate}
+
+
+
+
+    \item Data loss,
+    \item Data corruption,
+    \item Inaccurate representation of engineering quantities,
+    \item Lack of precision,
+    \item Incorrect measurement identification,
+    \item Excessive or inconsistent latency.
+
+\end{enumerate}
+
+
+
+
+
+
+\section{WAMS Time Synchronisation}
+
+
+
+The \acrlong{wams} is critically dependant on precise Time Synchronisation, as a Time Synchronisation error of a few $\mu$-seconds may result in \acrshort{sg} monitoring instability. The time stamps produced by Synchrophasors, pinpointing the exact time of any system event, is vital in order to ensure precise and reliable system state information.
+In the event of a system alert being triggered by erroneous system state Information, corrective actions by operators might have undesired effects. In order to synchronise the samples received from the \acrshort{pmu}, the \acrshort{pdc}, as well as the \acrshort{pmu} devices producing the samples, is vitally dependant on precise timing adjustments, in order to establish a precise and correct overview of system state. Incorrect synchronisation of measurements caused by erroneous timing information, will produice an equally wrong system state overview, as presented in the \acrshort{sg} \acrshort{wams}. \\ 
+
+
+\section{Protocols}
+A large number of protocols are defined, in order to standardise the operation of the \acrlong{sg}.
+
+A small selection of these, relevant for the scope of the thesis, are described underneath.
+
+\cite{2021arXiv210311657E} \hl{describes communication protocols} in the  \acrshort{sg}.
+
+
+
+
+
+
+
+
+
+
 
 
 
 \section{Time Synchronisation Protocols}
 
-\subsection{Introduction}
+
 Time Synchronisation protocols are used in order to synchronise the time of interconnected devices in need of synchronised time for various purposes. In the case of synchrophasor devices, the devices needs to be time synchronised in order for \acrshort{sg} \acrshort{wams} operators to get a correct overview of the system state.
+
+\subsection{Time Synchronisation Protocols Presicion Requirements}
+Time synchronisation protocols are controlling the synchronisation of time between various devices of the grid, like the PMUs, collecting phasor measurements from a definde number of measuring devices. Synchronised time is crucial in order to ensure each PMU is able to put the correct time stamp on each phasor measurement, before transmitting the resulting synchrophasor for each time stamp, to the destined PDC device. In the event one of the synchrophasors have an erroneous time stamp, an error affecting the integrity of the synchrophasor data is introduced. As described in \cite{moussa2016security}, \acrlong{ptp} synchronisation network
+, as well as \acrlong{gnss} based synchronisation networks, are both capable of producing the precision required by the synchrophasor protocols, as opposed to the more common \acrfull{ntp} commonly used in ordinary computer networks. As my thesis covers \acrshort{ptp} time synchronisation only, my description of time synchronisation protocols is limited to the \acrfull{ptp}.
 
 
 
@@ -19,25 +120,6 @@ Eq \ref{DMS} about DMS, and  eq \ref{DSM} about DSM.
 
 
 
-
-\subsection{Synchrophasor Protocols}
-
-\hl{The introduction of Synchrophasors in the} \acrlong{pg}, 
-
-\subsubsection{Introduction}
-
-
-
-As described in \cite{martin2011synchrophasor} and \cite{ali2016performance}, the \acrfull{pmu}, along with the \acrfull{pdc}, were introduced in the 1980s. The communication and data exchange from the PMU to the PDC was standardised by the introduction of the IEEE 1344 standard in 1995, which was established as the standard communication protocol for synchrophasor data exchange. According to \cite{appasani2018review}, the IEEE 1344 was revised in 2001 , before the introduction of the IEEE C37.118 in 2005. The  IEEE C37.118 protocol was derived from the IEEE 1344 standard, and has undergone a number of revisions, over the years.
-
-
-In \cite{martin2013synchrophasor}, \citeauthor{martin2013synchrophasor}describes the history of the 
-IEEE C37.118-series of satndards. The characterisitcs of the various generations, might be summarised as:
-\begin{itemize}
-    \item The IEEE C37.118-2005,
-    \item The IEEE C37.118-2011
-    \item The IEEE C37.118-2018
-\end{itemize}
 
 
 
@@ -90,53 +172,6 @@ IEEE C37.118-series of satndards. The characterisitcs of the various generations
 %PTP delay attack (types)
 
 
-\section{Time Synchronisation}
-In order to synchronise the samples received from the \acrshort{pmu}, the \acrshort{pdc}, as well as the \acrshort{pmu} devices producing the samples, precise timing adjustments is vital, in order to establish a precise and correct overview of system state. Incorrect synchronisation of measurements caused by erroneous timing information, will produice an equally wrong system state overview, as presented in the \acrshort{sg} \acrshort{wams}. \\ 
-
-
-In order to be able to synchronise events in time, it is mandatory to adjust the clock of each participating actor, analogous to the classic pre-operational physical watch-synchronisation meetings in the physical domain. \\ 
-
-The \acrshort{sg} time synchronisation requirements are, to say the least, a bit more demanding than a simultaneous press on a button. Several articles, of which \cite{appasani2018review} may serve as an example,  of by utilising a precise and reliable times source.  Given the distributed nature of the \acrshort{pmu} devices providing samples from locations distributed over a Wide Area Network, the \acrfull{gps} is the  time source selected. 
-
-\subsection{Introduction}
-
-
-The dependency on networking favors the usage of low-cost \acrshort{gnss} receivers for synchronising time between the growing number of \acrshort{pmu}s deployed at various locations, monitoring energy flow states of the highly distributed \acrshort{sg}. 
-
-
-
-\subsubsection{The Importance of Time Synchronisation}
-
-In \cite{dagle2019importance}, \citeauthor{dagle2019importance} states the following aspects as the benefits for Smart Grid operation, of ensuring correct time synchronisation:
-
-
-\begin{itemize}
-    \item  Situational Awareness and Wide-Area Monitoring
-    \item  Real-Time Operations
-    \item  Power System Planning 
-    \item  Forensic Event Analysis
-    
-\end{itemize}
-
-\subsubsection{Possible effects of Time Synchronisation errors}
-Timing errors will, according to ,,, render the data introduced to the \acrshort{wams} system inadequate to enable \acrshort{sg} operatiors to get overview of the Energy supply state of the \acrshort{sg}.
-
-In \Cite{martin2019impact}, \citeauthor{martin2019impact} lists a number of side-effects which could result form the absence of high-quality data material from the \acrshort{wams}.
-
-
-\begin{enumerate}
-
-
-
-
-    \item Data loss,
-    \item Data corruption,
-    \item Inaccurate representation of engineering quantities,
-    \item Lack of precision,
-    \item Incorrect measurement identification,
-    \item Excessive or inconsistent latency.
-
-\end{enumerate}
 
 \subsubsection{Precision Time Protocol services}
 The \acrfull{ptp} is a network-based time protocol, enabling the time difference between devices to be synchronised within a fraction (in the order of a few $\mu$s) of a second, satisfying the requirements of the \acrshort{sg}. 
@@ -192,20 +227,12 @@ In order to be able to achieve the time difference required, the \acrshort{ptp},
 
 
 
-\subsection{Smart Grid Time Synchronisation}
+
+\subsection{Synchrophasor}
+%\cite{ali2016wide}
 
 
-
-\subsubsection{Introduction}
-
-
-The \acrlong{sg} is dependant on precise Time Synchronisation, as a Time Synchronisation error of a few $\mu$-seconds may result in \acrshort{sg} instability. The time stamps produced by Synchrophasors, pinpointing the exact time of any system event, is vital in order to ensure precise and reliable system state information.
-In the event of a system alert being triggered by erroneous system state Information, corrective actions by operators might have undesired effects. 
-
-\subsubsection[Smart Grid Time Sync Precision Requirements]{Smart Grid Time Synchronisation Precision Requirements}
-
-In order to ensure the time precision required for the \acrshort{sg}, the correct selection of time synchronisation mechanisms is vital. 
-
+%\Cite{rana2015exploring}
 
 
 
@@ -217,11 +244,6 @@ measurement. Figure credit: \citeauthor{dagle2019importance}}.
     \label{fig:syncrophasors-vs-scada}
 \end{figure}  
 
-\subsection{Synchrophasor}
-%\cite{ali2016wide}
-
-
-%\Cite{rana2015exploring}
 
 
 
@@ -242,16 +264,22 @@ Therefore, the time-synchronisation mechanisms of the \acrshort{pmu} system is o
 
 
 
+\subsection{Synchrophasor Protocols}
+
+\hl{The introduction of Synchrophasors in the} \acrlong{pg}, 
+
+\subsubsection{Introduction}
 
 
 
+As described in \cite{martin2011synchrophasor} and \cite{ali2016performance}, the \acrfull{pmu}, along with the \acrfull{pdc}, were introduced in the 1980s. The communication and data exchange from the PMU to the PDC was standardised by the introduction of the IEEE 1344 standard in 1995, which was established as the standard communication protocol for synchrophasor data exchange. According to \cite{appasani2018review}, the IEEE 1344 was revised in 2001 , before the introduction of the IEEE C37.118 in 2005. The  IEEE C37.118 protocol was derived from the IEEE 1344 standard, and has undergone a number of revisions, over the years.
 
 
-\subsection{Time Synchronisation Protocols}
-Time synchronisation protocols are controlling the synchronisation of time between various devices of the grid, like the PMUs, collecting phasor measurements from a definde number of measuring devices. Synchronised time is crucial in order to ensure each PMU is able to put the correct time stamp on each phasor measurement, before transmitting the resulting synchrophasor for each time stamp, to the destined PDC device. In the event one of the synchrophasors have an erroneous time stamp, an error affecting the integrity of the synchrophasor data is introduced. As described in \cite{moussa2016security}, \acrlong{ptp} synchronisation network
-, as well as \acrlong{gnss} based synchronisation networks, are both capable of producing the precision required by the synchrophasor protocols, as opposed to the more common \acrfull{ntp} commonly used in ordinary computer networks. As my thesis covers \acrshort{ptp} time synchronisation only, my description of time synchronisation protocols is limited to the \acrfull{ptp}.
-
-\subsubsection{Precision Time Protocol}
-
-The \acrfull{ptp} was, \hl{as described in} \cite{alghamdi2021precision} ...
+In \cite{martin2013synchrophasor}, \citeauthor{martin2013synchrophasor}describes the history of the 
+IEEE C37.118-series of satndards. The characterisitcs of the various generations, might be summarised as:
+\begin{itemize}
+    \item The IEEE C37.118-2005,
+    \item The IEEE C37.118-2011
+    \item The IEEE C37.118-2018
+\end{itemize}
 

@@ -14,7 +14,7 @@
 \section{The Conventional Power Grid}
 The \acrfull{cpg} is described in several papers, and books like \cite{BlumeStevenW2007Epsb}, as  a uni-directional, manually controlled, power distribution system.  
 
-\begin{figure}[ht]
+\begin{figure}[t]
 \includegraphics[width=\linewidth]{figures/Blume-PowerGrid-SystemOverView.png}
 \caption[Power Grid System Overview]{Power Grid System Overview , as presented in \cite{BlumeStevenW2007Epsb}}
 \label{fig:Blume-PowerGrid-SystemOverView}
@@ -24,8 +24,7 @@ The \acrfull{cpg} is described in several papers, and books like \cite{BlumeStev
 
 \subsection{Overview of the Conventional Power Grid}
 The \acrlong{cpg} is a system by which electric power is centrally generated, transmitted, and distributed to industrial, residential,and commercial end users, in order to ensure a reliable access to a sufficient amount of electrical energy. 
-\newpage
-The \acrlong{cpg}, as described in \cite{BlumeStevenW2007Epsb}, consists of the following subsystems:
+  The \acrlong{cpg}, as described in \cite{BlumeStevenW2007Epsb}, consists of the following subsystems, visualised in figure \ref{fig:Blume-PowerGrid-SystemOverView}:
 
 \begin{itemize}
 
@@ -34,61 +33,73 @@ The \acrlong{cpg}, as described in \cite{BlumeStevenW2007Epsb}, consists of the 
  \item The \textbf{Distribution Subsystem} which distributes electric power to end users, after converting the high voltage input into lower voltage levels, suitable for consumption.
  \end{itemize}
 
-As described in Chapter 2.3 of \cite{Rihan2018} %\cite{SmartGridOverview2013}
-, the \acrlong{cpg} is facing challenges, related to Black Outs adhering to the increased demands for electrical power . 
 
-
-%\section{The Smart Grid}
-%smart Grid
-\section{The Smart Grid}
-
-
+\subsection{Characteristics of the Conventional Power Grid} \label{subsec:PG-char}
 
 
 In order to provide a description of the \acrfull{sg}, a description of the characteristics of the \acrlong{cpg} is provided.
-
-
-
-
 
 As described in  \cite{BlumeStevenW2007Epsb} by \citeauthor{BlumeStevenW2007Epsb}, some of the characteristics of the \acrlong{cpg} are:
 
 \begin{itemize}
 \item Power is generated in real time. In the event a consumer is "flipping a power switch," the power grid must have sufficient resources in order to keep the voltage levels at an acceptable level.
 \item The \acrlong{cpg} is controlled by a central management facility known as the \acrfull{scada} subsystem. The monitoring and management of the \acrshort{pg} is initiated from the Control Center, utilising unidirectional communication channels. 
-\item The \acrlong{cpg} \acrlong{scada} subsystem is offline, i. e. not connected to any publicly available network. Therefore, operational duties must be performed by personnel physically located at dedicated operational sites.
+\item The \acrlong{cpg} \acrlong{scada} subsystem is offline, i. e. not connected to any publicly available computer network, and thus unavailable from the Internet. Therefore, operational duties must be performed by authorised personnel physically located\footnote{External personnel must physically travel to the site, to perform maintenance tasks, for instance.} at designated operational sites.
 
 \end{itemize}
 
 The \acrlong{cpg} originates from the local society-serving power generation facilities initiating the supply of electrical power, which over the years were interconnected to form a grid, connecting consumers to a network of several power generating facilities, providing a more flexible power distribution infrastructure. 
+As described in Chapter 2.3 of \cite{Rihan2018} %\cite{SmartGridOverview2013}
+, the \acrlong{cpg} is facing challenges, related to Black Outs adhering to the increased demands for electrical power. 
 
 
+%\section{The Smart Grid}
+%smart Grid
+\section{The Smart Grid}
 \subsection{Overview of The Smart Grid}
 
+The \acrfull{sg} is, as described by \citeauthor{humayed2017cyber} in \cite{humayed2017cyber}, the modernisation of the \acrfull{cpg}, into what may be described as an exapmle of a \acrfull{cps}.
 
-The \acrfull{nist} has published a \hl{conceptual} model of the smart grid, as shown in 
-figure \ref{fig:NIST-SmartGRID-ConceptualModel}.
+\subsubsection{Cyber-Physical System}
+
+As described by \citeauthor{humayed2017cyber} in \cite{humayed2017cyber}, a \acrfull{cps} is characterised by using a computer-based system in order to control and monitor systems of the physical world. The \acrshort{cps} is utilised in order to control physical systems from various fields of applications. Humayed et. al., in \cite{humayed2017cyber}, describes as various appliances as \acrfull{ics}, Medical Devices, and \acrlong{sg}.
+The Smart Grid, therefore, is an example of a \acrfull{cps}, consisting of the physical system of a Power Grid, under the control of a network/Cyberspace-connected system. 
+
+Due to the shortcomings of the \acrshort{cpg} previously\footnote{Refer to subsection \ref{subsec:PG-char}, and Chapter 2.3 of [7]} covered, the \acrshort{sg} might be described as an effort to reduce the risk of blackouts, and to generally make the power distribution system more robust and reliable, meeting the increasing demand for electrical power.
+ 
+
+\subsection{Characteristics of the Smart Grid }
+
+
+The transition of the \acrshort{cpg} into the \acrshort{sg}, has transformed the \acrshort{cpg} into a \acrshort{pg} having, according to \hl{REF!!}, the following characteristics:
+
+\begin{itemize}
+    \item The system consists of a physical system controlled by, and accessible from, a networked system known as the Cyber System.
+    \item The interactions between the various systems are bidirectional, as opposed to the unidirectional \acrshort{cpg}.
+    \item 
+\end{itemize}
 
 
 
-\begin{figure}[ht]
+
+\section{Smart Grid models}
+In order to improve the understanding of a vastly complex system like the \acrlong{sg}, some organisations, like the \acrfull{nist}, as well as the \acrfull{eu} commission for \acrshort{sg}, is maintaining theoretical models.
+In order to provide a broader overview of the concept of the \acrlong{sg}, I choose to present two models the \acrshort{nist} conceptual model, as well as the \acrshort{eu} \acrlong{sgam}.
+
+
+\subsection{The NIST Conceptual model}
+
+
+\begin{figure}[t]
 \includegraphics[width=\linewidth]{figures/NIST-SmartGRID-ConceptualModel.png}
 \caption[Smart Grid Conceptual Model]{Updated \acrlong{sg} conceptual model, as presented in \cite[p. 13]{gopstein2021nist}, Figure 4}
 \label{fig:NIST-SmartGRID-ConceptualModel}
 \end{figure}
 
-
-
-
-
-
+In order to improve the understanding of a vastly complex system like the \acrlong{sg},
+the \acrfull{nist} is maintaining the \hl{conceptual} model of the \acrlong{sg}. The graphical visualisation of the model, as presented in \cite[p. 13]{gopstein2021nist}, Figure 4,  is  shown in 
+Figure \ref{fig:NIST-SmartGRID-ConceptualModel}.
 The \acrlong{sg} adds Information and Communication Technology (ICT) to the \acrlong{cpg}, in order to transform the  unidirectional communication lines of the monitoring and control infrastructure of the \acrlong{cpg}, into an infrastructure utilising two-way communication between the various parts of the \acrlong{sg} infrastructure. 
-
-
-
-
-
-
 %\subsection{The Smart Grid: Critical Information Infrastructure}
 %According to \cite[p. 610]{Bîrleanu2019}, the \acrlong{sg} consists of the following subsystems:
 
@@ -105,31 +116,48 @@ The \acrlong{sg} adds Information and Communication Technology (ICT) to the \acr
 %\item 
 %\end{itemize}
 
+\subsubsection{The Smart Grid Domains}
+
+\begin{table}[t]
+    \centering
+ 
+    \begin{tabular}{|p{0.3cm}|p{2.2cm}|p{9.1cm}|}
+   \hline
+
+ &\textbf{Domain} & \textbf{Roles/Services in the Domain} \\ \hline
+ 
+1 & \textbf{Customer} & The end users of electricity. May also generate, store, and manage the use of energy. Traditionally, three customer types are discussed, each with its own sub-domain: residential, commercial, and industrial. \\ \hline
+2 & \textbf{Markets} & The facilitators and participants in electricity markets and other economic mechanisms used to drive action and optimize system outcomes. \\ \hline
+3 & \textbf{Service Provider} & The organizations providing services to electrical customers and to utilities. \\ \hline
+4 & \textbf{Operations} & The managers of the movement of electricity. \\ \hline
+5 & \textbf{Generation Including DER} & The producers of electricity. May also store energy for later distribution. This domain includes traditional generation sources and distributed energy resources (DER). At a logical level, “generation” includes those traditional larger scale technologies usually attached to the transmission system, such as conventional thermal generation, large-scale hydro generation, and utility-scale renewable installations usually attached to transmission. DER is associated with generation, storage, and demand response provided in the customer and distribution domains, and with service provider-aggregated energy resources. \\ \hline
+6 & \textbf{Transmission} & The carriers of high voltage electricity over long distances. May also store and generate electricity. \\ \hline
+7 & \textbf{Distribution} & The distributors of electricity to and from customers. May also store and generate electricity.\\
+    \hline
+
+
+    
+    \end{tabular}
+
+    \caption[Domains and roles/services in the smart grid conceptual model]{Domains and roles/services in the smart grid conceptual model, as presented in Table 1 of }
+    \label{tab:nistCMdoains}
+\end{table}
 
 
 
-\subsection{The Smart Grid Domains}
 
 
 
 
-The \acrshort{sg} consists of seven domains, as shown in \figureautorefname { }\ref{fig:NIST-SmartGRID-ConceptualModel}:
 
 
-    \subsubsection{Customer Domain} The customers are the Consumers of Electricity.
-    The power infrastructure of commercial or private customers includes \acrfull{ami}, monitoring the amount of energy consumed, both for billing and \acrfull{dr} purposes. Consumers may plan their consumption, avoiding high-cost periods of heavy load, by  selecting time frames of low prices.
-    \subsubsection{Markets Domain} The participants of the Markets Domain aims to balance the consumption and demand of electricity, by adjusting prices on electricity. Price adjustments may be used in order to shift consumption from periods of high demand, to periods of low demand.     
-    \subsubsection{Service Provider Domain} Services to the Customers,  as well as the Markets and Operators domain, are provided by the Service Provider Domain, fulfilling duties like customer management and billing, as well as a number of emerging services as required. 
-    \subsubsection{Operations Domain} This domain consists of Electricity service operators, ensuring efficient and fail-safe \acrfull{sg} operation, by utilising \acrshort{scada} systems and \acrlong{ems}s in order to monitor and control system operational state.  
-    \subsubsection{Bulk Generation Domain} The facilities for producing electricity, resides in this domain. In addition to the connection and interaction with  to the Transmission domain, it interacts with the Markets domain, as well as the operations domain.  
-    \subsubsection{Transmission Domain} The actors of the Transmission domain aims to reduce energy loss while transmitting a stable and reliable stream of energy from operators in the bulk generation domain to the distribution domain. The market domain provides input on expected level of demand which may require adjustments of the amount of electricity distributed, controlled and monitored by actors in the operation domain.  
-    \subsubsection{Distribution Domain} The actors of the Distribution Domain delivers the electricity to consumers according to demand and availability, and monitors generation and consumption data. Bi-directional power-flow is supported. In the case customers have private  power producing facilities, like solar cells and wind turbines, any surplus electricity might be sold, and distributed to other customers.
+\subsection{The SGAM}
 
 
+The authors of \cite{uslar2019applying}, \citeauthor{uslar2019applying} describes an alternative model for the \acrshort{sg}, originating from the \acrfull{sgcg}, 
+and visualised in figure \ref{fig:SGAM}. The model consists of three dimensions, named "Domains", "Zones", and the "Interoperability dimension". \\ 
 
-The authors of \cite{uslar2019applying}, \citeauthor{uslar2019applying} describes an alternative model for the \acrshort{sg}, originating from , and visualised in figure \ref{fig:SGAM}. The model consists of three dimensions, named "Domains", "Zones", and the "Interoperability dimension". 
-
-\begin{figure}[ht]
+\begin{figure}[t]
 \includegraphics[width=\textwidth]{figures/SGAM.png}
 \caption[SGAM Smart Grid Model]{SGAM Smart Grid Model , as presented in \cite{uslar2019applying}}
 \label{fig:SGAM}
@@ -137,32 +165,67 @@ The authors of \cite{uslar2019applying}, \citeauthor{uslar2019applying} describe
 
 The "Domains" dimension consists of the following domains:
 
-\begin{itemize}
-    \item The \textbf{Generation} domain:
-    \item The \textbf{Transmission} domain:
-    \item The \textbf{Distribution} domain:
-    \item The \textbf{DER} domain:
-    \item The \textbf{Customer Premise} domain:
-\end{itemize}
+\begin{table}[t]
+    \centering
+    \begin{tabular}{|p{2.8cm}|p{7cm}|} \hline
+   
+   
+   \textbf{Domain} & \textbf{Description}  \\ \hline
+  \textbf{Generation}   & \\ \hline
+\textbf{Transmission}      & \\ \hline
+\textbf{Distribution}      & \\ \hline
+\textbf{DER}     & \\ \hline
+\textbf{Customer Premise } & \\ \hline
+        
+    \end{tabular}
+    \caption{SGAM Domains}
+    \label{tab:SGAM-Domains}
+\end{table}
 
 
 
 
-\section{Protocols}
-A large number of protocols are defined, in order to standardise the operation of the \acrlong{sg}.
+The "Interoperability" dimension consists of the following Layers:
 
-A small selection of these, relevant for the scope of the thesis, are described underneath.
+\begin{table}[t]
+    \centering
+    \begin{tabular}{|p{2.8cm}|p{7cm}|} \hline
+   
+   
+   \textbf{Layer} & \textbf{Description}  \\ \hline
+  \textbf{Business} & \\ \hline
+\textbf{Function}  & \\ \hline
+\textbf{Information}  & \\ \hline
+\textbf{Communication}  & \\ \hline
+\textbf{Component layer} & \\ \hline
+        
+    \end{tabular}
+    \caption{SGAM Layers}
+    \label{tab:SGAM-Layers}
+\end{table}
 
-\cite{2021arXiv210311657E} \hl{describes communication protocols} in the  \acrshort{sg}.
+
+\begin{table}[t]
+    \centering
+    \begin{tabular}{|p{2.8cm}|p{7cm}|} \hline
+   
+   \textbf{Zones} & \textbf{Description}  \\ \hline
+  \textbf{Process}   & \\ \hline
+\textbf{Field}      & \\ \hline
+\textbf{Station}      & \\ \hline
+\textbf{Operation}     & \\ \hline
+\textbf{Enterprise} & \\ \hline
+\textbf{Market} & \\ \hline
+        
+    \end{tabular}
+    \caption{SGAM Zones}
+    \label{tab:SGAM-Zones}
+\end{table}
 
 
 
 
 
-The \acrshort{sg} consists of a vast number of both conventional and modern, more dynamic, production facilities, which requires thorough monitoring in order to ensure the optimal distribution of electrical energy. The requirement of a consistently stable and reliable supply of energy is constant, while the amount of energy demanded is dynamically changing according to the demand for power at any time. \\ 
 
-Therefore, the proper \acrshort{sg} operation might be considered virtually impossible without a  close monitoring of current power flow, as well as the ability to instantly adjust the supply of power according to present needs,  without the risk of causing power surges or blackouts. For this purpose, the Wide Area Monitoring System analyses the levels of electrical power as monitored by sensors, synchronised according to a common GPS-controlled time source. \\ 
-
-The correctness of this time source is critical to the reliability, and therefore, the proper operation of the monitoring system, constituting the primary decision criteria for actions controlling the supply of power.
 
 

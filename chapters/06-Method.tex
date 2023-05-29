@@ -140,7 +140,6 @@ In order to provide practical results on which to base the discussions and concl
 \section{Simulating a Time Delay attack}
 
 
-
 \subsection{Scenarios}
 
 For the experimental part of my thesis, a number of attack scenarios will be required. The aim is to investigate various attack vectors which might be used by a sophisticated man-on-the-side threat actor in order to execute an attack while staying undetected. 
@@ -199,7 +198,7 @@ It may also be a good approach to determine any effects of a small increase in d
 
 
 
-\subsection{Definition of scenarios}
+\subsection{Attack scenarios}
 In order to provide experimental results in order to answer the Research Questions stated, a number of attack scenarios are defined.
 The main method of simulation would be a delayed forwarding of values, where a specified number of delayed samples, $d$, is applied to the PMU input. The value of $d$ is used to replace any sample $s(i)$ with the sample value $s(i-d)$, simulating\footnote{A specific SIMULINK delay module is performing the simulated delay of samples.} clock drift, producing effects similar to a \acrlong{tda}.
 The simulation could be performed using a number of delay functions. For the thesis, two types of approaches are used:
@@ -209,9 +208,8 @@ The simulation could be performed using a number of delay functions. For the the
 \end{itemize}
 
 
+\subsubsection{Attack characteristics}
 In order to investigate some specific effects of the attack, the following characteristics are selected:
-
-
 
 \begin{enumerate}
 \item In order for the model to stabilise\footnote{The PMU needs some samples of input before being able to stabilise the output values.}, data used for visualisation does not include the first second of the simulation ($t < 1$).
@@ -221,6 +219,14 @@ In order to investigate some specific effects of the attack, the following chara
 \item  In order to be able investigate any effects of attack cancellations, the targeted PMU is exposed to a delay attack for a limited time, thus reducing the delay level $d$ to $0$ before reaching the last second of the pre-set simulation running time.   
 \end{enumerate}
     
+ \begin{figure}[ht]
+ \begin{center}
+\includegraphics[width=0.9\textwidth]{figures/pmuSIM-overview.png}
+\caption[PmuSIM SIMULINK model]{A SIMULINK model for the simulation of PMU Time Delay Attacks.}
+\label{fig:PMUsim-Overview}
+     
+ \end{center}
+\end{figure}
 
 
 \subsection{Attack Simulation Implementation}
@@ -246,7 +252,8 @@ Each pair consists of the native\footnote{Native PMU output equals the PMU outpu
 
 The execution of each simulation will, after the completion of the execution of the SIMULINK model, produce corresponding graphical output, included in the thesis as figures. The graphical representations are used to illustrate any visible effects the attack may have on the system. The graphs enable visual pair-wise comparison of the output produced by the attack. In addition, the graphical result of a numerical check for tolerance compliance is presented for visual inspection.
 
-A PMU may be including output channels for both Voltage and Impedance PMU input. The simulation covers both cases.
+A PMU may include output channels for both Voltage and Impedance PMU input. The simulation covers both Voltage and Impedance pMU input.
+
 \subsection{Modelling a PMU}
 
 As the plan of the threat actor is to expose  a number of \acrshort{pmu}s to a time  delay attack, the plan is to build a model of a \acrshort{pmu}, allowing the model to be run for both Instant and Step-Wise attacks involving various time delay levels, in order to investigate any observable effects on the output from the \acrshort{pmu}.
@@ -257,17 +264,11 @@ The SIMULINK model implemented consists of two SIMULINK Subsystems:
     \item \textbf{The DualPMU} Subsystem, accepts a simulated three-phase power input, and a delay level, and produces a six-channel signal for external processing. 
 \end{itemize}
 
- \begin{figure}
-\includegraphics[width=0.9\textwidth]{figures/pmuSIM-overview.png}
-\caption[PmuSIM SIMULINK model]{A SIMULINK model for the simulation of PMU Time Delay Attacks.}
-\label{fig:PMUsim-Overview}
-\end{figure}
-The model, shown in figure \ref{fig:PMUsim-Overview}, consists of one PowerSource Subsystem, connected to two DualPMU sysbystem, one for each of the Voltage and Impedance PowerSource outputs.
 
+The model, shown in figure \ref{fig:PMUsim-Overview}, consists of one PowerSource Subsystem, connected to two DualPMU subsystems, one for each of the Voltage and Impedance PowerSource outputs.
 
 \subsubsection{The PowerSource subsystem}
 
-The composition of the PowerSource Subsytem is visualised in figure \ref{fig:PowerSource}.
 
 The main components of the sub system is available from the component libraries of the Simscape Electic addition to the SIMULINK/MATLAB software suite.
 
@@ -282,6 +283,20 @@ In addition, two signals are provided as output from the subsystem to be used as
     \item \textbf{Impedance\_Native}: The non-delayed Impedance signal.
 \end{enumerate}
 
+ \begin{figure}
+\includegraphics[width=0.9\textwidth]{figures/PowerSourceSubsystem.png}
+\caption[PowerSource SIMULINK subsystem]{PowerSource: Generating  V and I PMU Input to DualPMU.}
+\label{fig:PowerSource}
+\end{figure}
+  \begin{figure}
+\includegraphics[width=0.9\textwidth]{figures/DualPMUsubsystem.png}
+\caption[DualPMU SIMULINK subsystem]{DualPMU: Generating PMU output from V or I from PowerSource.}
+\label{fig:DualPMU}
+\end{figure}
+
+The composition of the PowerSource Subsytem is visualised in figure \ref{fig:PowerSource}.
+
+\newpage
 \subsubsection{The DualPMU subsystem}
 The composition of the DualPMU Subsytem is visualised in figure \ref{fig:DualPMU}.
 
@@ -289,14 +304,23 @@ The DualPMU subsystem consists of the following components:
 \begin{itemize}
     \item A three-phase input, as provided by the Voltage or, alternatively, Impedance output of the PowerSource subsystem previously described.
     \item A numeric integer input, representing the delay level by which to 
-    \item An Enabled Delay object\hl{(?)} which produces a delayed signal from the PowerSystem Output, delayed by the DualPMU Delay input.
-    \item Two identical PMUs, One accepting the original input, the other accepts the delayed input.
-    \item Three two-to-one MUxes, collecting one PMU channel output pair each.
-    \item One four-to-one  MUX, collecting the single outputs from the three two-channel muxes, in addition to the unmodified delay input, in order to store the corresponding delay function for each simulation session.
+    \item A \textbf{Delay} SIMULINK block, which produces a delayed signal from the PowerSystem Output, delayed by the value \textbf{d}, received at DualPMU Delay input from the DualPMU delay input port.
+    \item Two identical PMUs are part of the DualPMU system: One accepting the original PMU input signal, the other accepting the delayed pMU input signal.
+    \item Three 2to1 MUxes, collecting one PMU channel output pair each.
+    \item One 4to1  MUX, collecting the combined PMU outputs from the three 2to1 muxes, one for each of the channels Magnitude, Frequency and Angle. 
+    \item The fourth MUX input is connected to the unmodified delay input, in order to store the corresponding delay function for each simulation session, enabling its inclusion in the figures.
 \end{itemize}
 
+In addition to the PowerSource and the DualPMU subsystems, there are also some additional components included in the SIMULINK Model:
+\begin{itemize}
+    \item The Delay function, is implemented as a MATLAB function, which calculates the step-wise delay level, in addition to setting the constant delay level for the ouput, according to the rules for delay initiation and termination.
+    \item Two SIMULINK blocs of type \textbf{to Workspace}:
+    \begin{itemize}
+        \item \textbf{Voltage\_out} storing the output from the Voltage DualPMU subsystem to a MATLAB workspace variable, for further processing.
+        \item \textbf{Impedance\_out} storing the output from the Impedance DualPMU subsystem to a MATLAB workspace variable, for further processing.
+    \end{itemize}
 
-
+\end{itemize}
 
 \subsection{Experimental Procedure}
 %\textbf{TO DO:} \textit{Describe experimental procedure, dependant on experiments and experimental environment selected.}.
@@ -313,7 +337,7 @@ In order to execute the simulation, each step should be completed, as required.
     \item The tolerance plots, shows  tolerance compliance information for a level, as well as a visualisation of the Delay function, and the normalised ([0,1]) difference between the native and delayed signals, for the signals in the plot above.
     \item Failure to comply to the tolerance level is visualised as red portions on the time scale.
     \end{enumerate}
-    \item During script execution, each figure is displayed on screen for visual inspection, before being automatically saves at a specified location. 
+    \item During script execution, each figure is displayed on screen for visual inspection, before being automatically saved at a specified location. 
 \end{enumerate}
 \subsection{Definition of Experiments} \label{sec:ExpDef}
 
@@ -333,7 +357,7 @@ The experiments will focus on various levels of assumed detection thresholds.
     %\item Increasing delay, drop to 0 before simulation end
 \end{enumerate}
 
-Additionally, the  \textbf{No delay attack}, running the simulation on a constant delay level of $0$ for the entire duration of the simulation, will be executed in order to produce output for model validation purposes. 
+Additionally, the  \textbf{No delay (, no\footnote{At least, if considering the attack with No Delay an attack, it will be pretty harmless. }) Attack}, running the simulation on a constant delay level of $0$ for the entire duration of the simulation, will be executed in order to produce output for model validation purposes. 
 
 %\hl{The simulations need re-run}
 %The current figures of chapter \ref{chap:Results} are produced by exposing the PMU to a variety of \textbf{d\_mode}s, as well as a selection of delay levels.
@@ -354,18 +378,4 @@ Additionally, the  \textbf{No delay attack}, running the simulation on a constan
 
 %Explain, to the reader for example, what was the experimental task (what did the participants have to do?), the extraneous variables that were controlled (variables of the environment that could affect the cause and affect relationship).
 
-
- \begin{figure}
-\includegraphics[width=0.9\textwidth]{figures/PowerSourceSubsystem.png}
-\caption[PowerSource SIMULINK subsystem]{PowerSource: Generating  V and I PMU Input to DualPMU.}
-\label{fig:PowerSource}
-\end{figure}
-
-
- \begin{figure}
-\includegraphics[width=0.9\textwidth]{figures/DualPMUsubsystem.png}
-\caption[DualPMU SIMULINK subsystem]{DualPMU: Generating PMU output from V or I from PowerSource.}
-\label{fig:DualPMU}
-
-\end{figure}
 
