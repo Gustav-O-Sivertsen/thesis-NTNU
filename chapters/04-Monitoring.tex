@@ -15,21 +15,10 @@ The correctness of this time source is critical to the reliability, and therefor
 In order to be able to synchronise events in time, it is mandatory to adjust the clock of each participating actor, analogous to the classic pre-operational physical watch-synchronisation meetings in the physical domain. \\ 
 
 The \acrshort{sg} time synchronisation requirements are, to say the least, a bit more demanding than a simultaneous(-ish) press on buttons to start timing from a common time reference.
-
 Several articles, of which \cite{appasani2018review} may serve as an example, stresses the importance of utilising a precise and reliable times source.
 
 %
   %Given the distributed nature of the \acrshort{pmu} devices providing samples from locations distributed over a Wide Area Network, the \acrfull{gps} is the  time source selected. 
-
-
-\subsection[Smart Grid Time Sync Precision Requirements]{Smart Grid Time Synchronisation Precision Requirements}
-
-In order to ensure the time precision required for the \acrshort{sg}, the correct selection of time synchronisation mechanisms is vital. 
-
-
-
-
-
 
 
 
@@ -71,6 +60,12 @@ In \Cite{martin2019impact}, \citeauthor{martin2019impact} lists a number of side
 
 
 
+\subsection[Smart Grid Time Sync Precision Requirements]{Smart Grid Time Synchronisation Precision Requirements}
+
+In order to ensure the time precision required for the \acrshort{sg}, the correct selection of time synchronisation mechanisms is vital. 
+
+
+
 
 
 \subsection{WAMS Time Synchronisation}
@@ -81,9 +76,9 @@ The \acrlong{wams} is critically dependant on precise Time Synchronisation, as a
 In the event of a system alert being triggered by erroneous system state Information, corrective actions by operators might have undesired effects. In order to synchronise the samples received from the \acrshort{pmu}, the \acrshort{pdc}, as well as the \acrshort{pmu} devices producing the samples, is vitally dependant on precise timing adjustments, in order to establish a precise and correct overview of system state. Incorrect synchronisation of measurements caused by erroneous timing information, will produice an equally wrong system state overview, as presented in the \acrshort{sg} \acrshort{wams}. \\ 
 
 
+
 \section{Protocols}
 A large number of protocols are defined, in order to standardise the operation of the \acrlong{sg}.
-
 A small selection of these, relevant for the scope of the thesis, are described underneath.
 
 \cite{2021arXiv210311657E} \hl{describes communication protocols} in the  \acrshort{sg}.
@@ -97,6 +92,17 @@ A small selection of these, relevant for the scope of the thesis, are described 
 
 
 
+
+\begin{figure}%[ht]
+\includegraphics[width=\textwidth]{figures/phasorMaeasuremantSystemsNF.png}
+
+\caption[Phasor Measurement Systems]{Phasor Measurement Systems, as presented in 
+
+\cite{johnson2018standards} Slide 3
+
+}
+\label{fig:PhasorMeasurementSystems}
+\end{figure}
 
 
 
@@ -228,14 +234,6 @@ In order to be able to achieve the time difference required, the \acrshort{ptp},
 
 
 
-\subsection{Synchrophasor}
-%\cite{ali2016wide}
-
-
-%\Cite{rana2015exploring}
-
-
-
 \begin{figure}%[ht]
     \centering
     \includegraphics[ width=\textwidth]{figures/syncrophasors-vs-scada.png}
@@ -245,12 +243,11 @@ measurement. Figure credit: \citeauthor{dagle2019importance}}.
 \end{figure}  
 
 
+\subsection{Synchrophasors}
 
-
+A number of protocols has been developed and maintained, in order to standardise the format of the synchronised phasors to be transmitted, as well as the actual method of transmission used in order to transfer the standardised data.
 The \acrshort{pmu} is receiving values from sensors, on which it is able to calculate voltage level and phase angle of the energy flow. It is utilising a time-source to pinpoint measurements in time, producing synchrophasors, to be transmitted to the nearest \acrshort{pdc}. 
-
-As described by \citeauthor{dagle2019importance} in \cite{dagle2019importance}, the data received from traditional \acrshort{scada} systems are time-stamped after arriving at the control station. The synchrophasors of the \acrshort{wams} on the other hand are, as described by \Citeauthor{ali2016wide} in \cite{ali2016wide}, being time-stamped in real-time before being transferred to the control system. The sampling rate of the \acrshort{pmu}, results in synchrophasor data enabling operators of the \acrshort{wams} to get real-time visualisation of critical elements, like the state of energy flow  of the \acrlong{sg}. The increased granularity of the measurement system allows for the detection of anomalies undetectable by traditional \acrshort{scada} systems, as illustrated by \figureautorefname { }\ref{fig:syncrophasors-vs-scada}. 
-
+As described in \cite{dagle2019importance}, the data received from traditional \acrshort{scada} systems are time-stamped after arriving at the control station. The synchrophasors of the \acrshort{wams} on the other hand are, as described in \cite{ali2016wide}, being time-stamped by the \acrshort{pmu} in real-time before being transferred to the control system. The sampling rate of the \acrshort{pmu}, results in synchrophasor data enabling operators of the \acrshort{wams} to get real-time visualisation of critical elements, like the state of energy flow  of the \acrlong{sg}. The increased granularity of the measurement system allows for the detection of anomalies undetectable by traditional \acrshort{scada} systems, as illustrated by \figureautorefname { }\ref{fig:syncrophasors-vs-scada}. 
 The increased sampling rate, of the synchrophasors of the \acrshort{wams} systems enables a more fine-grained view of energy distribution system state changes. However, in order for the \acrshort{wams} system to get the correct system state information, correct time stamps is critical. 
 Therefore, the time-synchronisation mechanisms of the \acrshort{pmu} system is of critical importance. \\ 
 
@@ -259,30 +256,34 @@ Therefore, the time-synchronisation mechanisms of the \acrshort{pmu} system is o
     \includegraphics[ width=\textwidth]{figures/Synchrophasor-Definition.png}
     \caption[Convention for synchrophasor representation]{As presented in \Cite{schofield2018design}: Convention for synchrophasor representation.}.
     \label{fig:Synchrophasor-Definition}
+  
 \end{figure}  
 
 
 
-     \tcbox[size=normal, standard jigsaw, opacityback=0, boxrule=1pt,halign=justify,width=\textwidth]{
- \fullcite{phadke2017phasor} 
- }
+  
 
 \subsection{Synchrophasor Protocols}
 
-\hl{The introduction of Synchrophasors in the} \acrlong{pg}, 
+%\hl{The introduction of Synchrophasors in the} \acrlong{pg}, 
 
-\subsubsection{Introduction}
-
-
-
-As described in \cite{martin2011synchrophasor} and \cite{ali2016performance}, the \acrfull{pmu}, along with the \acrfull{pdc}, were introduced in the 1980s. The communication and data exchange from the PMU to the PDC was standardised by the introduction of the IEEE 1344 standard in 1995, which was established as the standard communication protocol for synchrophasor data exchange. According to \cite{appasani2018review}, the IEEE 1344 was revised in 2001 , before the introduction of the IEEE C37.118 in 2005. The  IEEE C37.118 protocol was derived from the IEEE 1344 standard, and has undergone a number of revisions, over the years.
+%\subsubsection{The hhistorical background of Synchrophasors.}
 
 
-In \cite{martin2013synchrophasor}, \citeauthor{martin2013synchrophasor}describes the history of the 
-IEEE C37.118-series of satndards. The characterisitcs of the various generations, might be summarised as:
+
+As described in \cite{martin2014overview} and \cite{ali2016performance}, the communication and data exchange from the PMU to the PDC was standardised by the introduction of the IEEE 1344 standard in 1995, which was established as the standard communication protocol for synchrophasor data exchange. According to \cite{appasani2018review}, the IEEE 1344 was revised in 2001 , before the introduction of the IEEE C37.118 in 2005. The  IEEE C37.118 protocol was derived from the IEEE 1344 standard, and has undergone a number of revisions, over the years.
+In \cite{martin2014overview}, \citeauthor{martin2014overview} describes the history of the 
+IEEE C37.118-series of standards. The characteristics of the various generations, might be summarised as:
 \begin{itemize}
-    \item The IEEE C37.118-2005,
-    \item The IEEE C37.118-2011
-    \item The IEEE C37.118-2018
+ 
+    \item The IEEE C37.118-2005, introduced the transmission hierarchy of  \acrshort{pmu} to various levels of \acrshort{pdc}s, and super \acrshort{pdc}s.
+    \item The IEEE C37.118-2011, introduced the separation of the standard into two parts:
+    \begin{itemize}
+    \item The IEEE C37.118-2011-1, which covers masurements and performance requirements.
+    \item The IEEE C37.118-2011-2, which covers communications, and real-time transfer of data to via \acrshort{pdc}s, to the \acrshort{wams}.  
+    \end{itemize}
 \end{itemize}
 
+The IEEE C37.118 series of protocols has, although not designed with security in mind, been updated with security extensions in order to ensure a trustworthy connection less vulnerable to attack on integrity and availability. 
+
+  
