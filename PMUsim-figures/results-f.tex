@@ -421,8 +421,16 @@ For model verification purposes, the output for the delay level of zero is inclu
 
  
   \end{tabular}
-\label{fig:VoltageStepWiseDelayFSix}
 \caption{Results for Voltage Output for Step-Wise Delay equal to Six }
+  \begin{tabular}{p{2cm} p{\textwidth-2cm}}
+   & \\
+  \textbf{Component} & \textbf{Main Observations} \\
+    & \\
+      Magnitude  & Drop in level at times of delay increase, no drop at reset to 0. \\
+     Angle  &  Periodic reduction of difference for delay levels 3 and 6. \\
+                & Alternating +/- differences for each increase of one \\
+Frequency &  Similar spikes at any time of delaly change, even from 6 to 0
+  \end{tabular}\label{fig:VoltageStepWiseDelayFSix}
 \end{figure}
 
 \newpage
@@ -434,9 +442,18 @@ For model verification purposes, the output for the delay level of zero is inclu
    \fbox{    \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_6/Step_iFrequency.png}} 
 
 
+  \end{tabular} 
+\caption{Results for Impedance Output for Step-Wise Delay equal to Six}
+  \begin{tabular}{p{2cm} p{\textwidth-2cm}}
+   & \\
+  \textbf{Component} & \textbf{Main Observations} \\
+    & \\
+      Magnitude  & Drop in level at times of delay increase, no drop at reset to 0. \\
+     Angle  &  Periodic reduction of difference for delay levels 3 and 6. \\
+                & Alternating +/- differences for each increase of one \\
+Frequency &  Similar spikes at any time of delaly change, even from 6 to 0
   \end{tabular}
 \label{fig:ImpedanceStepWiseDelayFSix}
-\caption{Results for Impedance Output for Step-Wise Delay equal to Six }
 \end{figure}
 
 
