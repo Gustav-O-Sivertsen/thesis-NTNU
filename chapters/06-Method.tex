@@ -177,8 +177,8 @@ Consider targeting a system able to detect PMU output deviations exceeding a spe
 A viable strategy could be to focus on a few optional tolerance levels. Even without knowing the detection threshold of the system targeted, the attacker could benefit from being able to predict any consequences of a future attack. Three levels of tolerance could cover three potential scenarios:
 \begin{enumerate}
     \item A tolerance level of 1\% may impose a high attack detection risk before the attacker is able to do much harm.
-    \item A tolerance level of 5\% may impose a lower detection risk, enabling the attacker to do more harm
-\label{item:i2}    \item A tolerance level of 10\% will impose an even lower detection risk, enabling the attacker to do even more harm, than in the previous case (Item \ref{item:i2}.).
+    \item A tolerance level of 12\% may impose a lower detection risk, enabling the attacker to do more harm
+\label{item:i2}    \item A tolerance level of 50\% will impose an even lower detection risk, enabling the attacker to do even more harm, than in the previous case (Item \ref{item:i2}.).
     
 \end{enumerate}
 
@@ -219,14 +219,6 @@ In order to investigate some specific effects of the attack, the following chara
 \item  In order to be able investigate any effects of attack cancellations, the targeted PMU is exposed to a delay attack for a limited time, thus reducing the delay level $d$ to $0$ before reaching the last second of the pre-set simulation running time.   
 \end{enumerate}
     
- \begin{figure}[ht]
- \begin{center}
-\includegraphics[width=0.9\textwidth]{figures/pmuSIM-overview.png}
-\caption[PmuSIM SIMULINK model]{A SIMULINK model for the simulation of PMU Time Delay Attacks.}
-\label{fig:PMUsim-Overview}
-     
- \end{center}
-\end{figure}
 
 
 \subsection{Attack Simulation Implementation}
@@ -264,6 +256,14 @@ The SIMULINK model implemented consists of two SIMULINK Subsystems:
     \item \textbf{The DualPMU} Subsystem, accepts a simulated three-phase power input, and a delay level, and produces a six-channel signal for external processing. 
 \end{itemize}
 
+ \begin{figure}[t]
+ \begin{center}
+\includegraphics[width=0.90\textwidth]{figures/pmuSIM-overviewH.png}
+\caption[PmuSIM SIMULINK model]{A SIMULINK model for the simulation of PMU Time Delay Attacks.}
+\label{fig:PMUsim-Overview}
+     
+ \end{center}
+\end{figure}
 
 The model, shown in figure \ref{fig:PMUsim-Overview}, consists of one PowerSource Subsystem, connected to two DualPMU subsystems, one for each of the Voltage and Impedance PowerSource outputs.
 
@@ -333,7 +333,7 @@ In order to execute the simulation, each step should be completed, as required.
     \item Output data logged to workspace for each of the DualPMU subsystems voltage(V) and Impedance(I), to be further processed by the script at the end of each execution of the SIMULINK model.
     \item For each variation of PMU type (V/I), and channel (Magnitude/Angle/Frequency), a numeric comparison is followed by a corresponding colored (Red) similarity classification.
     \item One figure for each channel,  PMU type,  Delay function type, and Delay Level, is produced.
-    \item Each figure is showing, for the specific configuration, a combined plot of the original and delayed signals. A number of plots, one for each of the tolerance levels of 0.01 (1\%), 0.05 (5\%), and 0.1 (10\%), is included in the same figure.
+    \item Each figure is showing, for the specific configuration, a combined plot of the original and delayed signals. A number of plots, one for each of the tolerance levels of 0.01 (1\%), 0.12 (12\%), and 0.5 (50\%), is included in the same figure.
     \item The tolerance plots, shows  tolerance compliance information for a level, as well as a visualisation of the Delay function, and the normalised ([0,1]) difference between the native and delayed signals, for the signals in the plot above.
     \item Failure to comply to the tolerance level is visualised as red portions on the time scale.
     \end{enumerate}
