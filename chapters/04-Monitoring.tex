@@ -3,8 +3,6 @@
 The \acrshort{sg} consists of a vast number of both conventional and modern, more dynamic, production facilities, which requires thorough monitoring in order to ensure the optimal distribution of electrical energy. The requirement of a consistently stable and reliable supply of energy is constant, while the amount of energy demanded is dynamically changing according to the demand for power at any time. \\ 
 
 Therefore, the proper \acrlong{sg} operation might be considered virtually impossible without a  close monitoring of current power flow, as well as the ability to instantly adjust the supply of power according to present needs,  without the risk of causing power surges or blackouts. For this purpose, the Wide Area Monitoring System analyses the levels of electrical power as monitored by sensors, continuously sampled and forwarded to the \acrshort{wams}, through  a networked infrastructure continuously time-synchronised within a fraction of a second tolerance, for the less demanding subsystems.
-
-
 The correctness of this time source is critical to the reliability, and therefore, the proper operation of the monitoring system, constituting the primary decision criteria for actions controlling the supply of power.
 
 
@@ -12,7 +10,7 @@ The correctness of this time source is critical to the reliability, and therefor
 
 \section{Time Synchronisation}
 
-In order to be able to synchronise events in time, it is mandatory to adjust the clock of each participating actor, analogous to the classic pre-operational physical watch-synchronisation meetings in the physical domain. \\ 
+In order to be able to synchronise events in time, it is mandatory to adjust the clock of each participating actor, analogous to the classic pre-operational physical watch-synchronisation meetings in the physical domain. 
 
 The \acrshort{sg} time synchronisation requirements are, to say the least, a bit more demanding than a simultaneous(-ish) press on buttons to start timing from a common time reference.
 Several articles, of which \cite{appasani2018review} may serve as an example, stresses the importance of utilising a precise and reliable times source.
@@ -39,7 +37,6 @@ In \cite{dagle2019importance}, \citeauthor{dagle2019importance} states the follo
 
 \subsection{Possible effects of Time Synchronisation errors}
 Timing errors will, according to ,,, render the data introduced to the \acrshort{wams} system inadequate to enable \acrshort{sg} operatiors to get overview of the Energy supply state of the \acrshort{sg}.
-
 In \Cite{martin2019impact}, \citeauthor{martin2019impact} lists a number of side-effects which could result form the absence of high-quality data material from the \acrshort{wams}.
 
 
@@ -73,13 +70,29 @@ In order to ensure the time precision required for the \acrshort{sg}, the correc
 
 
 The \acrlong{wams} is critically dependant on precise Time Synchronisation, as a Time Synchronisation error of a few $\mu$-seconds may result in \acrshort{sg} monitoring instability. The time stamps produced by Synchrophasors, pinpointing the exact time of any system event, is vital in order to ensure precise and reliable system state information.
-In the event of a system alert being triggered by erroneous system state Information, corrective actions by operators might have undesired effects. In order to synchronise the samples received from the \acrshort{pmu}, the \acrshort{pdc}, as well as the \acrshort{pmu} devices producing the samples, is vitally dependant on precise timing adjustments, in order to establish a precise and correct overview of system state. Incorrect synchronisation of measurements caused by erroneous timing information, will produice an equally wrong system state overview, as presented in the \acrshort{sg} \acrshort{wams}. \\ 
+In the event of a system alert being triggered by erroneous system state Information, corrective actions by operators might have undesired effects. In order to synchronise the samples received from the \acrshort{pmu}, the \acrshort{pdc}, as well as the \acrshort{pmu} devices producing the samples, is vitally dependant on precise timing adjustments, in order to establish a precise and correct overview of system state. Incorrect synchronisation of measurements caused by erroneous timing information, will produice an equally wrong system state overview, as presented in the \acrshort{sg} \acrshort{wams}.
+
+\begin{figure}[t]
+\includegraphics[width=\textwidth]{figures/phasorMaeasuremantSystemsNF.png}
+
+\caption[Phasor Measurement Systems]{Phasor Measurement Systems, as presented in 
+
+\cite{johnson2018standards} Slide 3
+
+}
+\label{fig:PhasorMeasurementSystems}
+\end{figure}
 
 
 
 \section{Protocols}
 A large number of protocols are defined, in order to standardise the operation of the \acrlong{sg}.
-A small selection of these, relevant for the scope of the thesis, are described underneath.
+Figure \ref{fig:PhasorMeasurementSystems} provides an overview of standards relevant for the specified areas relevant for the Phasor Measurement System.
+Of these, I will focus mainly on a couple of protocols, seen in the upper left part of the figure:
+\begin{itemize}
+    \item For the protocols in the timing standards, my main focus will be on the \acrfull{ptp} standard, IEEE 1588.
+    \item for the protocols in the communications standards, my main focus will be on the Synchrophasor standard IEEE c37.118.2\footnote{For the IEEE C37.118 revision of 2011, the standard IEEE c37.118 was separated in two parts.\\ IEEE c37.118.1 standardises communications, whereas IEEE c37.118.2 standardises measurements.}
+\end{itemize}
 
 \cite{2021arXiv210311657E} \hl{describes communication protocols} in the  \acrshort{sg}.
 
@@ -92,17 +105,6 @@ A small selection of these, relevant for the scope of the thesis, are described 
 
 
 
-
-\begin{figure}%[ht]
-\includegraphics[width=\textwidth]{figures/phasorMaeasuremantSystemsNF.png}
-
-\caption[Phasor Measurement Systems]{Phasor Measurement Systems, as presented in 
-
-\cite{johnson2018standards} Slide 3
-
-}
-\label{fig:PhasorMeasurementSystems}
-\end{figure}
 
 
 
@@ -191,37 +193,31 @@ The \acrfull{ptp} is a network-based time protocol, enabling the time difference
 
 \subsubsection{Description of PTP time synchronisation}
 
-
-
 A device, being synchronised  by the \acrshort{ptp} protocol, reads its system time from a clock which is continuously synchronised by a network of one or more slave clocks, being periodically synchronised via various types of hybrid\footnote{Hybrid clocks are a master clock for some clocks, while being a slave clock for others.} clocks, ultimately synchronised with a grand master clock.
 
-
 The time of the slave clock, is being adjusted according to the following process:
-
 
 Following the message exchange visualised by \figureautorefname { } \ref{fig:PTP-timing-Diagram}, the Slave clock  uses the time offset $\theta$ from the Master clock time, calculated by Equation \ref{eq:offset}, in order to synchronise with the Master clock. 
 
 
-\begin{equation}
-t_1 = t_0 + \theta + d_1 \label{eq:t1}
+\begin{equation} \label{eq:t1}
+t_1 = t_0 + \theta + d_1 
 \end{equation}
 
-
-\begin{equation}
-t_3 = t_2 - \theta + d_2
+\begin{equation} \label{eq:t3}
+t_3 = t_2 - \theta + d_2 
 \end{equation}
 
-\begin{equation}
-d_1 = d_2 = d
+\begin{equation}   \label{eq:d1}
+d_1 = d_2 = d  
 \end{equation}
 
 \textbf{Bla bla }Equation \ref{eq:t1}
 
-\begin{equation}
-%offset
-\theta = \frac{(t_2 - t_1) + (t_4 - t_3)}{2} \label{eq:offset}
-%\div 2    
+\begin{equation}  \label{eq:offset}
+\theta = \frac{(t_2 - t_1) + (t_4 - t_3)}{2}
 \end{equation}
+
 In order to be able to achieve the time difference required, the \acrshort{ptp}, as described by  \citeauthor{Eidson2006}, in \cite{Eidson2006}, is dependant on:
 
 \begin{itemize}

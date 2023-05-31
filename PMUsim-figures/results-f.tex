@@ -1,21 +1,6 @@
 
 
 \newpage
-\section{The Delay Level of Zero}
-For model verification purposes, the output for the delay level of zero is included.
-
-\begin{small}
-     \tcbox[size=normal, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comment on the figure:}{
-          \begin{itemize}
-         \item      The delayed signal (blue) overlaps the original signal (red), producing a straight line, colored neither red nor blue.
-         \item  The blue Normalised diff signal also overlaps the grey delay function.
-          \end{itemize} }
-\end{small}
-
-
-
-\newpage
 \begin{figure}[H]
 \begin{tabular}{c}
   \fbox{  \includegraphics[width=0.95\textwidth]{PMUsim-figures/DelayOf_0/Zero_vMagnitude.png}} \\ 
@@ -28,6 +13,36 @@ For model verification purposes, the output for the delay level of zero is inclu
 \label{fig:VoltageZeroDelay}
 \caption{Results for Voltage Output for Delay equal to Zero }
 \end{figure}
+
+
+\section{The Delay Level of Zero}
+For model verification purposes, the output for the delay level of zero is included.
+
+One could possibly dispute the relevance of including an attack producing a zero delay level, but the simulation is intended to serve two purposes, as previously explained in subsection \ref{subsec:ModelValidation}:
+
+\begin{enumerate}
+\item The design of the \textbf{DualPMU}  subsystem, as visualised in figure \ref{fig:DualPMU}, appears to include two instances of \acrlong{pmu}s of the same \acrshort{pmu} implementation, the SimScape Electric \acrshort{pmu} library module, as previously described in subsection \ref{subsec:ModelPMU}.  
+\item The delay function, listed in \ref{tab:vDelay}, is presumably correct. Running a simulation with a constant delay level of Zero should produce the same result as for identical \acrfull{pmu}s, showing identical, and indistinguishable \acrshort{pmu} output, as displayed in the resulting figures.
+\end{enumerate}
+
+No matter how identical the \acrshort{pmu} implementations of the  \textbf{DualPMU}  subsystem appears to be: If the delay function erroneously introduces a delay, the resulting output of the simulation is unlikely to produce a correct result, 
+
+The reverse argumentation also sounds reasonalbe:
+
+No matter how perfect the delay function might be, if the simulation produces deviating results, erroneously indicating a, possibly random, delay, the \acrshort{pmu} implementations of the  \textbf{DualPMU}  subsystem  is unlikely to be correct. 
+
+\subsubsection{Result for delay Zero:}
+
+\begin{small}
+     \tcbox[size=normal, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
+     Comment on the figure:}{
+          \begin{itemize}
+         \item      The delayed signal (blue) overlaps the original signal (red), producing a straight line, colored neither red nor blue.
+         \item  The blue Normalised diff signal also overlaps the grey delay function.
+          \end{itemize} }
+\end{small}
+
+
 
 
 
@@ -52,56 +67,27 @@ For model verification purposes, the output for the delay level of zero is inclu
 
 
 
-\section{The Delay Level of One}
-For model verification purposes, the output for the delay level of zero is included.
-
-\begin{small}
-     \tcbox[size=normal, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comment on the figure for Instant delay of One}{
-          \begin{itemize}
-         \item   
-         \item  
-          \end{itemize} 
-}
-\end{small}
 
 
 
+\section{Instant Delay Simulations}
+Instant delay simulations are characterised by the delay level instantly raises to the specified level, staying at the same constant level for the entire duration of the simulation, before instantly dropping to zero at the specified attack termination time.
+The simulation focuses on:
+\begin{itemize}
+    \item Observing the situation prior to the attack for the purpose of comparing system state at attack termination with the pre-attack system state.
+    \item observing the effect of a prolonged attack of constant level:
+    \begin{itemize}
+        \item What is the effect of a instant rise of the delay level for various delay levels?
+        \item What is the effect of a instant drop of the delay level for various delay levels?
+    \end{itemize}
+\end{itemize}
 
-
-
-
-\section{Instant Delay Functions}
-
-\subsection{Instant Delay Level of One}
-
-\subsection{Instant Delay Level of Two}
-
-\subsection{Instant Delay Level of Three}
-
-\subsection{Instant Delay Level of Four}
-
-\subsection{Instant Delay Level of Five}
-
-\subsection{Instant Delay Level of Six}
+On the remaining pages, the figures are available for inspection of the results. Conclusive remarks are available 
 
 
 
 
 
-
-\section{Step-Wise Delay functions}
-
-
-\subsection{Step-Wise Delay Level of Two}
-
-\subsection{Step-Wise Delay Level of Three}
-
-\subsection{Step-Wise Delay Level of Four}
-
-\subsection{Step-Wise Delay Level of Five}
-
-\subsection{Step-Wise Delay Level of Six}
 
 
 
@@ -273,6 +259,27 @@ For model verification purposes, the output for the delay level of zero is inclu
 \caption{Results for Impedance Output for Instant Delay equal to Six }
 \end{figure}
 
+\newpage
+\subsection{Conclusive remarks on instant delay simulations}
+
+
+\subsubsection{Instant Delay Level of One}
+Figures \ref{fig:VoltageInstantDelayOne} and \ref{fig:ImpedanceInstantDelayOne} shows the result of the Instant delay attack of level One. 
+
+\subsubsection{Instant Delay Level of Two}
+Figures \ref{fig:VoltageInstantDelayTwo} and \ref{fig:ImpedanceInstantDelayTwo} shows the result of the Instant delay attack of level Two. 
+
+\subsubsection{Instant Delay Level of Three}
+Figures \ref{fig:VoltageInstantDelayThree} and \ref{fig:ImpedanceInstantDelayThree} shows the result of the Instant delay attack of level Three. 
+
+\subsubsection{Instant Delay Level of Four}
+Figures \ref{fig:VoltageInstantDelayFour} and \ref{fig:ImpedanceInstantDelayFour} shows the result of the Instant delay attack of level Four. 
+
+\subsubsection{Instant Delay Level of Five}
+Figures \ref{fig:VoltageInstantDelayFive} and \ref{fig:ImpedanceInstantDelayFive} shows the result of the Instant delay attack of level Five. 
+
+\subsubsection{Instant Delay Level of Six}
+Figures \ref{fig:VoltageInstantDelaySix} and \ref{fig:ImpedanceInstantDelaySix} shows the result of the Instant delay attack of level Six. 
 
 
 
@@ -281,7 +288,20 @@ For model verification purposes, the output for the delay level of zero is inclu
 
 
 
+\newpage
+\section{Step-Wise Delay functions}
+The other flavour of delay attack considered, the step-Wise delay attack, focuses on effects caused by a slower rise of the delay level towards a pre-determined target level of delay. As there are no step-wise attack for delay level one, this category of attacks initiates the sequence of attacks by starting with a delay level of two.
 
+The attack focuses on the following 
+\begin{itemize}
+\item What are the effects of repetitive increases of the delay level by one for different number of repetitions?
+\item Are there any patterns observable:
+\begin{itemize}
+    \item Do the termination of the attack cancel the effect of the attack
+    \item Do the next level of increase produce corresponding effects? 
+\end{itemize}
+
+\end{itemize}
 
 
 
@@ -457,9 +477,22 @@ Frequency &  Similar spikes at any time of delaly change, even from 6 to 0
 \end{figure}
 
 
+\newpage
+\subsection{Conclusive remarks on running Step-Wise delay simulations}
 
+\subsection{Step-Wise Delay Level of Two}
+Figures \ref{fig:VoltageStepWiseDelayTwo} and \ref{fig:ImpedanceStepWiseDelayDelayTwo} shows the result of the Step-wise delay attack of level Two.
+\subsection{Step-Wise Delay Level of Three}
+Figures \ref{fig:VoltageStepWiseDelayThree} and \ref{fig:ImpedanceStepWiseDelayDelayThree} shows the result of the Step-wise delay attack of level Three.
 
+\subsection{Step-Wise Delay Level of Four}
+Figures \ref{fig:VoltageStepWiseDelayFour} and \ref{fig:ImpedanceStepWiseDelayDelayFour} shows the result of the Step-wise delay attack of level Four.
 
+\subsection{Step-Wise Delay Level of Five}
+Figures \ref{fig:VoltageStepWiseDelayFive} and \ref{fig:ImpedanceStepWiseDelayDelayFive} shows the result of the Step-wise delay attack of level Five.
+
+\subsection{Step-Wise Delay Level of Six}
+Figures \ref{fig:VoltageStepWiseDelaySix} and \ref{fig:ImpedanceStepWiseDelayDelaySix} shows the result of the Step-wise delay attack of level Six.
 
 
 

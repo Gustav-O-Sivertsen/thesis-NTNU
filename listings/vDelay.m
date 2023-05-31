@@ -1,3 +1,7 @@
+\lstset{language=Matlab}
+\lstset{tabsize=2}
+
+\begin{lstlisting}
 function y = vDelay(timeStamp, d_Start, step, duration, d_Delay)
 % Calculates a delay level, given input parameters 
 %
@@ -36,7 +40,7 @@ function y = vDelay(timeStamp, d_Start, step, duration, d_Delay)
        % The delay level is calculated using a step-wise function
        % gradully approacing a level of one during the attack duration.
        % this function is multiplied by d_Delay/steps in order to reach the
-       % specified delay level of d_Delay in an number of steps specified 
+       % specified delay level of d_Delay in the number of steps specified 
        % by the variable "steps".
        %
        y=ceil(rem((timeStamp-d_Start),(d_Start+duration)) )*d_Delay/steps;
@@ -50,3 +54,4 @@ function y = vDelay(timeStamp, d_Start, step, duration, d_Delay)
    end
 end
 
+\end{lstlisting}
