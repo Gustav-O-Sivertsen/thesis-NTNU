@@ -12,12 +12,12 @@
   \end{tabular}
 \caption{Results for Voltage Output for Delay equal to Zero }
 
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item      The delayed signal overlaps the original signal, producing a straight line colored in a different color from any of the colors in the associated legends.
-         \item  The blue Normalised diff signal also overlaps the grey Zero delay function, with similar effects on the color of the line.
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+               The delayed signal overlaps the original signal, producing a straight line colored in a different color from any of the colors in the associated legends.
+           The blue Normalised diff signal also overlaps the grey Zero delay function, with similar effects on the color of the line.
+          \end{tabular} }
 
 \label{fig:VoltageZeroDelay}
 \end{figure}
@@ -29,8 +29,8 @@ For model verification purposes, the output for the delay level of zero is inclu
 One could possibly dispute the relevance of including an attack producing a zero delay level, but the simulation is intended to serve two purposes, as previously explained in subsection \ref{subsec:ModelValidation}:
 
 \begin{enumerate}
-\item The design of the \textbf{DualPMU}  subsystem, as visualised in figure \ref{fig:DualPMU}, appears to include two instances of \acrlong{pmu}s of the same \acrshort{pmu} implementation, the SimScape Electric \acrshort{pmu} library module, as previously described in subsection \ref{subsec:ModelPMU}.  
-\item The delay function, listed in \ref{tab:vDelay}, is presumably correct. Running a simulation with a constant delay level of Zero should produce the same result as for identical \acrfull{pmu}s, showing identical, and indistinguishable \acrshort{pmu} output, as displayed in the resulting figures.
+ The design of the \textbf{DualPMU}  subsystem, as visualised in figure \ref{fig:DualPMU}, appears to include two instances of \acrlong{pmu}s of the same \acrshort{pmu} implementation, the SimScape Electric \acrshort{pmu} library module, as previously described in subsection \ref{subsec:ModelPMU}.  
+ The delay function, listed in \ref{tab:vDelay}, is presumably correct. Running a simulation with a constant delay level of Zero should produce the same result as for identical \acrfull{pmu}s, showing identical, and indistinguishable \acrshort{pmu} output, as displayed in the resulting figures.
 \end{enumerate}
 
 No matter how identical the \acrshort{pmu} implementations of the  \textbf{DualPMU}  subsystem appears to be: If the delay function erroneously introduces a delay, the resulting output of the simulation is unlikely to produce a correct result, 
@@ -58,12 +58,12 @@ On the next, as well as the previous page, the results of running the simulation
   \end{tabular}
 \caption{Results for Impedance Output for Delay equal to Zero }
 
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item      The delayed signal overlaps the original signal, producing a straight line colored in a different color from any of the colors in the associated legends.
-         \item  The blue Normalised diff signal also overlaps the grey Zero delay function, with similar effects on the color of the line.
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+               The delayed signal overlaps the original signal, producing a straight line colored in a different color from any of the colors in the associated legends.
+           The blue Normalised diff signal also overlaps the grey Zero delay function, with similar effects on the color of the line.
+          \end{tabular} }
 
 \label{fig:ImpedanceZeroDelay}
 \end{figure}
@@ -79,14 +79,14 @@ On the next, as well as the previous page, the results of running the simulation
 \section{Instant Delay Simulations}
 Instant delay simulations are characterised by the delay level instantly raises to the specified level, staying at the same constant level for the entire duration of the simulation, before instantly dropping to zero at the specified attack termination time.
 The simulation focuses on:
-\begin{itemize}
-    \item Observing the situation prior to the attack for the purpose of comparing system state at attack termination with the pre-attack system state.
-    \item observing the effect of a prolonged attack of constant level:
-    \begin{itemize}
-        \item What is the effect of a instant rise of the delay level for various delay levels?
-        \item What is the effect of a instant drop of the delay level for various delay levels?
-    \end{itemize}
-\end{itemize}
+\begin{item}
+  \item   Observing the situation prior to the attack for the purpose of comparing system state at attack termination with the pre-attack system state.
+   \item   observing the effect of a prolonged attack of constant level:
+    \begin{item}
+      \item   What is the effect of a instant rise of the delay level for various delay levels?
+      \item   What is the effect of a instant drop of the delay level for various delay levels?
+    \end{item}
+\end{tabulitemar}
 
 On a suitable number of next pages, the figures showing the results of running the Instant Delay Simulations of levels One trough Six are available for inspection of the results. \\ Comments are located underneath the name of each figure.
 
@@ -109,13 +109,13 @@ On a suitable number of next pages, the figures showing the results of running t
 \caption{Results for Voltage Output for Instant Delay equal to One } 
 \label{fig:VoltageInstantDelayOne}
 
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item      Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. 
-         \item Similar, but mirrored, spikes are apparent for angle and frequency.
-         \item  A constant shift of angle, possibly $120^0$, is apparent, whereas the other components, magnitude and frequency, shows no constant alteration of value.
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+               Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. \\ 
+          Similar, but mirrored, spikes are apparent for angle and frequency. \\ 
+           A constant shift of angle, possibly $120^0$, is apparent, whereas the other components, magnitude and frequency, shows no constant alteration of value.
+          \end{tabular} }
 
 \end{figure}
 
@@ -131,13 +131,13 @@ On a suitable number of next pages, the figures showing the results of running t
 \caption{Results for Impedance Output for Instant Delay equal to One }
 \label{fig:ImpedanceInstantDelayOne} 
 
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item      Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. 
-         \item Similar, but mirrored, spikes are apparent for angle and frequency.
-         \item  A constant shift of angle, possibly $120^0$, is apparent, whereas the other components, magnitude and frequency, shows no constant alteration of value.
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+               Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. \\ 
+          Similar, but mirrored, spikes are apparent for angle and frequency.\\ 
+           A constant shift of angle, possibly $120^0$, is apparent, whereas the other components, magnitude and frequency, shows no constant alteration of value.
+          \end{tabular} }
 
 \end{figure}
 
@@ -155,13 +155,13 @@ On a suitable number of next pages, the figures showing the results of running t
 \caption{Results for Voltage Output for Instant Delay equal to Two }
 \label{fig:VoltageInstantDelayTwo}
 
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item      Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. 
-         \item Similar, but mirrored, spikes are apparent for the frequency, whereas the spikes for angle differs.
-         \item  A constant shift of angle, possibly $-120^0$, is apparent, whereas the magnitude and frequency shows no constant alteration of value during the main period of the attack.
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+               Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. \\ 
+          Similar, but mirrored, spikes are apparent for the frequency, whereas the spikes for angle differs.\\ 
+           A constant shift of angle, possibly $-120^0$, is apparent, whereas the magnitude and frequency shows no constant alteration of value during the main period of the attack.
+          \end{tabular} }
 \end{figure}
 
 \newpage
@@ -176,13 +176,13 @@ On a suitable number of next pages, the figures showing the results of running t
 \caption{Results for Impedance Output for Instant Delay equal to Two }
 \label{fig:ImpedanceInstantDelayTwo}
 
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item      Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. 
-         \item Similar, but mirrored, spikes are apparent for the frequency, whereas the spikes for angle differs.
-         \item  A constant shift of angle, possibly $-120^0$, is apparent, whereas the magnitude and frequency shows no constant alteration of value during the main period of the attack.
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+               Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. \\ 
+          Similar, but mirrored, spikes are apparent for the frequency, whereas the spikes for angle differs.\\ 
+           A constant shift of angle, possibly $-120^0$, is apparent, whereas the magnitude and frequency shows no constant alteration of value during the main period of the attack.
+          \end{tabular} }
 
 \end{figure}
 
@@ -202,13 +202,13 @@ On a suitable number of next pages, the figures showing the results of running t
 \caption{Results for Voltage Output for Instant Delay equal to Three }
 \label{fig:VoltageInstantDelayThree}
 
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item      Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. 
-         \item Similar, but mirrored, spikes are apparent for the frequency, whereas the spikes for angle differs.
-         \item  A small constant shift of angle, possibly $-10^0$, is apparent, whereas the magnitude and frequency shows no constant alteration of value during the main period of the attack.
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+               Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. \\ 
+          Similar, but mirrored, spikes are apparent for the frequency, whereas the spikes for angle differs.\\ 
+           A small constant shift of angle, possibly $-10^0$, is apparent, whereas the magnitude and frequency shows no constant alteration of value during the main period of the attack.
+          \end{tabular} }
 \end{figure}
 
 \newpage
@@ -222,13 +222,13 @@ On a suitable number of next pages, the figures showing the results of running t
   \end{tabular}
 \caption{Results for Impedance Output for Instant Delay equal to Three }
 \label{fig:ImpedanceInstantDelayThree}
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item      Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. 
-         \item Similar, but mirrored, spikes are apparent for the frequency, whereas the spikes for angle differs.
-         \item  A small constant shift of angle, possibly $-10^0$, is apparent, whereas the magnitude and frequency shows no constant alteration of value during the main period of the attack.
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+               Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. \\ 
+          Similar, but mirrored, spikes are apparent for the frequency, whereas the spikes for angle differs.\\ 
+           A small constant shift of angle, possibly $-10^0$, is apparent, whereas the magnitude and frequency shows no constant alteration of value during the main period of the attack.
+          \end{tabular} }
 \end{figure}
 
 
@@ -247,13 +247,13 @@ On a suitable number of next pages, the figures showing the results of running t
 \caption{Results for Voltage Output for Instant Delay equal to Four }
 \label{fig:VoltageInstantDelayFour}
 
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item      Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. 
-         \item Similar, but mirrored, spikes are apparent for angle and frequency.
-         \item  A constant shift of angle, possibly $120^0$, is apparent, whereas the other components, magnitude and frequency, shows no constant alteration of value.
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+               Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. \\ 
+          Similar, but mirrored, spikes are apparent for angle and frequency. \\ 
+           A constant shift of angle, possibly $120^0$, is apparent, whereas the other components, magnitude and frequency, shows no constant alteration of value.
+          \end{tabular} }
 \end{figure}
 
 \newpage
@@ -268,13 +268,13 @@ On a suitable number of next pages, the figures showing the results of running t
 \caption{Results for Impedance Output for Instant Delay equal to Four }
 \label{fig:ImpedanceInstantDelayFour}
 
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item      Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. 
-         \item Similar, but mirrored, spikes are apparent for angle and frequency.
-         \item  A constant shift of angle, possibly $120^0$, is apparent, whereas the other components, magnitude and frequency, shows no constant alteration of value.
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+               Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. \\ 
+          Similar, but mirrored, spikes are apparent for angle and frequency. \\
+           A constant shift of angle, possibly $120^0$, is apparent, whereas the other components, magnitude and frequency, shows no constant alteration of value.
+          \end{tabular} }
 
 \end{figure}
 
@@ -292,13 +292,13 @@ On a suitable number of next pages, the figures showing the results of running t
   \end{tabular}
 \caption{Results for Voltage Output for Instant Delay equal to Five }
 \label{fig:VoltageInstantDelayFive}
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item      Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. 
-         \item Similar, but mirrored, spikes are apparent for the frequency, whereas the spikes for angle differs.
-         \item  A constant shift of angle, possibly $-120^0$, is apparent, whereas the magnitude and frequency shows no constant alteration of value during the main period of the attack.
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+               Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. \\ 
+          Similar, but mirrored, spikes are apparent for the frequency, whereas the spikes for angle differs. \\
+           A constant shift of angle, possibly $-120^0$, is apparent, whereas the magnitude and frequency shows no constant alteration of value during the main period of the attack.
+          \end{tabular} }
 \end{figure}
 \newpage
 \begin{figure}[H]
@@ -312,13 +312,13 @@ On a suitable number of next pages, the figures showing the results of running t
 \caption{Results for Impedance Output for Instant Delay equal to Five }
 \label{fig:ImpedanceInstantDelayFive}
 
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item      Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. 
-         \item Similar, but mirrored, spikes are apparent for the frequency, whereas the spikes for angle differs.
-         \item  A constant shift of angle, possibly $-120^0$, is apparent, whereas the magnitude and frequency shows no constant alteration of value during the main period of the attack.
-         \end{itemize} }
+     
+     
+          \begin{tabular}
+               Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. \\ 
+          Similar, but mirrored, spikes are apparent for the frequency, whereas the spikes for angle differs. \\ 
+           A constant shift of angle, possibly $-120^0$, is apparent, whereas the magnitude and frequency shows no constant alteration of value during the main period of the attack.
+         \end{tabular} }
 
 \end{figure}
 
@@ -334,13 +334,13 @@ On a suitable number of next pages, the figures showing the results of running t
   \end{tabular}
 \caption{Results for Voltage Output for Instant Delay equal to Six }
 \label{fig:VoltageInstantDelaySix}
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item      Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. 
-         \item Similar, but mirrored, spikes are apparent for the frequency, whereas the spikes for angle differs.
-         \item  A small constant shift of angle, possibly $-6^0$, is apparent, whereas the magnitude and frequency shows no constant alteration of value during the main period of the attack.
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+               Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. \\ 
+          Similar, but mirrored, spikes are apparent for the frequency, whereas the spikes for angle differs.\\ 
+           A small constant shift of angle, possibly $-6^0$, is apparent, whereas the magnitude and frequency shows no constant alteration of value during the main period of the attack.
+          \end{tabular} }
 		  \end{figure}
 \newpage
 \begin{figure}[H]
@@ -353,14 +353,14 @@ On a suitable number of next pages, the figures showing the results of running t
   \end{tabular}
 \caption{Results for Impedance Output for Instant Delay equal to Six }
 \label{fig:ImpedanceInstantDelaySix}
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
+     
+     
           \begin{itemize}
-         \item      Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. 
-         \item Similar, but mirrored, spikes are apparent for the frequency, whereas the spikes for angle differs.
-         \item  A small constant shift of angle, possibly $-6^0$, is apparent, whereas the magnitude and frequency shows no constant alteration of value during the main period of the attack.
+            \item   Apparently identical spikes are present for the magnitude graph, at initiation and termination of attack. 
+         \item Similar, but mirrored, spikes are apparent for the frequency, whereas the spikes for angle differs. 
+          \item  A small constant shift of angle, possibly $-6^0$, is apparent, whereas the magnitude and frequency shows no constant alteration of value during the main period of the attack.
           \end{itemize} }
-		  \end{figure}
+		 
 
 \newpage
 \subsection{Conclusive remarks on instant delay simulations}
@@ -397,11 +397,11 @@ The other flavour of delay attack considered, the step-Wise delay attack, focuse
 
 The attack focuses on the following 
 \begin{itemize}
-\item What are the effects of repetitive increases of the delay level by one for different number of repetitions?
-\item Are there any patterns observable:
+\ìtem  What are the effects of repetitive increases of the delay level by one for different number of repetitions?
+\item  Are there any patterns observable:
 \begin{itemize}
-    \item Do the termination of the attack cancel the effect of the attack
-    \item Do the next level of increase produce corresponding effects? 
+\item     Do the termination of the attack cancel the effect of the attack
+ \item    Do the next level of increase produce corresponding effects? 
 \end{itemize}
 
 \end{itemize}
@@ -440,11 +440,11 @@ Comments are located underneath each figure.
   \end{tabular}
 \caption{Results for Voltage Output for Step-Wise Delay equal to Two }
 \label{fig:VoltageStepWiseDelayTwo}
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item     The component graphs shows combinations of the results for the instant delay simulations of levels one and two. 
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+              The component graphs shows combinations of the results for the instant delay simulations of levels one and two. 
+          \end{tabular} }
 
 \end{figure}
 
@@ -460,11 +460,11 @@ Comments are located underneath each figure.
   \end{tabular}
 \caption{Results for Impedance Output for Step-Wise Delay equal to Two }
 \label{fig:ImpedanceStepWiseDelayTwo}
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item     The component graphs shows combinations of the results for the instant delay simulations of levels one and two. 
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+              The component graphs shows combinations of the results for the instant delay simulations of levels one and two. 
+          \end{tabular} }
 
 \end{figure}
 
@@ -482,11 +482,11 @@ Comments are located underneath each figure.
   \end{tabular}
 \caption{Results for Voltage Output for Step-Wise Delay equal to Three }
 \label{fig:VoltageStepWiseDelayThree}
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item     The component graphs shows combinations of the results for the instant delay simulations of levels between one and three. 
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+              The component graphs shows combinations of the results for the instant delay simulations of levels between one and three. 
+          \end{tabular} }
 
 \end{figure}
 
@@ -502,11 +502,11 @@ Comments are located underneath each figure.
   \end{tabular}
 \caption{Results for Impedance Output for Step-Wise Delay equal to Three }
 \label{fig:ImpedanceStepWiseDelayThree}
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item     The component graphs shows combinations of the results for the instant delay simulations of levels between one and three. 
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+              The component graphs shows combinations of the results for the instant delay simulations of levels between one and three. 
+          \end{tabular} }
 
 \end{figure}
 
@@ -526,11 +526,11 @@ Comments are located underneath each figure.
   \end{tabular}
 \caption{Results for Voltage Output for Step-Wise Delay equal to Four }
 \label{fig:VoltageStepWiseDelayFour}
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item     The component graphs shows combinations of the results for the instant delay simulations of levels between one and four. 
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+              The component graphs shows combinations of the results for the instant delay simulations of levels between one and four. 
+          \end{tabular} }
 
 \end{figure}
 
@@ -545,11 +545,11 @@ Comments are located underneath each figure.
   \end{tabular}
 \caption{Results for Impedance Output for Step-Wise Delay equal to Four }
 \label{fig:ImpedanceStepWiseDelayFour}
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item     The component graphs shows combinations of the results for the instant delay simulations of levels between one and four. 
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+              The component graphs shows combinations of the results for the instant delay simulations of levels between one and four. 
+          \end{tabular} }
 
 \end{figure}
 
@@ -567,11 +567,11 @@ Comments are located underneath each figure.
   \end{tabular}
 \caption{Results for Voltage Output for Step-Wise Delay equal to Five }
 \label{fig:VoltageStepWiseDelayFive}
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item     The component graphs shows combinations of the results for the instant delay simulations of levels between one and five. 
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+              The component graphs shows combinations of the results for the instant delay simulations of levels between one and five. 
+          \end{tabular} }
 
 \end{figure}
 
@@ -584,11 +584,11 @@ Comments are located underneath each figure.
   \end{tabular}
 \caption{Results for Impedance Output for Step-Wise Delay equal to Five }
 \label{fig:ImpedanceStepWiseDelayFive}
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item     The component graphs shows combinations of the results for the instant delay simulations of levels between one and five. 
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+              The component graphs shows combinations of the results for the instant delay simulations of levels between one and five. 
+          \end{tabular} }
 
 \end{figure}
 
@@ -613,11 +613,11 @@ Comments are located underneath each figure.
 Frequency &  Similar spikes at any time of delaly change, even from 6 to 0
   \end{tabular}
 \label{fig:VoltageStepWiseDelaySix}
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item     The component graphs shows combinations of the results for the instant delay simulations of levels between one and six. 
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+              The component graphs shows combinations of the results for the instant delay simulations of levels between one and six. 
+          \end{tabular} }
 
 \end{figure}
 
@@ -642,11 +642,11 @@ Frequency &  Similar spikes at any time of delaly change, even from 6 to 0
 Frequency &  Similar spikes at any time of delaly change, even from 6 to 0
   \end{tabular}
 \label{fig:ImpedanceStepWiseDelaySix}
-     \tcbox[size=small, standard jigsaw, opacityback=0, boxrule=0pt,halign=justify]{
-     Comments:}{
-          \begin{itemize}
-         \item     The component graphs shows combinations of the results for the instant delay simulations of levels between one and six. 
-          \end{itemize} }
+     
+     
+          \begin{tabular}
+              The component graphs shows combinations of the results for the instant delay simulations of levels between one and six. 
+          \end{tabular} }
 
 \end{figure}
 
