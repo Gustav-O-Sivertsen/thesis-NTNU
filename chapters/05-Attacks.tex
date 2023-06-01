@@ -34,13 +34,7 @@
 
 
 The \acrfull{sg} is a complex system delivering electrical power to a society more dependant on electricity then ever, given the transition from traditional sources of energy to electrical energy on areas like agriculture, industrial production, heating, and more recently, transportation.
-The transition of the electrical grid from the classic \acrlong{pg} to the \acrlong{sg} exposed, as previously described, the \acrlong{ci} of the power grid to attacks from remote locations via the Internet.
-
-Before focusing on smart grid time delay attacks, an introductory overview of a selection of other cyber attacks targeting  the smart grid will be given.
-
-
-
-\section{An introduction to Smart Grid Cyber Attacks}
+The transition of the electrical grid from the classic \acrlong{pg} to the \acrlong{sg} exposed, as previously described, the \acrlong{ci} of the power grid to attacks from remote locations via the Internet. 
 
 
 \section{Attack via time protocols}
@@ -48,8 +42,8 @@ Before focusing on smart grid time delay attacks, an introductory overview of a 
 Computer systems reachable\footnote{Systems could ultimately be targeted utilising USB sticks, if not accessible from the Internet.} from the outside world,  are potential targets of Cyber attacks. The eventual recoveries of the initial Cyber Attacks was followed up by defence actions, resulting in more advanced attack techniques, has evolved to a continuous battle of control between attackers and defenders. \\
 
 
+\subsubsection{Threat Actor  Types}
 There are numerous Threat Actors of various skill levels, from so-called "Script Kiddies" to professionals, aiming to get unauthorised access to systems, for fun, fame, or for more serious reasons, like terrorism or financial gain. 
-subsubsection{Attacker Types}
 
 \begin{itemize}
     \item The \textbf{Internal attacker} has privileged access to, at least parts of, the internal infrastructure of the target, enabling the ability to take malicious actions not available to non-internal attackers.
@@ -64,11 +58,7 @@ subsubsection{Attacker Types}
 The various types of attackers possesses various malicious action capabilities, which they may use in order to attack their intended target in numerous ways.
 
 
-\subsubsection{Advanced Persistent Threat (APT)}
-
-The most advanced, sometimes stealthy, Cyber Attacks are imposing an imminent uncertainty amongst those tasked with the safe operation of critical systems like the \acrshort{sg}. Threat Actors capable of breaking in to presumably secure critical systems, staying undetected for several months or years, constitutes a persistent threat to the secure operation of the system.
-
-\subsection{Time  Protocol Threats}
+%\subsection{Time  Protocol Threats}
 
 
 
@@ -76,22 +66,6 @@ The most advanced, sometimes stealthy, Cyber Attacks are imposing an imminent un
 
 
 
-
-\
-\subsubsection{Attack Types}
-As described in \cite{ullmann2009delay}, a number of threats affecting the \acrshort{ntp} and  \acrshort{ptp} time protocols is observed:
-
-
-
-\begin{itemize}
-    \item Grand Master Time Source Attack
-    \item \acrfull{dos} attacks: Specialised protocol-specific \acrshort{dos} attacks, as well as traditional IP-based \acrshort{dos} attacks.
-    \item Cryptographic Performance Attacks
-    \item Packet Manipulation Attacks
-    \item Spoofing Attacks
-    \item Replay Attack   
-    \item Rouge Master attack 
-\end{itemize}
 
 
 
@@ -119,7 +93,6 @@ Any online \acrshort{sg} infrastructure containing vulnerabilities, is equally i
 
 The two-way communication lines of the\acrlong{sg} systems opens the possibilities of communication between the networks of energy distributors and the networks of consumers, serving purposes as automatic measurement of energy consumption, as well as dynamic adaption of energy production according to variations in demand for energy over the hours of the day.
 The transition from networks managed by closed communication channels to networks communicating over IP-based networks, exposes\acrlong{sg} networks to Cyber attack vulnerabilities.
-
 Malicious threat actors having privileged access to the infrastructure, is able to perform various kinds of internal attacks. Traditionally, anyone aiming to attack the \acrlong{pg} infrastructure, was obliged to get physical access to the premises, from which the infrastructure in question was controlled. Following the transition to the online \acrshort{sg}, the network connecting the grid to the outside might be utilised in order to execute any Cyber attack requiring internal privileged access from the outside.
 
 
@@ -127,17 +100,11 @@ Malicious threat actors having privileged access to the infrastructure, is able 
 External attacks is characterised by malicious actors attacking the infrastructure from the outside, without having the privileged access required in order to target internal system vulnerabilities.
 
 
-
-
-\subsubsection{Denial of Service (DoS) Attack}
-
-%\subsubsection{GNSS Spoofing attacks}
-
 \subsection{Internal Attacks}
 The distinction between external and internal attacks, is the level of access required in order to perform the attack in question.
 
 \subsubsection{Man in The Middle (MiTM) Attack}
-
+The \acrfull{mitm} attack is a type of attack requiring minimal privileges and system access in order to be sucessfully executed.
 
 
 \cite{itkin2017security} provides information on \acrshort{ptp} delay attacks.

@@ -60,35 +60,6 @@ As described in Chapter 2.3 of \cite{Rihan2018} %\cite{SmartGridOverview2013}
 
 The \acrfull{sg} is, as described by \citeauthor{humayed2017cyber} in \cite{humayed2017cyber}, the modernisation of the \acrfull{cpg}, into what may be described as an exapmle of a \acrfull{cps}.
 
-\subsubsection{Cyber-Physical System}
-
-As described by \citeauthor{humayed2017cyber} in \cite{humayed2017cyber}, a \acrfull{cps} is characterised by using a computer-based system in order to control and monitor systems of the physical world. The \acrshort{cps} is utilised in order to control physical systems from various fields of applications. Humayed et. al., in \cite{humayed2017cyber}, describes as various appliances as \acrfull{ics}, Medical Devices, and \acrlong{sg}.
-The Smart Grid, therefore, is an example of a \acrfull{cps}, consisting of the physical system of a Power Grid, under the control of a network/Cyberspace-connected system. 
-
-Due to the shortcomings of the \acrshort{cpg} previously\footnote{Refer to subsection \ref{subsec:PG-char}, and Chapter 2.3 of [7]} covered, the \acrshort{sg} might be described as an effort to reduce the risk of blackouts, and to generally make the power distribution system more robust and reliable, meeting the increasing demand for electrical power.
- 
-
-\subsection{Characteristics of the Smart Grid }
-
-
-The transition of the \acrshort{cpg} into the \acrshort{sg}, has transformed the \acrshort{cpg} into a \acrshort{pg} having, according to \hl{REF!!}, the following characteristics:
-
-\begin{itemize}
-    \item The system consists of a physical system controlled by, and accessible from, a networked system known as the Cyber System.
-    \item The interactions between the various systems are bidirectional, as opposed to the unidirectional \acrshort{cpg}.
-    \item 
-\end{itemize}
-
-
-
-
-\section{Smart Grid models}
-In order to improve the understanding of a vastly complex system like the \acrlong{sg}, some organisations, like the \acrfull{nist}, as well as the \acrfull{eu} commission for \acrshort{sg}, is maintaining theoretical models.
-In order to provide a broader overview of the concept of the \acrlong{sg}, I choose to present two models the \acrshort{nist} conceptual model, as well as the \acrshort{eu} \acrlong{sgam}.
-
-
-\subsection{The NIST Conceptual model}
-
 
 \begin{figure}[t]
 \includegraphics[width=\linewidth]{figures/NIST-SmartGRID-ConceptualModel.png}
@@ -96,28 +67,13 @@ In order to provide a broader overview of the concept of the \acrlong{sg}, I cho
 \label{fig:NIST-SmartGRID-ConceptualModel}
 \end{figure}
 
-In order to improve the understanding of a vastly complex system like the \acrlong{sg},
-the \acrfull{nist} is maintaining the \hl{conceptual} model of the \acrlong{sg}. The graphical visualisation of the model, as presented in \cite[p. 13]{gopstein2021nist}, Figure 4,  is  shown in 
-Figure \ref{fig:NIST-SmartGRID-ConceptualModel}.
-The \acrlong{sg} adds Information and Communication Technology (ICT) to the \acrlong{cpg}, in order to transform the  unidirectional communication lines of the monitoring and control infrastructure of the \acrlong{cpg}, into an infrastructure utilising two-way communication between the various parts of the \acrlong{sg} infrastructure. 
-%\subsection{The Smart Grid: Critical Information Infrastructure}
-%According to \cite[p. 610]{Bîrleanu2019}, the \acrlong{sg} consists of the following subsystems:
+\subsubsection{Cyber-Physical System}
 
-%\begin{itemize}
-%\item \textbf{the conventional  power grid}
-%\item \textbf{intelligent equipment} 
-%\item \textbf{communication infrastructure}
-%\end{itemize}
+As described by \citeauthor{humayed2017cyber} in \cite{humayed2017cyber}, a \acrfull{cps} is characterised by using a computer-based system in order to control and monitor systems of the physical world. The \acrshort{cps} is utilised in order to control physical systems from various fields of applications. Humayed et. al., in \cite{humayed2017cyber}, describes as various appliances as \acrfull{ics}, Medical Devices, and \acrlong{sg}.
+The Smart Grid, therefore, is an example of a \acrfull{cps}, consisting of the physical system of a Power Grid, under the control of a network/Cyberspace-connected system. 
 
-%\cite{Bompard2012}...
-
-%...\acrlong{sg} Subsystems
-%\begin{itemize}
-%\item 
-%\end{itemize}
-
-\subsubsection{The Smart Grid Domains}
-
+Due to the shortcomings of the \acrshort{cpg} previously\footnote{Refer to subsection \ref{subsec:PG-char}, and Chapter 2.3 of [7]} covered, the \acrshort{sg} might be described as an effort to reduce the risk of blackouts, and to generally make the power distribution system more robust and reliable, meeting the increasing demand for electrical power.
+ 
 \begin{table}[t]
     \centering
  
@@ -139,88 +95,48 @@ The \acrlong{sg} adds Information and Communication Technology (ICT) to the \acr
     
     \end{tabular}
 
-    \caption[Domains and roles/services in the smart grid conceptual model]{Domains and roles/services in the smart grid conceptual model, as presented in Table 1 of }
-    \label{tab:nistCMdoains}
+    \caption[Domains and roles/services in the smart grid conceptual model]{Domains and roles/services in the smart grid conceptual model, as presented in Table 1 of \cite{gopstein2021nist}}
+    \label{tab:nist-domains}
 \end{table}
 
 
+\section{Smart Grid models}
+In order to improve the understanding of a vastly complex system like the \acrlong{sg}, some organisations, like the \acrfull{nist}, as well as the \acrfull{eu} commission for \acrshort{sg}, is maintaining theoretical models. I have chosen to present a brief overview of the \acrshort{nist} model in order to provide a brief overview of various parts of the \acrlong{sg}, and thereafter focus on the \acrlong{wams} and related concepts.
+
+%In order to provide a broader overview of the concept of the \acrlong{sg}, I choose to present two models the \acrshort{nist} conceptual model, as well as the \acrshort{eu} \acrlong{sgam}.
+
+
+\subsection{The NIST Conceptual model}
 
 
 
+In order to improve the understanding of a vastly complex system like the \acrlong{sg},
+the \acrfull{nist} is maintaining the Conceptual model of the \acrlong{sg}. The graphical visualisation of the model, as presented in \cite[p. 13]{gopstein2021nist}, Figure 4,  is  shown in 
+Figure \ref{fig:NIST-SmartGRID-ConceptualModel}.
+The \acrlong{sg} adds Information and Communication Technology (ICT) to the \acrlong{cpg}, in order to transform the  unidirectional communication lines of the monitoring and control infrastructure of the \acrlong{cpg}, into an infrastructure utilising two-way communication between the various parts of the \acrlong{sg} infrastructure. 
+%\subsection{The Smart Grid: Critical Information Infrastructure}
+%According to \cite[p. 610]{Bîrleanu2019}, the \acrlong{sg} consists of the following subsystems:
+
+%\begin{itemize}
+%\item \textbf{the conventional  power grid}
+%\item \textbf{intelligent equipment} 
+%\item \textbf{communication infrastructure}
+%\end{itemize}
+
+%\cite{Bompard2012}...
+
+%...\acrlong{sg} Subsystems
+%\begin{itemize}
+%\item 
+%\end{itemize}
+
+\subsubsection{The Smart Grid Domains}
+
+Table \ref{tab:nist-domains} gives an overview of the roles and services of the \acrshort{sg} domain as presented by \acrshort{nist} in \cite{gopstein2021nist}.\\  
+
+The \acrlong{sg} is a complex system, involving many aspects like, for instance applications, various kinds of layers and relations between domains, to name a few, topics which it will be beyond the scope of this thesis to cover. My thesis will focus on various aspects of the \acrshort{sg} \acrlong{wams} for the remaining part of the thesis.
 
 
-
-
-\subsection{The SGAM}
-
-
-The authors of \cite{uslar2019applying}, \citeauthor{uslar2019applying} describes an alternative model for the \acrshort{sg}, originating from the \acrfull{sgcg}, 
-and visualised in figure \ref{fig:SGAM}. The model consists of three dimensions, named "Domains", "Zones", and the "Interoperability dimension". \\ 
-
-\begin{figure}[t]
-\includegraphics[width=\textwidth]{figures/SGAM.png}
-\caption[SGAM Smart Grid Model]{SGAM Smart Grid Model , as presented in \cite{uslar2019applying}}
-\label{fig:SGAM}
-\end{figure}
-
-The "Domains" dimension consists of the following domains:
-
-\begin{table}[t]
-    \centering
-    \begin{tabular}{|p{2.8cm}|p{7cm}|} \hline
-   
-   
-   \textbf{Domain} & \textbf{Description}  \\ \hline
-  \textbf{Generation}   & \\ \hline
-\textbf{Transmission}      & \\ \hline
-\textbf{Distribution}      & \\ \hline
-\textbf{DER}     & \\ \hline
-\textbf{Customer Premise } & \\ \hline
-        
-    \end{tabular}
-    \caption{SGAM Domains}
-    \label{tab:SGAM-Domains}
-\end{table}
-
-
-
-
-The "Interoperability" dimension consists of the following Layers:
-
-\begin{table}[t]
-    \centering
-    \begin{tabular}{|p{2.8cm}|p{7cm}|} \hline
-   
-   
-   \textbf{Layer} & \textbf{Description}  \\ \hline
-  \textbf{Business} & \\ \hline
-\textbf{Function}  & \\ \hline
-\textbf{Information}  & \\ \hline
-\textbf{Communication}  & \\ \hline
-\textbf{Component layer} & \\ \hline
-        
-    \end{tabular}
-    \caption{SGAM Layers}
-    \label{tab:SGAM-Layers}
-\end{table}
-
-
-\begin{table}[t]
-    \centering
-    \begin{tabular}{|p{2.8cm}|p{7cm}|} \hline
-   
-   \textbf{Zones} & \textbf{Description}  \\ \hline
-  \textbf{Process}   & \\ \hline
-\textbf{Field}      & \\ \hline
-\textbf{Station}      & \\ \hline
-\textbf{Operation}     & \\ \hline
-\textbf{Enterprise} & \\ \hline
-\textbf{Market} & \\ \hline
-        
-    \end{tabular}
-    \caption{SGAM Zones}
-    \label{tab:SGAM-Zones}
-\end{table}
 
 
 

@@ -6,7 +6,6 @@
 %\subsection{The Classic SCADA subsystem}
 
 The \acrshort{scada} system constituted the core part of the control center of the classic \acrlong{pg}, utilising one-directional communication lines in order to manually control and monitor the operational state of the power grid.
-
 Figure \ref{fig:Blume-SCADA-system} shows the main components of the SCADA system.
 
 \begin{figure}[ht]
@@ -29,15 +28,13 @@ A centrally located control center, optionally being backed up by control center
 \section{The Smart Grid Control System}
 
 
-\subsection{Introduction}
-
 Analogous with the modernisation of the classic \acrlong{pg} into the \acrlong{sg}, the \acrshort{scada} subsystem of the \acrshort{pg} is the predecessor of the control system of the modern \acrlong{sg}.
-Therefore, a description of the \acrshort{scada} system, evolving from the centralised subsystem controlling the Classic \acrshort{pg}, to the modernised version of the \acrshort{scada} subsystem, initiates the description of the \acrlong{sg} Control System. 
+Therefore, a description of the \acrshort{scada} system, evolving from the centralised subsystem controlling the Classic \acrshort{pg}, to the modernised version of the \acrshort{scada} subsystem, initiates the description of the \acrlong{sg} Control System. \\ 
 
 
 
 
-The characteristics of the three generations of SCADA systems% described by \Citeauthor{alcaraz2012security} in \cite{alcaraz2012security},
+The characteristics of the three generations of SCADA system described by \Citeauthor{alcaraz2012security} in \cite{alcaraz2012security},
 may be summarised below:
  
 
@@ -65,7 +62,6 @@ may be summarised below:
 
 
  
-
 
 
 
@@ -127,15 +123,16 @@ In order for the \acrshort{wams} to receive status monitoring data, a controlled
 
 
 \subsection{Description of the Smart Grid  Monitoring system}
-Electricity is produced according to the current demand for energy, as controlled by the Demand Management system, dynamically adjusting the energy supply accordingly. In order to successfully reply to the dynamically changing demands for energy, a close monitoring of the production, transmission and distribution of energy is required. In order for the monitoring system to obtain status information, the proper transmission of monitoring data from power status sensors to the   \acrshort{wams}  is essential.
+Electricity is produced according to the current demand for energy, as controlled by the Demand Management system, dynamically adjusting the energy supply accordingly. In order to successfully reply to the dynamically changing demands for energy, a close monitoring of the production, transmission and distribution of energy is required. In order for the monitoring system to obtain status information, the proper transmission of monitoring data from power status sensors to the \acrshort{wams} is essential. For the transmission of monitoring data to flow as flawlessly as possible, proper time synchronisation of the system components is mandatory.
+In order for the \acrshort{wams} to receive the monitoring data required, the correct operations of the \acrshort{pdc} and the \acrshort{pmu}s, described next, is essential.
 
 
 %\section{Storing and transmitting data for monitoring}
 
-\subsection{Phasor Measurment Units}
+\subsubsection{Phasor Measurement Units}
 The \acrfull{pmu} is a system which receives samples from a number of sensors monitoring  real-time power line status, related to the electrical Voltage and Impedance the of the infrastructure being monitored. 
 The entities monitored are known as electrical phases, most often part of a three-phase system, where each phase is separated by $120^0$.
-Each \acrshort{pmu} is continuously calculating the phasor values of all sensors, alligning all values corresponding to a time stamp as synchrophasors, before transmitting a synchrophasor record for each timestamp to the single \acrfull{pdc} to which the \acrshort{pmu} has a  TCP or UDP network connection.
+Each \acrshort{pmu} is continuously calculating the phasor values of all sensors, aligning all values corresponding to a time stamp as synchrophasors, before transmitting a synchrophasor record for each timestamp to the single \acrfull{pdc} to which the \acrshort{pmu} has a  TCP or UDP network connection. \hl{x-ref detailed explanation}
 
 %target for the planned attack. 
 
@@ -150,12 +147,11 @@ Each \acrshort{pmu} is continuously calculating the phasor values of all sensors
 \label{fig:PMU-in-out}
 \end{figure}
 
-\subsection{Phasor data Concentrator}
+\subsubsection{Phasor Data Concentrator}
 
 The \acrfull{pdc} is a networked system responsible for forwarding synchronised phasor data from as number of \acrshort{pmu}s 
-, to a more centralised \acrshort{pdc}, most often denoted a Super \acrshort{pdc}.
-
-
+, to a more centralised \acrshort{pdc}, most often denoted a Super \acrshort{pdc}. The \acrshort{pdc} processes each time stamp, awaits for synchrophasors for that time stamp to arrive from any \acrshort{pmu} from which the \acrshort{pdc} is reachable. A syncrophasor for a time stamp is required to be transferred to the destined \acrshort{pdc} within a specified time frame, for it to be included in the data transmitted from the \acrshort{pdc}to the Super \acrshort{pdc}. Any remaining syncrophasor originating from a \acrshort{pmu} is lost
+, resulting in a small piece of status information to be missing. \hl{x-ref detailed explanation}
 
 \
 % In \cite{el2018cyber}, \citeauthor{el2018cyber} ...
@@ -169,20 +165,19 @@ The \acrfull{pdc} is a networked system responsible for forwarding synchronised 
 
 
 \section{Advantages}
-%  - advantages
+The \acrshort{wams} system adds great value to the monitoring of system status for the \acrlong{sg}. Prior to the introduction of the synchronised phasors, the main component of the system for status monitoring, was the \acrshort{scada} system, capable of updating status information at a significantly lower frequency of updates, measured in seconds rather than the current rate of a few milliseconds. Analogous to the transition of computers from being few and huge, to the current situation of them being numerous and tiny, the distribution of \acrshort{pmu}s has increased the granularity of monitoring devices substantially.
+The increase in granularity of devices in the monitoring system has obvious advantages, considering the details available for status monitoring. The transition from the old system, however has some security issues, described next.
+
 \section{Security Issues}
-%  - security issues
-%\subsection{WAMS Security} 
-
 The \acrfull{sg} \acrfull{wams} is a \acrshort{sg} subsystem enabling \acrshort{sg} system operators to monitor the state of \acrshort{sg} energy flow, and general system state. 
-A vital requirement for the view of the current state of the \acrshort{sg} energy distribution to be correct is, as described in previous chapters, the ability of the \acrshort{wams} Super \acrshort{pdc}  to utilise synchrophasors collected from the \acrshort{pdc}s to produce a view of the system state. In order for the view to be correct, however, the correctness of the timestamps i critical.  Therefore, in order to produce correct time stamps, the reliability of the Time Synchronisation source is of Critical importance.
+A vital requirement for the view of the current state of the \acrshort{sg} energy distribution to be correct is, as described in previous sections, the ability of the \acrshort{wams} Super \acrshort{pdc} to utilise synchrophasors collected from the \acrshort{pdc}s to produce a view of the system state. In order for the view to be correct, however, the correctness of the timestamps is critical. Therefore, in order to produce correct time stamps, the reliability of the Time Synchronisation source is of Critical importance. At the same time, risks of being the victim of Cyber Attacks is a consequence of the transition from the old, offline\footnote{A system being offline is not available from public networks.}, to the new, online system, At the end of the day, this leads us to a vulnerability of the \acrshort{wams}, as a potential victim of a Cyber Attack, caused by a successful Attack on any vulnerable time sycronisation protocol used in order to transmit the synchrophasors required for the status information to be correct and reliable.  \hl{x-ref detailed explanation of attacks}
 
 
-\section{State Estimation}
+\section{State Estimation} \label{sec:3-SE}
 
 %  - State Estimation: Intro, to explain means to improve grid security.
 
 %\section{WAMS state estimation}
-In order to detect abnormalities or errors in the monitoring data received, the \acrshort{wams} includes applications capable of validating the quality of the state information received. Various state estimations exist, some of which give alerts on dubious system state based on comparisons with known good system states. State estimation systems increases the risk of attack detection, thus lowerses the probability of a threat actor being capable of pulling off a stealthy attack.   
+In order to detect abnormalities, or errors, in the monitoring data received, the \acrshort{wams} includes applications capable of validating the quality of the state information received. Various \acrfull{se} implementations exist, giving alerts on dubious system state based on comparisons with known good system states. State estimation systems increases the risk of attack detection, thus lowers the probability of a threat actor being capable of pulling off a stealthy attack. The assumed detection rate of the \acrshort{se} system, as explained early in subsection \ref{subsec:Six-Approach}, is the basis for a stealthiness measurement in the form of the \textbf{tolerance levels} covered later in subsection \ref{subsec:Six-Approach}.
 
 
