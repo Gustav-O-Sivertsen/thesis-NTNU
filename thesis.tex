@@ -14,10 +14,12 @@
 \usepackage{array}
 \usepackage{xcolor}
 
-\usepackage[most]{tcolorbox}
-\let\includegraphicsold\includegraphics
+%\usepackage[most]{tcolorbox}
+%\let\includegraphicsold\includegraphics
 \renewcommand{\includegraphics}[2][ ]{\tcbox[size=small, standard jigsaw, opacityback=0]{\includegraphicsold[#1]{#2}}}
 \usepackage{soul}
+
+
 %\setglossarystyle{index}
 %\usepackage{glossary-mcols}
 %\setglossarystyle{index}
@@ -74,8 +76,8 @@
 
 
 \begin{document}
-\tcbset{width=(\linewidth-2mm)/3,before=,after=\hfill,arc=0mm,
-colframe=gray!75!black,colback=white,fonttitle=\bfseries}
+%\tcbset{width=(\linewidth-2mm)/3,before=,after=\hfill,arc=0mm,
+%colframe=gray!75!black,colback=white,fonttitle=\bfseries}
 
 %\setstretch{1.1}
 
@@ -92,15 +94,14 @@ colframe=gray!75!black,colback=white,fonttitle=\bfseries}
 %\lstlistoflistings
 
 \input{chapters/01-introduction}
-\input{chapters/02-PowerGrid}
-\input{chapters/03-WAMS}
-\input{chapters/04-Monitoring}
-\input{chapters/05-Attacks}
-\input{chapters/06-Method}
+%\input{chapters/02-PowerGrid}
+%\input{chapters/03-WAMS}
+%\input{chapters/04-Monitoring}
+%\input{chapters/05-Attacks}
+%\input{chapters/06-Method}
 
-%\let\includegraphics-old\includegraphics
 
-\let\includegraphics\includegraphicsold
+%\let\includegraphics\includegraphicsold
 
 \input{chapters/07-Results}
 \input{chapters/08-Discussion}
