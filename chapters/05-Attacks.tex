@@ -75,15 +75,6 @@ Any online \acrshort{sg} infrastructure containing vulnerabilities, is equally i
 
 
 
-\subsection{Attacks targeting the control systems}
-
-
-\acrfull{dos} attacks, is identified by several papers, like  \cite{sundararajan2019survey} and \cite{gupta2017survey} as  a threat to \acrshort{sg} availability. 
-
-%In addition, occurrences of the \acrfull{tsa}, sending modified \acrshort{gps} timing information to various control systems, has proven to be a real threat to \acrshort{sg} operation, as described  in \cite{ZhangTimeSync2013}. \\ 
-
-
-
 
 
 
@@ -93,7 +84,9 @@ Any online \acrshort{sg} infrastructure containing vulnerabilities, is equally i
 
 The two-way communication lines of the\acrlong{sg} systems opens the possibilities of communication between the networks of energy distributors and the networks of consumers, serving purposes as automatic measurement of energy consumption, as well as dynamic adaption of energy production according to variations in demand for energy over the hours of the day.
 The transition from networks managed by closed communication channels to networks communicating over IP-based networks, exposes\acrlong{sg} networks to Cyber attack vulnerabilities.
-Malicious threat actors having privileged access to the infrastructure, is able to perform various kinds of internal attacks. Traditionally, anyone aiming to attack the \acrlong{pg} infrastructure, was obliged to get physical access to the premises, from which the infrastructure in question was controlled. Following the transition to the online \acrshort{sg}, the network connecting the grid to the outside might be utilised in order to execute any Cyber attack requiring internal privileged access from the outside.
+Malicious threat actors having privileged access to the infrastructure, is able to perform various kinds of internal attacks.\\
+
+Traditionally, anyone aiming to attack the \acrlong{pg} infrastructure, was obliged to get physical access to the premises, from which the infrastructure in question was controlled. Following the transition to the online \acrshort{sg}, the network connecting the grid to the outside might be utilised in order to execute any Cyber attack requiring internal privileged access from the outside.
 
 
 \subsection{External Attacks}
@@ -103,30 +96,90 @@ External attacks is characterised by malicious actors attacking the infrastructu
 \subsection{Internal Attacks}
 The distinction between external and internal attacks, is the level of access required in order to perform the attack in question.
 
-\subsubsection{Man in The Middle (MiTM) Attack}
-The \acrfull{mitm} attack is a type of attack requiring minimal privileges and system access in order to be sucessfully executed.
-
-
-\cite{itkin2017security} provides information on \acrshort{ptp} delay attacks.
+\subsubsection{Man on The Side (MoTS) Attack}
+The \acrfull{mots} attack is a type of attack requiring minimal privileges and system access in order to be successfully executed.
 
 
 
 
+\begin{figure}
+    \centering {
+    \includegraphics[ width=0.9\textwidth]{figures/PTP-delay attack.png}
+    \caption[PTP Sync: Normal sync vs. sync under PTP Delay attack]{As presented in \cite{finkenzeller2022feasible}, figure 2. Comparison of PTP delay attack synchronisation with normal PTP synchronisation.}
+    \label{fig:PTP-DelayAttack}
+  }
+\end{figure}  
 
-\section{Types of PTP delay Attacks}
-Several attacks which targets the \acrlong{ptp}  utilises vulnerabilities 
+
+
+\section{PTP delay Attacks} \label{sec:PTP-delay}
+Several attacks which targets the \acrlong{ptp}  utilises vulnerabilities in the PTP, as explained by \cite{finkenzeller2022feasible}:
+
+
+Based on the equations related to the regular \acrshort{ptp} synchronisation, in \cite{finkenzeller2022feasible} stated as:
 
 
 
-As described in \cite{ullmann2009delay}
-\subsection{Put all clocks back}
-
-\begin{equation} \label{DSM}
-    D_{prox}=D_{SM}\frac{1+d}{d},d>1 
+\begin{equation} \label{eq:5-t1}
+t_1 = t_0 + \theta + d_1 
 \end{equation}
-\subsection{Put specific clock back}
-\begin{equation} \label{DMS}
-    D_{prox}=D_{MS}\frac{1+d}{d},d>1 
+
+\begin{equation} \label{eq:5-t3}
+t_3 = t_2 - \theta + d_2 
 \end{equation}
 
-\cite{finkenzeller2022feasible}
+\begin{equation}   \label{eq:5-d1}
+d_1 = d_2 = d  
+\end{equation}
+
+%\textbf{Bla bla }Equation \ref{eq:5-t1}
+
+\begin{equation}  \label{eq:5-offset}
+\theta = \frac{(t_1 - t_0) - (t_3 - t_2)}{2}
+\end{equation}
+
+
+\begin{equation}  \label{eq:5-d}
+d  = \frac{(t_1 - t_0) + (t_3 - t_2)}{2}
+\end{equation}
+
+
+The PTP delay attack uses the following equations:
+
+\begin{equation}
+    t'_1 = t_0 + \theta + d_1 + \epsilon_1
+\end{equation}
+
+
+\begin{equation}
+    t'_3 = t_2 - \theta + d_2 + \epsilon_2
+\end{equation}
+
+
+Using the equation \ref{eq:5-d}, we arrive at  the following equations:
+
+
+
+\begin{equation}  \label{eq:5-dtheta}
+\theta' = \frac{(t_1 - t_0) - (t_3 - t_2)}{2} - \frac{\epsilon_1 - \epsilon_2}{2}
+\end{equation}
+
+\begin{equation}  \label{eq:5-d-delay}
+d' = \frac{(t_1 - t_0) - (t_3 - t_2)}{2} - \frac{\epsilon_1 + \epsilon_2}{2}
+\end{equation}
+
+and accordingly:
+\begin{equation}
+    \theta' = \theta - \frac{\epsilon_1 - \epsilon_2}{2} 
+\end{equation}
+
+and \\
+
+\begin{equation}
+    d' = d - \frac{\epsilon_1 + \epsilon_2}{2} 
+\end{equation}
+
+
+For the attack, \citeauthor{finkenzeller2022feasible} further describes, the attacker has the option to set the desired (erroneous) clock offset value at will, as well as being able to control the offset direction. choosing vvalues of $\epsilon_1$ and  $\epsilon_1$ as $\epsilon_1 < \epsilon_2$  for setting the slave behind, whereas the reverse is true for the case of  $\epsilon_1 > \epsilon_2$. \\ 
+
+Thus the \acrshort{ptp} delay is a realistic attack. Some of the various flavors of the attack should be obtainable for an attacker having limited access to the Target of the attack, like a \acrfull{mots} attacker.

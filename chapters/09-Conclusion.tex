@@ -2,20 +2,33 @@
 
 %You definitely should use the \texttt{ntnuthesis} \LaTeX{} document class for your thesis.
 
-\section{Introduction}
 
-
-\section{Summary}
-
-
-
-
-\section{Considerations related to future work}
 \begin{itemize}
-    \item One option for future work could be to investigate the options of the Power Source object included in the PowerSource subsystem, possibly redesigning the PowerSource with a more realistic Smart Grid Transmission system.
-\item Another option could be to replace the PMUs of the Dual PMU subsytem, with different PMU implementations.
+    \item  After running the initial simulation, with a delay level of Zero, for model-validation, the remaining results seems to provide consistent results, making it possible to get some ideas, at least, on which delay level, and attack type to use for optimising the stealthiness versus the possible harm don to the attack target.
+    \item The simulations constitutes an initial attempt to differentiate between a number of parameters for attack, like the similarity measures, as well as the delay level. 
+    \item The Step-wise attack seems to be a nice tool in order to observe the effects of a small variation of delay level, whereas the instant delay level may show the effects of greater increases of delay level. 
 \end{itemize}
 
 
-Those options are independent, and could be combined.
+
+
+
+\section{Summary}
+From the results present, i wold summarise my conclusions as follows.
+\begin{itemize}
+    \item The data material present in the results chapter provides sufficiently good evidence of the simulation model being consistent enough to produce predictable effects on the output values.
+
+\end{itemize}
+
+
+\section{My contribution:}
+Given the conclusion the simulation produces predictable effects, the thesis has resulted in the availability of a system capbele of determinig effects of a simulated Time Delay attack on \acrshort{pmu} input values.
+
+\section{Considerations related to future work}
+
+
+The initial values for tolerance levels of $1\%$, $12\%$, and $50\%$, may be tuned for any future investigations, in order to be able to find realistic and reliable stealthiness thresholds. It seems like there is not enough  data in order to draw any reliable conclusions on the optimal values.
+    
+
+
 

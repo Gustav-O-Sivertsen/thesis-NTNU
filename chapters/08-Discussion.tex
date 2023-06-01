@@ -17,11 +17,24 @@ The results of running the simulation with a delay of Zero produces a number of 
 
 \section{Comments on various aspects related to the results}
 
-Discussion of results related to expected results, according to theoretical conclusions.
+%Discussion of results related to expected results, according to theoretical conclusions.
+For the Instant delay attack of levels above two, a tendency of small variations for Delay Level three and Six seems to be visible.
+\begin{itemize}
+
+\item A delay of One alters the value for the \textbf{Angle} component of around $120^0$ compared to the value for the native, undelayed, \acrshort{pmu} output.
+\item A delay of Two alters the value for the \textbf{Angle} component of around $-120^0$ compared to the value for the native, undelayed, \acrshort{pmu} output.
+   \item A delay of Three alters the value for the \textbf{Angle} component a small number, like  $-6^0$ for the level of three, compared to the value for the native  \acrshort{pmu} output.
+\end{itemize}
+
+Even though no simulations for levels above six are performed, there seems to be a pattern related to the angular component value. This phenomena may possibly be related to the $120^0$ separation between the three phases of the \acrshort{pmu} input signal.\\ 
 
 
+From my inspection of the figures presenting the results, it seems to be cases of a combination of results obtained during some of the instant delay attack simulations. The Step-Wise delay attack with a Delay level of Two, for instance, is initiated the same way as the Instant Delay attack of a Delay Level of one.\\ 
+
+Regardless of the attack being Instant or Step-wise, the termination of the attacks involves an instant drop of delay level from the delay level specified, to Zero. Therefore, the finals second of the simulation using the step-wise attack should be the same as that of the corresponding Instant delay attack.  
 
 
 
 \subsection{Similarity Requirements}
-In Figure \ref{fig:VoltageInstantDelayOne} (see above), for a similarity of 5\%, the attack detected  at level 1\% would stay undetected at level 5\%. 
+
+There seems to be a consistent tendency of graphs showing smaller distance between the delayed output and the native \acrshort{pmu} output, and the lower values for ranges of the diff variable being compared with the tolerance levels in the plots located in the lower part of each figure.
