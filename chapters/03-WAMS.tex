@@ -132,7 +132,7 @@ In order for the \acrshort{wams} to receive the monitoring data required, the co
 \subsubsection{Phasor Measurement Units}
 The \acrfull{pmu} is a system which receives samples from a number of sensors monitoring  real-time power line status, related to the electrical Voltage and Impedance the of the infrastructure being monitored. 
 The entities monitored are known as electrical phases, most often part of a three-phase system, where each phase is separated by $120^0$.
-Each \acrshort{pmu} is continuously calculating the phasor values of all sensors, aligning all values corresponding to a time stamp as synchrophasors, before transmitting a synchrophasor record for each timestamp to the single \acrfull{pdc} to which the \acrshort{pmu} has a  TCP or UDP network connection. \hl{x-ref detailed explanation}
+Each \acrshort{pmu} is continuously calculating the phasor values of all sensors, aligning all values corresponding to a time stamp as synchrophasors, before transmitting a synchrophasor record for each timestamp to the single \acrfull{pdc} to which the \acrshort{pmu} has a  TCP or UDP network connection. 
 
 %target for the planned attack. 
 
@@ -151,7 +151,7 @@ Each \acrshort{pmu} is continuously calculating the phasor values of all sensors
 
 The \acrfull{pdc} is a networked system responsible for forwarding synchronised phasor data from as number of \acrshort{pmu}s 
 , to a more centralised \acrshort{pdc}, most often denoted a Super \acrshort{pdc}. The \acrshort{pdc} processes each time stamp, awaits for synchrophasors for that time stamp to arrive from any \acrshort{pmu} from which the \acrshort{pdc} is reachable. A syncrophasor for a time stamp is required to be transferred to the destined \acrshort{pdc} within a specified time frame, for it to be included in the data transmitted from the \acrshort{pdc}to the Super \acrshort{pdc}. Any remaining syncrophasor originating from a \acrshort{pmu} is lost
-, resulting in a small piece of status information to be missing. \hl{x-ref detailed explanation}
+, resulting in a small piece of status information to be missing. 
 
 \
 % In \cite{el2018cyber}, \citeauthor{el2018cyber} ...
@@ -170,7 +170,7 @@ The increase in granularity of devices in the monitoring system has obvious adva
 
 \section{Security Issues}
 The \acrfull{sg} \acrfull{wams} is a \acrshort{sg} subsystem enabling \acrshort{sg} system operators to monitor the state of \acrshort{sg} energy flow, and general system state. 
-A vital requirement for the view of the current state of the \acrshort{sg} energy distribution to be correct is, as described in previous sections, the ability of the \acrshort{wams} Super \acrshort{pdc} to utilise synchrophasors collected from the \acrshort{pdc}s to produce a view of the system state. In order for the view to be correct, however, the correctness of the timestamps is critical. Therefore, in order to produce correct time stamps, the reliability of the Time Synchronisation source is of Critical importance. At the same time, risks of being the victim of Cyber Attacks is a consequence of the transition from the old, offline\footnote{A system being offline is not available from public networks.}, to the new, online system, At the end of the day, this leads us to a vulnerability of the \acrshort{wams}, as a potential victim of a Cyber Attack, caused by a successful Attack on any vulnerable time sycronisation protocol used in order to transmit the synchrophasors required for the status information to be correct and reliable.  \hl{x-ref detailed explanation of attacks}
+A vital requirement for the view of the current state of the \acrshort{sg} energy distribution to be correct is, as described in previous sections, the ability of the \acrshort{wams} Super \acrshort{pdc} to utilise synchrophasors collected from the \acrshort{pdc}s to produce a view of the system state. In order for the view to be correct, however, the correctness of the timestamps is critical. Therefore, in order to produce correct time stamps, the reliability of the Time Synchronisation source is of Critical importance. At the same time, risks of being the victim of Cyber Attacks is a consequence of the transition from the old, offline\footnote{A system being offline is not available from public networks.}, to the new, online system, At the end of the day, this leads us to a vulnerability of the \acrshort{wams}, as a potential victim of a Cyber Attack, caused by a successful Attack on any vulnerable time sycronisation protocol used in order to transmit the synchrophasors required for the status information to be correct and reliable. I describe the concept of \acrlong{ptp} \acrlong{tda}s in Section \ref{sec:PTP-delay}.
 
 
 \section{State Estimation} \label{sec:3-SE}
